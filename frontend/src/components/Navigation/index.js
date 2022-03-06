@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../../assets/opparlogo2.png'
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
@@ -14,20 +15,21 @@ function Navigation({isLoaded}) {
     );
   } else { //else have these links in the navbar instead
     sessionLinks = (
-      <>
-        <NavLink to="/login">Log In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
-      </>
+      <span className='button-container'>
+        <NavLink className='button-container login-button' to="/login">Log In</NavLink>
+        <NavLink className='button-container signup-button' to="/signup">Sign Up</NavLink>
+      </span>
+
     );
   }
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">Home</NavLink>
+    <nav className='navbar-container'>
+      <span>
+        <NavLink exact to="/"><img src={logo} alt='opparlogo' style={{width:'5%', whiteSpace:'nowrap', display:'inline'}}/></NavLink>
         {isLoaded && sessionLinks}
-      </li>
-    </ul>
+      </span>
+    </nav>
   );
 }
 
