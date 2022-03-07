@@ -18,7 +18,7 @@
   /* text-align: center; */
   position: fixed;
   padding: 40px 30px 20px 30px;
-  font-size: 14px;
+  font-size: 13px;
   border-radius: 0.25rem;
 }
 
@@ -42,10 +42,28 @@
   align-items: center;
 }
 
-.fa-arrow-left {
+.fa-arrow-left.login {
   position: absolute;
   color: gray;
-  right: 100px;
+  right: 105px;
+}
+
+.fa-arrow-left.login:hover {
+  color: rgba(125, 181, 227, 1);
+  position: absolute;
+  right: 108px;
+}
+
+.label-field {
+  margin: 10px;
+}
+
+.input-field {
+ width: 95%;
+ font-size: 12px;
+ padding: 7px;
+ border-radius: 2px;
+ border: 1px solid black;
 }
 
 .sign-button {

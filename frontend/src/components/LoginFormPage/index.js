@@ -27,15 +27,25 @@ function LoginFormPage() {
       });
   }
 
+  const handleDemo = e => { //demo user login
+    e.preventDefault();
+    setErrors([]);
+    return dispatch(sessionActions.login({credential: "demo@user.io", password: "password"}))
+      .catch(async (res) => { //if there is an error, then skip the res.ok and get the response
+        const data = await res.json(); //parse the data again because we skipped the res.ok
+        if (data && data.errors) setErrors(data.errors); //set the new Errors
+      });
+  }
+
   return (
     <div className='page-container'>
       <img src={loginImg} alt="leejongsuk" style={{width:"100%"}}/>
       <form className='form-container' onSubmit={handleSubmit}>
         <div className='icons-container'>
-          <Link to='/'><i class='fa-lg fa-solid fa-arrow-left'/></Link>
+          <Link to='/'><i class='fa-lg fa-solid fa-arrow-left login'/></Link>
           <img src={logo} alt='opparlogo' style={{width:'22px'}}/>
         </div>
-        <h2>Log in to Oppar</h2>
+        <h3>Log in to Oppar</h3>
         <label className='label-field'>Username or Email</label>
         <input className='input-field'
         type="text"
@@ -44,7 +54,7 @@ function LoginFormPage() {
         required
         />
         <label className='label-field'>Password</label>
-        <input
+        <input className='input-field'
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -54,7 +64,7 @@ function LoginFormPage() {
           {errors.map((error, idx) => <p key={idx}>{error}</p>)}
         </ul>
         <button className='sign-button' type="submit">Sign In</button>
-        <button className='sign-button' type="submit">Demo User</button>
+        <button className='sign-button' type="submit" onClick={handleDemo} style={{backgroundColor:"rgb(230, 185, 213)"}}>Demo User</button>
         <p className='member'>Not an Oppar member?<NavLink className='link' to='signup'> Sign up here.</NavLink></p>
       </form>
     </div>

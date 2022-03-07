@@ -22,6 +22,14 @@
   border-radius: 0.25rem;
 } */
 
-/* .member {
-  margin-top: 20px;
-} */
+.fa-arrow-left.signup {
+  position: absolute;
+  color: gray;
+  right: 110px;
+}
+
+.fa-arrow-left.signup:hover {
+  color: rgba(125, 181, 227, 1);
+  position: absolute;
+  right: 113px;
+}

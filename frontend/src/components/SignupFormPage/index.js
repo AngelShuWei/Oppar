@@ -36,33 +36,33 @@ function SignupFormPage() {
       <img src={signupImg} alt="leejongsuk" style={{width:"100%"}}/>
       <form className='form-container' onSubmit={handleSubmit}>
       <div className='icons-container'>
-        <Link to='/'><i class="fa-lg fa-solid fa-arrow-left"/></Link>
+        <Link to='/'><i class="fa-lg fa-solid fa-arrow-left signup"/></Link>
         <img src={logo} alt='opparlogo' style={{width:'22px'}}/>
       </div>
-      <h2>Sign up for Oppar</h2>
-      <label>Email</label>
-      <input
+      <h3>Sign up for Oppar</h3>
+      <label className='label-field'>Email</label>
+      <input className='input-field'
         type="text"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
         />
-      <label>Username</label>
-      <input
+      <label className='label-field'>Username</label>
+      <input className='input-field'
         type="text"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         required
       />
-      <label>Password</label>
-      <input
+      <label className='label-field'>Password</label>
+      <input className='input-field'
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
         />
-      <label>Confirm Password</label>
-      <input
+      <label className='label-field'>Confirm Password</label>
+      <input className='input-field'
         type="password"
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
