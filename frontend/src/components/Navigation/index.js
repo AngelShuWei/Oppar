@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../assets/opparlogo2.png'
+import logo from '../../assets/opparlogo3.png'
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
@@ -25,10 +25,11 @@ function Navigation({isLoaded}) {
 
   return (
     <nav className='navbar-container'>
-      <span>
-        <NavLink exact to="/"><img src={logo} alt='opparlogo' style={{width:'5%', whiteSpace:'nowrap', display:'inline'}}/></NavLink>
+      <div className='logo-container'>
+        <img src={logo} alt='opparlogo' style={{width:'80px'}}/>
+        <NavLink exact to="/"/>
+      </div>
         {isLoaded && sessionLinks}
-      </span>
     </nav>
   );
 }
