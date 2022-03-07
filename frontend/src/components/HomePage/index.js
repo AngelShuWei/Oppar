@@ -1,9 +1,16 @@
 import './Homepage.css'
 import landingImg from '../../assets/cha.jpg'
 import Footer from '../Footer';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import UserHomepage from '../UserHomepage';
 
 function Homepage() {
+  const sessionUser = useSelector((state) => state.session.user);
+
+  if (sessionUser) return (
+    <UserHomepage />
+  )
 
   return (
     <div className='page-container'>

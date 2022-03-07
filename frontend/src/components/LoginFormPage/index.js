@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Redirect, Link } from 'react-router-dom';
+import UserHomepage from '../UserHomepage';
 import logo from '../../assets/opparFavicon2.png'
 import loginImg from '../../assets/songjoongki.jpg'
 
@@ -14,7 +15,7 @@ function LoginFormPage() {
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return (
-    <Redirect to="/"/>
+    <UserHomepage />
   );
 
   const handleSubmit = e => {
@@ -42,7 +43,7 @@ function LoginFormPage() {
       <img src={loginImg} alt="leejongsuk" style={{width:"100%"}}/>
       <form className='form-container' onSubmit={handleSubmit}>
         <div className='icons-container'>
-          <Link to='/'><i class='fa-lg fa-solid fa-arrow-left login'/></Link>
+          <Link to='/'><i className='fa-lg fa-solid fa-arrow-left login'/></Link>
           <img src={logo} alt='opparlogo' style={{width:'22px'}}/>
         </div>
         <h3>Log in to Oppar</h3>
