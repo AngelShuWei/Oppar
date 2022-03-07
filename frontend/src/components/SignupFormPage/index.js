@@ -35,10 +35,10 @@ function SignupFormPage() {
     <div className='page-container'>
       <img src={signupImg} alt="leejongsuk" style={{width:"100%"}}/>
       <form className='form-container' onSubmit={handleSubmit}>
-      <div className='back-icon'>
+      <div className='icons-container'>
         <Link to='/'><i class="fa-lg fa-solid fa-arrow-left"/></Link>
+        <img src={logo} alt='opparlogo' style={{width:'22px'}}/>
       </div>
-      <img src={logo} alt='opparlogo' style={{width:'22px'}}/>
       <h2>Sign up for Oppar</h2>
       <label>Email</label>
       <input

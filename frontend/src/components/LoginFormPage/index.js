@@ -31,10 +31,10 @@ function LoginFormPage() {
     <div className='page-container'>
       <img src={loginImg} alt="leejongsuk" style={{width:"100%"}}/>
       <form className='form-container' onSubmit={handleSubmit}>
-        <div className='back-icon'>
+        <div className='icons-container'>
           <Link to='/'><i class='fa-lg fa-solid fa-arrow-left'/></Link>
+          <img src={logo} alt='opparlogo' style={{width:'22px'}}/>
         </div>
-        <img src={logo} className='logo-img' alt='opparlogo' style={{width:'22px'}}/>
         <h2>Log in to Oppar</h2>
         <label className='label-field'>Username or Email</label>
         <input className='input-field'

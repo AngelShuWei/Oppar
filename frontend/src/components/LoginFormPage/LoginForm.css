@@ -36,14 +36,16 @@
   /* justify-content: space-between; */
 /* } */
 
-.back-icon {
+.icons-container {
+  position: relative;
   display: flex;
-  justify-content: flex-start;
-  width: 100%;
+  align-items: center;
 }
 
 .fa-arrow-left {
+  position: absolute;
   color: gray;
+  right: 100px;
 }
 
 .sign-button {
