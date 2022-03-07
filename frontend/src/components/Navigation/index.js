@@ -26,8 +26,7 @@ function Navigation({isLoaded}) {
   return (
     <nav className='navbar-container'>
       <div className='logo-container'>
-        <img src={logo} alt='opparlogo' style={{width:'80px'}}/>
-        <NavLink exact to="/"/>
+        <NavLink exact to="/"><img src={logo} alt='opparlogo' style={{width:'80px'}}></img></NavLink>
       </div>
         {isLoaded && sessionLinks}
     </nav>

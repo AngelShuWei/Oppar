@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, NavLink} from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import logo from '../../assets/opparFavicon2.png'
+import signupImg from '../../assets/leejongsuk.jpg'
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ function SignupFormPage() {
   };
   return (
     <div className='page-container'>
+      <img src={signupImg} alt="leejongsuk" style={{width:"100%"}}/>
       <form className='form-container' onSubmit={handleSubmit}>
       <img src={logo} alt='opparlogo' style={{width:'22px'}}/>
       <h2>Sign up for Oppar</h2>

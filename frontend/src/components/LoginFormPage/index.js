@@ -4,7 +4,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Redirect } from 'react-router-dom';
 import logo from '../../assets/opparFavicon2.png'
-import landingImg from '../../assets/chaeunwoo.png'
+import loginImg from '../../assets/songjoongki.jpg'
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -29,6 +29,7 @@ function LoginFormPage() {
 
   return (
     <div className='page-container'>
+      <img src={loginImg} alt="leejongsuk" style={{width:"100%"}}/>
       <form className='form-container' onSubmit={handleSubmit}>
         <img src={logo} alt='opparlogo' style={{width:'22px'}}/>
         <h2>Log in to Oppar</h2>
