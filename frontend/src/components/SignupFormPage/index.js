@@ -1,7 +1,7 @@
 import './SignupForm.css';
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, NavLink} from "react-router-dom";
+import { Redirect, NavLink, Link} from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import logo from '../../assets/opparFavicon2.png'
 import signupImg from '../../assets/leejongsuk.jpg'
@@ -35,47 +35,42 @@ function SignupFormPage() {
     <div className='page-container'>
       <img src={signupImg} alt="leejongsuk" style={{width:"100%"}}/>
       <form className='form-container' onSubmit={handleSubmit}>
+      <div className='back-icon'>
+        <Link to='/'><i class="fa-lg fa-solid fa-arrow-left"/></Link>
+      </div>
       <img src={logo} alt='opparlogo' style={{width:'22px'}}/>
       <h2>Sign up for Oppar</h2>
-      <label>
-        Email
-        <input
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          />
-      </label>
-      <label>
-        Username
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
+      <label>Email</label>
+      <input
+        type="text"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
         />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          />
-      </label>
-      <label>
-        Confirm Password
-        <input
-          type="password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-          />
-      </label>
-          <ul>
-            {errors.map((error, idx) => <p key={idx}>{error}</p>)}
-          </ul>
+      <label>Username</label>
+      <input
+        type="text"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        required
+      />
+      <label>Password</label>
+      <input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        required
+        />
+      <label>Confirm Password</label>
+      <input
+        type="password"
+        value={confirmPassword}
+        onChange={(e) => setConfirmPassword(e.target.value)}
+        required
+        />
+        <ul>
+          {errors.map((error, idx) => <p key={idx}>{error}</p>)}
+        </ul>
       <button className='sign-button' type="submit">Sign Up</button>
       <p className='member'>Already an Oppar member?<NavLink className='link' to='/login'> Log in here.</NavLink></p>
     </form>

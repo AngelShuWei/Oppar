@@ -1,5 +1,5 @@
-.page-container {
-  /* display: flex;
+/* .page-container {
+  display: flex;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -7,9 +7,8 @@
   justify-content: center;
   flex-direction: column;
   for ref ONLY can be deleted after*/
-  /* background-image: url(/frontend/src/assets/leejongsuk.jpg); */
-}
-
+  /* background-image: url(/frontend/src/assets/leejongsuk.jpg);
+} */
 
 .form-container {
   background-color: white;
@@ -19,8 +18,32 @@
   /* text-align: center; */
   position: fixed;
   padding: 40px 30px 20px 30px;
-  font-size: 15px;
+  font-size: 14px;
   border-radius: 0.25rem;
+}
+
+/* .form-icons { */
+  /* display: flex;
+  text-decoration: none;
+  text-align: left;
+  width: 50%;
+  justify-content: space-between; */
+  /* justify-content: center; */
+  /* justify-self: start; */
+  /* align-items: center;
+  width: 100%; */
+  /* display: flex;
+  /* justify-content: space-between; */
+/* } */
+
+.back-icon {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.fa-arrow-left {
+  color: gray;
 }
 
 .sign-button {
