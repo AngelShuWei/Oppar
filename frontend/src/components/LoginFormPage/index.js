@@ -2,7 +2,8 @@ import './LoginForm.css'
 import React, {useState} from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
+import logo from '../../assets/opparFavicon2.png'
 import landingImg from '../../assets/chaeunwoo.png'
 
 function LoginFormPage() {
@@ -29,29 +30,31 @@ function LoginFormPage() {
   return (
     <div className='page-container'>
       <form className='form-container' onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-        </ul>
-        <h6>Log in to Oppar</h6>
-        <label className='input-field'>
+        <img src={logo} alt='opparlogo' style={{width:'22px'}}/>
+        <h2>Log in to Oppar</h2>
+        <label className='label-field'>
           Username or Email
-          <input
+          <input className='input-field'
           type="text"
           value={credential}
           onChange={e => setCredential(e.target.value)}
           required
           />
         </label>
-        <label className='input-field'>
+        <label className='label-field'>
           Password
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-          />
+            />
         </label>
-        <button className='signin-button' type="submit">Sign In</button>
+            <ul>
+              {errors.map((error, idx) => <p key={idx}>{error}</p>)}
+            </ul>
+        <button className='sign-button' type="submit">Sign In</button>
+        <p className='member'>Not an Oppar member?<NavLink className='link' to='signup'> Sign up here.</NavLink></p>
       </form>
     </div>
   );
