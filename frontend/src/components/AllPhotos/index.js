@@ -6,7 +6,7 @@ import * as photosActions from '../../store/photos'
 function AllPhotos() {
   const dispatch = useDispatch();
 
-  const allPhotos = useSelector(state => Object.values(state.photo));
+  const allPhotos = useSelector(state => Object.values(state.photos));
   // console.log(allPhotos);  //[{…}, {…}, {…}] => 0: {id: 1, title: 'Cha Eun Woo', userId: 1, albumId: null, imageUrl: 'https://wiki.d-addicts.com/images/thumb/9/9b/Cha_Eun_Woo.jpg/291px-Cha_Eun_Woo.jpg', …}
 
   useEffect(() => {

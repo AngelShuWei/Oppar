@@ -14,16 +14,14 @@ import * as photosActions from "./store/photos";
 function App() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
-  const photos = useSelector(state => Object.values(state.photo));
+  const photos = useSelector(state => Object.values(state.photos));
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));  //if there is user, then set load to true
-  }, [dispatch]);
-
-  useEffect(() => {
     dispatch(photosActions.getAllPhotos());
   }, [dispatch]);
+
 
   return ( //if isLoaded is true, then load all of the routes
     <>
