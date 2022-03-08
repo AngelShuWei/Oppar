@@ -59,7 +59,7 @@ app.use((err, _req, _res, next) => {
   next(err);
 });
 
-//third err handler. formatting errors before returnin json res. return err msg, err array, and err stack trace
+//third err handler. formatting errors before returning json res. return err msg, err array, and err stack trace
 app.use((err, _req, res, _next) => {
   res.status(err.status || 500);
   console.error(err);

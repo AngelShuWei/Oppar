@@ -6,6 +6,7 @@ import Homepage from './components/HomePage';
 import LoginFormPage from './components/LoginFormPage';
 import Navigation from './components/Navigation';
 import SignupFormPage from './components/SignupFormPage';
+import PhotoFormPage from './components/PhotoFormPage';
 import * as sessionActions from "./store/session";
 
 function App() {
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/update">
+            <PhotoFormPage />
           </Route>
         </Switch>
       )}

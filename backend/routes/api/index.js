@@ -6,9 +6,11 @@ const { restoreUser } = require('../../utils/auth.js');
 
 const sessionRouter = require('./session.js');
 const usersRouter = require('./user.js');
+const photosRouter = require('./photos.js');
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
+router.use('/photos', photosRouter);
 
 // router.post('/test', function(req, res) {
 //   res.json({ requestBody: req.body });

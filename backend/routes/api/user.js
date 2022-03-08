@@ -23,20 +23,21 @@ const validateSignup = [
     .exists({ checkFalsy: true })
     .isLength({ min: 6 })
     .withMessage('Password must be 6 characters or more.'),
-  handleValidationErrors
+  handleValidationErrors 
 ];
 
 // Sign up
 router.post('/', validateSignup, asyncHandler(async (req, res) => {
     const { email, password, username } = req.body; //getting the info from the body
-    const user = await User.signup({ email, username, password }); 
+    const user = await User.signup({ email, username, password });
 
-    await setTokenCookie(res, user); //returns a JSON response w/ the user info
+    await setTokenCookie(res, user); //returns a JSON response w/ the user info. Gives new user a token after they sign up because they automatically log in
 
     return res.json({ //return the json response w/ user info
       user //if creation of the user is unsucessful, sequelize validation error will be pasesd onto next error-handling middleware
     });
   })
 );
+
 
 module.exports = router;

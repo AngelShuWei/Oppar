@@ -1,17 +1,21 @@
+import './Navigation.css';
 import React from 'react';
 import logo from '../../assets/opparlogo3.png'
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import './Navigation.css';
+import UploadButton from './UploadButton';
 
 function Navigation({isLoaded}) {
   const sessionUser = useSelector(state => state.session.user);
 
   let sessionLinks;
   if (sessionUser) { //if there is a sessionUser
-    sessionLinks = (
-      <ProfileButton user={sessionUser} /> //only render the profile Button when there is a session user
+    sessionLinks = ( //only render the profile Button when there is a session user
+      <div>
+        <UploadButton user={sessionUser}/>
+        <ProfileButton user={sessionUser} />
+      </div>
     );
   } else { //else have these links in the navbar instead
     sessionLinks = (

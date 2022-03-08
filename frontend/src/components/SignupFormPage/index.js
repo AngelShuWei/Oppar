@@ -32,6 +32,7 @@ function SignupFormPage() {
     }
     return setErrors(['Confirm Password field must be the same as the Password field']);
   };
+  
   return (
     <div className='page-container'>
       <img src={signupImg} alt="leejongsuk" style={{width:"100%"}}/>
