@@ -47,19 +47,19 @@ export const createPhoto = (photo) => async(dispatch) => {
 const initialState = {};
 
 const photosReducer = (state = initialState, action) => {
-  let newState;
+  let newState = {...state};
   switch (action.type) {
     case GET_PHOTO:
-      newState = {...state};
       action.photos.forEach(photo => {
       return newState[photo.id] = photo;
       });
       return newState; //need to return again because two functions
     case ADD_PHOTO:
-      newState = {...state};
-      newState.photo = action.photo;
-      console.log(newState);
+      newState[action.photo.id] = action.photo;
       return newState;
+      // newState = {...state};
+      // newState.photo = action.photo;
+      // return newState;
   default:
     return state;
  }
