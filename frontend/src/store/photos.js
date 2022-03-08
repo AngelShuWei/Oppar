@@ -1,6 +1,13 @@
 import { csrfFetch } from "./csrf"; //used to fetch a CRSF token. App must send req header called X-SRF-TOKEN w/ the vale fetch
 
 export const SET_PHOTO = "photo/setPhoto";
+export const GET_PHOTO = "photo/loadPhoto"
+
+const loadPhoto = () => {
+  return {
+    type: GET_PHOTO,
+  }
+}
 
 const setPhoto = (photo) => {
   return {
@@ -8,6 +15,15 @@ const setPhoto = (photo) => {
     photo
   };
 };
+
+export const getAllPhotos = () => async(dispatch) => {
+  const response = await csrfFetch(`/api/photos`);
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(loadPhoto(data.allPhotos));
+  }
+  return response;
+}
 
 export const createPhoto = (photo) => async(dispatch) => {
   const { title, imageUrl, content } = photo;
