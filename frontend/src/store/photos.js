@@ -55,11 +55,11 @@ const photosReducer = (state = initialState, action) => {
       return newState[photo.id] = photo;
       });
       return newState; //need to return again because two functions
-    // case ADD_PHOTO:
-    //   newState = {...state};
-    //   newState.photo = action.photo;
-    //   console.log(newState);
-    //   return newState;
+    case ADD_PHOTO:
+      newState = {...state};
+      newState.photo = action.photo;
+      console.log(newState);
+      return newState;
   default:
     return state;
  }
