@@ -15,7 +15,10 @@ function LoginFormPage() {
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return (
-    <UserHomepage />
+    <div>
+      <Redirect to='/'/>
+      <UserHomepage />
+    </div>
   );
 
   const handleSubmit = e => {
@@ -64,10 +67,10 @@ function LoginFormPage() {
         <ul>
           {errors.map((error, idx) => <p key={idx}>{error}</p>)}
         </ul>
-        <button className='sign-button' type="submit">Sign In</button>
-        <button className='sign-button' type="submit" onClick={handleDemo} style={{backgroundColor:"rgb(230, 185, 213)"}}>Demo User</button>
+        <button className='sign-button'>Sign In</button>
         <p className='member'>Not an Oppar member?<NavLink className='link' to='signup'> Sign up here.</NavLink></p>
       </form>
+        <button className='sign-button' onClick={handleDemo} style={{backgroundColor:"rgb(230, 185, 213)"}}>Demo User</button>
     </div>
   );
 }

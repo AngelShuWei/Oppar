@@ -13,7 +13,7 @@ function Navigation({isLoaded}) {
   if (sessionUser) { //if there is a sessionUser
     sessionLinks = ( //only render the profile Button when there is a session user
       <div>
-        <UploadButton user={sessionUser}/>
+        <UploadButton/>
         <ProfileButton user={sessionUser} />
       </div>
     );
