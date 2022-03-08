@@ -20,11 +20,24 @@ const validatePhotoInfo = [
   handleValidationErrors //runs through validation in utils then sends to 3rd err handler
 ];
 
-//get photo
+//get all photos
 router.get('/', asyncHandler(async (req, res) => {
   const allPhotos = await Photo.findAll();
   return res.json({allPhotos});
 }));
+
+// //get single photo
+// router.get('/:id', asyncHandler(async (req, res) => {
+//   const onePhoto = await Photo.findOne(id);
+
+// }));
+
+// //get user photos
+// router.get('/', restoreUser, asyncHandler(async (req, res) => {
+//   const { user } = req;
+//   const userPhotos = await Photo.findByPk({ include: userId});
+// }))
+
 
 //upload photo
 router.post('/', restoreUser, validatePhotoInfo, asyncHandler(async (req, res) => {
@@ -39,5 +52,12 @@ router.post('/', restoreUser, validatePhotoInfo, asyncHandler(async (req, res) =
 
   return res.json({photo});
 }));
+
+//update photo
+// router.put('/:id', restoreUser, validatePhotoInfo, asyncHandler(async (req, res) => {
+//   const { user } = req;
+//   const { title, imageUrl, content } = req.body;
+//   const photo = await Photo.
+// }));
 
 module.exports = router;

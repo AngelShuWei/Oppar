@@ -7,15 +7,22 @@ import LoginFormPage from './components/LoginFormPage';
 import Navigation from './components/Navigation';
 import SignupFormPage from './components/SignupFormPage';
 import PhotoFormPage from './components/PhotoFormPage';
+import UserPhotos from './components/UserPhotos';
 import * as sessionActions from "./store/session";
+import * as photosActions from "./store/photos";
 
 function App() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
+  const photos = useSelector(state => Object.values(state.photo));
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));  //if there is user, then set load to true
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(photosActions.getAllPhotos());
   }, [dispatch]);
 
   return ( //if isLoaded is true, then load all of the routes
@@ -36,6 +43,9 @@ function App() {
           </Route>
           <Route path="/upload">
             <PhotoFormPage />
+          </Route>
+          <Route path="/photos">
+            <UserPhotos sessionUser={sessionUser} photos={photos}/>
           </Route>
         </Switch>
       )}
