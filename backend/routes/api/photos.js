@@ -14,7 +14,9 @@ const validatePhotoInfo = [
     .withMessage('Photo title can be max 50 characters.'),
   check('imageUrl')
     .exists({ checkFalsy: true })
-    .withMessage('Please input an image url link.'),
+    .withMessage('Please input an image url link.')
+    .isURL({ require_protocol: false, require_host: false })
+    .withMessage('Needs to be a valid imageUrl'),
   handleValidationErrors //runs through validation in utils then sends to 3rd err handler
 ];
 
@@ -27,7 +29,6 @@ router.get('/', asyncHandler(async (req, res) => {
 //upload photo
 router.post('/', restoreUser, validatePhotoInfo, asyncHandler(async (req, res) => {
   const { user } = req;
-  console.log(user);
   const { title, imageUrl, content } = req.body;
   const photo = await Photo.create({
     userId: user.id,

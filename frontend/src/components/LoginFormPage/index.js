@@ -68,9 +68,9 @@ function LoginFormPage() {
           {errors.map((error, idx) => <p key={idx}>{error}</p>)}
         </ul>
         <button className='sign-button'>Sign In</button>
+        <button className='sign-button' onClick={handleDemo} style={{backgroundColor:"rgb(230, 185, 213)"}}>Demo User</button>
         <p className='member'>Not an Oppar member?<NavLink className='link' to='signup'> Sign up here.</NavLink></p>
       </form>
-        <button className='sign-button' onClick={handleDemo} style={{backgroundColor:"rgb(230, 185, 213)"}}>Demo User</button>
     </div>
   );
 }

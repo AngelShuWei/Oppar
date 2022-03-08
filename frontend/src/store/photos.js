@@ -1,17 +1,18 @@
 import { csrfFetch } from "./csrf"; //used to fetch a CRSF token. App must send req header called X-SRF-TOKEN w/ the vale fetch
 
-export const SET_PHOTO = "photo/setPhoto";
 export const GET_PHOTO = "photo/loadPhoto"
+export const ADD_PHOTO = "photo/addOne";
 
-const loadPhoto = () => {
+const loadPhoto = (photos) => {
   return {
     type: GET_PHOTO,
+    photos
   }
 }
 
-const setPhoto = (photo) => {
+const addOne = (photo) => {
   return {
-    type: SET_PHOTO,
+    type: ADD_PHOTO,
     photo
   };
 };
@@ -20,6 +21,7 @@ export const getAllPhotos = () => async(dispatch) => {
   const response = await csrfFetch(`/api/photos`);
   if (response.ok) {
     const data = await response.json();
+    console.log(data);
     dispatch(loadPhoto(data.allPhotos));
   }
   return response;
@@ -37,20 +39,27 @@ export const createPhoto = (photo) => async(dispatch) => {
   });
   if (response.ok) {
     const data = await response.json();
-    dispatch(setPhoto(data.photo));
+    dispatch(addOne(data.photo));
   }
   return response;
 }
 
-const initialState = { user: null};
+const initialState = {};
 
 const photosReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
-   case SET_PHOTO:
-    newState = {...state};
-    newState.photo = action.photo;
-    return newState;
+    case GET_PHOTO:
+      newState = {...state};
+      action.photos.forEach(photo => {
+      return newState[photo.id] = photo;
+      });
+      return newState; //need to return again because two functions
+    // case ADD_PHOTO:
+    //   newState = {...state};
+    //   newState.photo = action.photo;
+    //   console.log(newState);
+    //   return newState;
   default:
     return state;
  }
