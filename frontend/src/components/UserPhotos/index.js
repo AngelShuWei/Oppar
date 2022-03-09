@@ -1,3 +1,4 @@
+import './UserPhotos.css'
 import { NavLink, Route, Link, Redirect } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,10 +13,10 @@ function UserPhotos({photos}) {
   }
 
   return (
-    <div>
+    <div className='user-photos-page-container'>
       {userPhotos.map(photo => (
-        <div key={photo.id}>
-          <Link to={`/photos/${photo.id}`}><img src={photo.imageUrl} alt={photo.title}/></Link>
+        <div className='user-photos-container' key={photo.id}>
+          <Link to={`/photos/${photo.id}`}><img className='user-photo-container' src={photo.imageUrl} alt={photo.title}/></Link>
           <EditDeleteButton photo={photo}/>
         </div>
       ))}

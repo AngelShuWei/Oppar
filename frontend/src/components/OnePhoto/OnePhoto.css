@@ -28,5 +28,10 @@
 
 .content-container {
   text-align: center;
-  margin-top: 5px;
+  margin-top: 20px;
+  width: 800px auto;
+}
+
+.content-container:hover {
+  background-color: rgb(243, 245, 246);
 }

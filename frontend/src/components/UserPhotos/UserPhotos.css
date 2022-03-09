@@ -1,0 +1,20 @@
+.user-photos-page-container {
+  background-color: pink;
+  height: 30vh;
+  display: flex;
+  flex-direction: wrap;
+}
+
+.user-photos-container {
+  margin-left: 50px;
+}
+
+.user-photo-container {
+  background-color: white;
+  margin-right: 2px;
+  margin-left: 2px;
+  margin-top: 330px;
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+}

@@ -23,6 +23,7 @@
   height: 300px;
   object-fit: cover;
 }
+
 .photo-container:hover {
   box-shadow: 5px 5px 5px gray;
 }

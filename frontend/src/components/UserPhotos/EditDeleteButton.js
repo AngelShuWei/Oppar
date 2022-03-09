@@ -1,3 +1,4 @@
+import './EditDeleteButton.js'
 import { useDispatch, useSelector } from 'react-redux';
 import { deletePhoto } from '../../store/photos';
 
