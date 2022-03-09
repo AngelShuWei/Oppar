@@ -7,10 +7,6 @@ function OnePhoto() {
   const sessionUser = useSelector((state) => state.session.user);
   const photoDetails = useSelector(state => state.photos[photoId]); //keying into redux object at the photoId
 
-  if (!sessionUser) return (
-    <Redirect to='/'/>
-  )
-
   return (
     <div className='page-container'>
       <div className='photo-container'>
