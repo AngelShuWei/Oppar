@@ -1,5 +1,5 @@
 .user-photos-page-container {
-  background-color: pink;
+  background-color: rgb(46, 46, 46);
   height: 30vh;
   display: flex;
   flex-direction: wrap;
