@@ -12,7 +12,7 @@ function EditDeleteButton( {photo} ) {
         <i className="fa-solid fa-pen-to-square"></i>
       </button>
       <button onClick={() => dispatch(deletePhoto(photo.id))}>
-        <i class="fa-solid fa-trash-can"></i>
+        <i className="fa-solid fa-trash-can"></i>
       </button>
     </div>
   )

@@ -6,11 +6,12 @@ import EditDeleteButton from './EditDeleteButton';
 
 function UserPhotos({photos}) {
   const sessionUser = useSelector((state) => state.session.user);
-  const userPhotos = photos.filter(photo => photo.userId === sessionUser.id) //renders all the photos specific to that user
 
-  if (!sessionUser) {
+  if (!sessionUser) return (
     <Redirect to='/'/>
-  }
+  )
+
+  const userPhotos = photos.filter(photo => photo.userId === sessionUser.id) //renders all the photos specific to that user
 
   return (
     <div className='user-photos-page-container'>
