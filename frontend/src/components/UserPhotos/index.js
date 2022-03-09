@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import EditDeleteButton from './EditDeleteButton';
 
-function UserPhotos({sessionUser, photos}) {
+function UserPhotos({photos}) {
+  const sessionUser = useSelector((state) => state.session.user);
   const userPhotos = photos.filter(photo => photo.userId === sessionUser.id) //renders all the photos specific to that user
 
   if (!sessionUser) {

@@ -1,3 +1,4 @@
+import './AllPhotos.css'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Route, Link } from 'react-router-dom';
@@ -14,10 +15,12 @@ function AllPhotos() {
   }, [dispatch])
 
   return (
-    <div>
-      <ul>
-        {allPhotos.map(photo => (<Link to={`/photos/${photo.id}`} key={photo.id}><img src={photo.imageUrl} alt={photo.title}/></Link>))}
-      </ul>
+    <div className='all-photos-page-container'>
+      <div className='photos-container'>
+        {allPhotos.map(photo =>
+          <Link to={`/photos/${photo.id}`} key={photo.id}><img className='photo-container' src={photo.imageUrl} alt={photo.title}/></Link>
+          )}
+      </div>
     </div>
   )
 };

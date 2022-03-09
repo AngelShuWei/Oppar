@@ -1,0 +1,20 @@
+.all-photos-page-container {
+  background-color: rgb(243, 245, 246);
+  /* background-color: black; */
+}
+
+.photos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-container {
+  background-color: white;
+  padding: 40px 20px 50px 20px;
+  /* float: left; */
+  width:  500px;
+  height: 400px;
+  object-fit: cover;
+}

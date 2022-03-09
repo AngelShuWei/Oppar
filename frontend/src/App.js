@@ -48,7 +48,7 @@ function App() {
             <EditPhotoFormPage photos={photos}/>
           </Route> */}
           <Route exact path="/photos">
-            <UserPhotos sessionUser={sessionUser} photos={photos}/>
+            <UserPhotos photos={photos}/>
           </Route>
           <Route path="/photos/:photoId">
             <OnePhoto />
