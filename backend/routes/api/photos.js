@@ -31,7 +31,7 @@ router.post('/', restoreUser, validatePhotoInfo, asyncHandler(async (req, res) =
   const { user } = req;
   const { title, imageUrl, content } = req.body;
   const photo = await Photo.create({
-    userId: user.id,
+    userId: user.id, //trying to figure out who owned it so need to set value
     title,
     imageUrl,
     content
@@ -40,24 +40,25 @@ router.post('/', restoreUser, validatePhotoInfo, asyncHandler(async (req, res) =
   return res.json({photo});
 }));
 
-//update photo
-// router.put('/:photoId', restoreUser, validatePhotoInfo, asyncHandler(async (req, res) => {
-//   const { user } = req;
-//   const { title, imageUrl, content } = req.body;
-//   const photo = await Photo.update(req.body, {
-//     userId: user,id,
-//     title,
-//     imageUrl,
-//     content
-//   })
-//   return res.json({photo});
-// }));
+// update photo
+router.put('/:photoId', restoreUser, validatePhotoInfo, asyncHandler(async (req, res) => {
+  const { user } = req;
+  const { photoId } = req.params; // const photoId = req.params.photoId alternative way without destruturing
+  const { title, imageUrl, content, id} = req.body; //can pull photoId from params if want to
+  const photo = await Photo.findByPk(parseInt(photoId, 10));
+  await photo.update({  //keying into the photo
+    title, // don't need userId: user.id because owner has already been eastablished during create feature
+    imageUrl,
+    content
+  })
+  return res.json({photo});
+}));
 
 //delete a photo
 router.delete('/:photoId', asyncHandler(async function (req, res) {
   //do i need to parseint the params first? to make into integer
   const photo = await Photo.findByPk(req.params.photoId); //finds what the id of the photo is from the route
-  if (!photo) throw new Error('Cannot find photo')
+  if (!photo) throw new Error('Cannot find photo');
 
   await photo.destroy();
   return res.json(photo.id);

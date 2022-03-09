@@ -1,16 +1,20 @@
 import './EditPhotoFormPage.css';
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, NavLink, Link, useHistory} from "react-router-dom";
+import { Redirect, NavLink, Link, useHistory, useParams} from "react-router-dom";
 import * as photosActions from '../../store/photos';
 
-function EditPhotoFormPage({photos}) {
+function EditPhotoFormPage() {
   const dispatch = useDispatch();
   const history = useHistory();
+  const { photoId } = useParams();
+
   const sessionUser = useSelector((state) => state.session.user);
-  const [title, setTitle] = useState(photos.title);
-  const [imageUrl, setImageUrl] = useState(photos.imageUrl);
-  const [content, setContent] = useState(photos.content);
+  const photo = useSelector((state) => state.photos[parseInt(photoId, 10)]); //need to key into state.photo object to get param
+  console.log(photo)
+  const [title, setTitle] = useState(photo.title); //prefill with the proper info
+  const [imageUrl, setImageUrl] = useState(photo.imageUrl);
+  const [content, setContent] = useState(photo.content);
   const [errors, setErrors] = useState([]);
 
   if (!sessionUser) return (
@@ -20,7 +24,7 @@ function EditPhotoFormPage({photos}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
-    dispatch(photosActions.updatePhoto({ title, imageUrl, content }))
+    dispatch(photosActions.updatePhoto({ id:photo.id, title, imageUrl, content }))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);

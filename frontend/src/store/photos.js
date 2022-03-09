@@ -19,13 +19,6 @@ const addOne = (photo) => {
   };
 };
 
-const updateOne = (photo) => {
-  return {
-    type: UPDATE_ONE,
-    photo
-  }
-}
-
 const deleteOne = (photo) => {
   return {
     type: DELETE_ONE,
@@ -67,7 +60,7 @@ export const updatePhoto = (photo) => async(dispatch) => {
   });
   if (response.ok) {
     const data = await response.json();
-    dispatch(updateOne(data.photo));
+    dispatch(addOne(data.photo));
   }
   return response;
 }
@@ -99,7 +92,7 @@ const photosReducer = (state = initialState, action) => {
       // newState.photo = action.photo;
       // return newState; < this incorrect
     case UPDATE_ONE:
-      newState[action.photo.id] = action.payload;
+      newState[action.photo.id] = action.photo;
       return newState;
     case DELETE_ONE:
       delete newState[action.photo];
