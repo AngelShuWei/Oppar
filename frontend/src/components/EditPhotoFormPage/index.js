@@ -31,7 +31,7 @@ function EditPhotoFormPage({photos}) {
   return (
     <div className="page-container">
       <form className='form-container' onSubmit={handleSubmit}>
-        <h3>Upload a photo🖼️</h3>
+        <h3>Edit photo🖼️</h3>
         <label className='label-field'>Title</label>
         <input className='input-field'
           type="text"

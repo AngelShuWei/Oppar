@@ -44,9 +44,9 @@ function App() {
           <Route path="/upload">
             <PhotoFormPage />
           </Route>
-          <Route>
+          {/* <Route path="/photo/edit">
             <EditPhotoFormPage photos={photos}/>
-          </Route>
+          </Route> */}
           <Route exact path="/photos">
             <UserPhotos sessionUser={sessionUser} photos={photos}/>
           </Route>

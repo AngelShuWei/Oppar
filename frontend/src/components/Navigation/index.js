@@ -1,7 +1,7 @@
 import './Navigation.css';
 import React from 'react';
 import logo from '../../assets/opparlogo3.png'
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import UploadButton from './UploadButton';
@@ -9,6 +9,9 @@ import PhotostreamButton from './PhotostreamButton';
 
 function Navigation({isLoaded}) {
   const sessionUser = useSelector(state => state.session.user);
+  if (!sessionUser) {
+    <Redirect to='/'/>
+  }
 
   let sessionLinks;
   if (sessionUser) { //if there is a sessionUser
