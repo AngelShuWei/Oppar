@@ -25,7 +25,7 @@
 }
 
 .photo-container:hover {
-  box-shadow: 5px 5px 5px gray;
+  box-shadow: 5px 5px 6px gray;
 }
 
 .photo-text {

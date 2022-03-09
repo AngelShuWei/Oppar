@@ -16,8 +16,10 @@ function UserPhotos({photos}) {
     <div className='user-photos-page-container'>
       {userPhotos.map(photo => (
         <div className='user-photos-container' key={photo.id}>
-          <Link to={`/photos/${photo.id}`}><img className='user-photo-container' src={photo.imageUrl} alt={photo.title}/></Link>
-          <EditDeleteButton photo={photo}/>
+          <Link className='user-photo-link' to={`/photos/${photo.id}`}><img className='user-photo' src={photo.imageUrl} alt={photo.title}/></Link>
+          <div className='edit-delete-button'>
+            <EditDeleteButton className='edit-delete-button' photo={photo}/>
+          </div>
         </div>
       ))}
     </div>
