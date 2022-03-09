@@ -1,5 +1,7 @@
 .all-photos-page-container {
   background-color: rgb(243, 245, 246);
+  /* width: 100vw; */
+  height: 100vh;
   /* background-color: black; */
 }
 
@@ -12,9 +14,12 @@
 
 .photo-container {
   background-color: white;
-  padding: 40px 20px 50px 20px;
+  padding: 40px 20px 100px 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
   /* float: left; */
-  width:  500px;
-  height: 400px;
+  width:  350px;
+  height: 300px;
   object-fit: cover;
 }
