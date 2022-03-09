@@ -22,7 +22,7 @@
 }
 
 .user-photo:hover {
-  box-shadow: 10px 10px 5px #888888;
+  box-shadow: 10px -10px 5px #888888;
 }
 
 .edit-delete-button {
