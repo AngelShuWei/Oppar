@@ -1,4 +1,5 @@
 import './UserPhotos.css'
+import flowerBackground from '../../assets/flower.png'
 import { NavLink, Route, Link, Redirect } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,14 +16,17 @@ function UserPhotos({photos}) {
 
   return (
     <div className='user-photos-page-container'>
-      {userPhotos.map(photo => (
-        <div className='user-photos-container' key={photo.id}>
-          <Link className='user-photo-link' to={`/photos/${photo.id}`}><img className='user-photo' src={photo.imageUrl} alt={photo.title}/></Link>
-          <div className='edit-delete-button'>
-            <EditDeleteButton className='edit-delete-button' photo={photo}/>
-          </div>
+      <img className='flower-background' src={flowerBackground} alt='flower'/>
+        <div className='lower-page-container'>
+          {userPhotos.map(photo => (
+            <div className='user-photos-container' key={photo.id}>
+              <Link className='user-photo-link' to={`/photos/${photo.id}`}><img className='user-photo' src={photo.imageUrl} alt={photo.title}/></Link>
+              <div className='edit-delete-button'>
+                <EditDeleteButton className='edit-delete-button' photo={photo}/>
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
     </div>
   )
 }
