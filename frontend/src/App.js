@@ -2,6 +2,8 @@ import './index.css'
 import React, { useState, useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Route, Switch} from 'react-router-dom';
+import * as sessionActions from "./store/session";
+import * as photosActions from "./store/photos";
 import Homepage from './components/HomePage';
 import LoginFormPage from './components/LoginFormPage';
 import Navigation from './components/Navigation';
@@ -9,8 +11,7 @@ import SignupFormPage from './components/SignupFormPage';
 import PhotoFormPage from './components/PhotoFormPage';
 import UserPhotos from './components/UserPhotos';
 import OnePhoto from './components/OnePhoto';
-import * as sessionActions from "./store/session";
-import * as photosActions from "./store/photos";
+import EditPhotoFormPage from './components/EditPhotoFormPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -42,6 +43,9 @@ function App() {
           </Route>
           <Route path="/upload">
             <PhotoFormPage />
+          </Route>
+          <Route>
+            <EditPhotoFormPage photos={photos}/>
           </Route>
           <Route exact path="/photos">
             <UserPhotos sessionUser={sessionUser} photos={photos}/>

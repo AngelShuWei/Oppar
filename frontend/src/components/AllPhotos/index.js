@@ -16,7 +16,7 @@ function AllPhotos() {
   return (
     <div>
       <ul>
-        {allPhotos.map(photo => (<Link to={`/photos/${photo.id}`}><img src={photo.imageUrl} alt={photo.title} key={photo.id}/></Link>))}
+        {allPhotos.map(photo => (<Link to={`/photos/${photo.id}`} key={photo.id}><img src={photo.imageUrl} alt={photo.title}/></Link>))}
       </ul>
     </div>
   )

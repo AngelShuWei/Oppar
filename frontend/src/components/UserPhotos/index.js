@@ -9,8 +9,8 @@ function UserPhotos({sessionUser, photos}) {
   return (
     <div>
       {userPhotos.map(photo => (
-        <div>
-          <Link to={`/photos/${photo.id}`}><img src={photo.imageUrl} alt={photo.title} key={photo.id}/></Link>
+        <div key={photo.id}>
+          <Link to={`/photos/${photo.id}`}><img src={photo.imageUrl} alt={photo.title}/></Link>
           <EditDeleteButton photo={photo}/>
         </div>
       ))}
