@@ -26,19 +26,6 @@ router.get('/', asyncHandler(async (req, res) => {
   return res.json({allPhotos});
 }));
 
-// //get single photo
-// router.get('/:id', asyncHandler(async (req, res) => {
-//   const onePhoto = await Photo.findOne(id);
-
-// }));
-
-// //get user photos
-// router.get('/', restoreUser, asyncHandler(async (req, res) => {
-//   const { user } = req;
-//   const userPhotos = await Photo.findByPk({ include: userId});
-// }))
-
-
 //upload photo
 router.post('/', restoreUser, validatePhotoInfo, asyncHandler(async (req, res) => {
   const { user } = req;

@@ -8,6 +8,7 @@ import Navigation from './components/Navigation';
 import SignupFormPage from './components/SignupFormPage';
 import PhotoFormPage from './components/PhotoFormPage';
 import UserPhotos from './components/UserPhotos';
+import OnePhoto from './components/OnePhoto';
 import * as sessionActions from "./store/session";
 import * as photosActions from "./store/photos";
 
@@ -42,8 +43,11 @@ function App() {
           <Route path="/upload">
             <PhotoFormPage />
           </Route>
-          <Route path="/photos">
+          <Route exact path="/photos">
             <UserPhotos sessionUser={sessionUser} photos={photos}/>
+          </Route>
+          <Route path="/photos/:photoId">
+            <OnePhoto />
           </Route>
         </Switch>
       )}

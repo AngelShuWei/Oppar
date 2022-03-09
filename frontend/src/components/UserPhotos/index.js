@@ -1,12 +1,11 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { NavLink, Route, Link } from 'react-router-dom';
 
 function UserPhotos({sessionUser, photos}) {
   const userPhotos = photos.filter(photo => photo.userId === sessionUser.id)
 
   return (
     <div>
-      {userPhotos.map(photo => (<img src={photo.imageUrl} alt={photo.title} key={photo.id}/>))}
+      {userPhotos.map(photo => (<Link to={`/photos/${photo.id}`}><img src={photo.imageUrl} alt={photo.title} key={photo.id}/></Link>))}
     </div>
   )
 }

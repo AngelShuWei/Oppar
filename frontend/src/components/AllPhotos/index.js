@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, Route, useParams } from 'react-router-dom';
+import { NavLink, Route, Link } from 'react-router-dom';
 import * as photosActions from '../../store/photos'
 
 function AllPhotos() {
@@ -16,7 +16,7 @@ function AllPhotos() {
   return (
     <div>
       <ul>
-        {allPhotos.map(photo => (<img src={photo.imageUrl} alt={photo.title} key={photo.id}/>))}
+        {allPhotos.map(photo => (<Link to={`/photos/${photo.id}`}><img src={photo.imageUrl} alt={photo.title} key={photo.id}/></Link>))}
       </ul>
     </div>
   )
