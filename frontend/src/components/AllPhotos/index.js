@@ -18,7 +18,10 @@ function AllPhotos() {
     <div className='all-photos-page-container'>
       <div className='photos-container'>
         {allPhotos.map(photo =>
-          <Link to={`/photos/${photo.id}`} key={photo.id}><img className='photo-container' src={photo.imageUrl} alt={photo.title}/></Link>
+          <div className='photos-container' key={photo.id}>
+            <Link to={`/photos/${photo.id}`} ><img className='photo-container' src={photo.imageUrl} alt={photo.title}/></Link>
+            {/* <p className='photo-text'>{photo.content}</p> */}
+          </div>
           )}
       </div>
     </div>
