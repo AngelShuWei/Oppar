@@ -41,10 +41,26 @@ router.post('/', restoreUser, validatePhotoInfo, asyncHandler(async (req, res) =
 }));
 
 //update photo
-// router.put('/:id', restoreUser, validatePhotoInfo, asyncHandler(async (req, res) => {
+// router.put('/:photoId', restoreUser, validatePhotoInfo, asyncHandler(async (req, res) => {
 //   const { user } = req;
 //   const { title, imageUrl, content } = req.body;
-//   const photo = await Photo.
+//   const photo = await Photo.update(req.body, {
+//     userId: user,id,
+//     title,
+//     imageUrl,
+//     content
+//   })
+//   return res.json({photo});
 // }));
+
+//delete a photo
+router.delete('/:photoId', asyncHandler(async function (req, res) {
+  //do i need to parseint the params first? to make into integer
+  const photo = await Photo.findByPk(req.params.photoId); //finds what the id of the photo is from the route
+  if (!photo) throw new Error('Cannot find photo')
+
+  await photo.destroy();
+  return res.json(photo.id);
+}))
 
 module.exports = router;

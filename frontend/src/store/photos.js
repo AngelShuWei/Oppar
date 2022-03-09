@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf"; //used to fetch a CRSF token. App must send 
 export const LOAD = "photo/load"
 export const ADD_ONE = "photo/addOne";
 export const UPDATE_ONE = "photo/updateOne";
+export const DELETE_ONE = "photo/deleteOne";
 
 const load = (photos) => {
   return {
@@ -21,6 +22,13 @@ const addOne = (photo) => {
 const updateOne = (photo) => {
   return {
     type: UPDATE_ONE,
+    photo
+  }
+}
+
+const deleteOne = (photo) => {
+  return {
+    type: DELETE_ONE,
     photo
   }
 }
@@ -52,21 +60,27 @@ export const createPhoto = (photo) => async(dispatch) => {
   return response;
 }
 
-// export const updatePhoto = (photo) => async(dispatch) => {
-//   const response = await csrfFetch(`/api/photos/${photo.id}`, {
-//     method: 'PUT',
-//     body: JSON.stringify({
-//       title,
-//       imageUrl,
-//       content
-//     }),
-//   });
-//   if (response.ok) {
-//     const data = await response.json();
-//     dispatch(updateOne(data.photo));
-//   }
-//   return response;
-// }
+export const updatePhoto = (photo) => async(dispatch) => {
+  const response = await csrfFetch(`/api/photos/${photo.id}`, { //passing in whole photo object
+    method: 'PUT',
+    body: JSON.stringify(photo),
+  });
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(updateOne(data.photo));
+  }
+  return response;
+}
+
+export const deletePhoto = (photoId) => async(dispatch) => {
+  const response = await csrfFetch(`/api/photos/${photoId}`, {
+    method: 'DELETE',
+  })
+  if (response.ok) {
+    const id = await response.json();
+    dispatch(deleteOne(id));
+  }
+}
 
 const initialState = {};
 
@@ -85,7 +99,11 @@ const photosReducer = (state = initialState, action) => {
       // newState.photo = action.photo;
       // return newState; < this incorrect
     case UPDATE_ONE:
-      newState[action.photo.id] = action.payload
+      newState[action.photo.id] = action.payload;
+      return newState;
+    case DELETE_ONE:
+      delete newState[action.photo];
+      return newState;
   default:
     return state;
  }
