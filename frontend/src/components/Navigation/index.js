@@ -13,7 +13,7 @@ function Navigation({isLoaded}) {
   if (!sessionUser) {
     <Redirect to='/'/>
   }
-
+  let styleChanges;
   let sessionLinks;
   if (sessionUser) { //if there is a sessionUser
     sessionLinks = ( //only render the profile Button when there is a session user
@@ -24,6 +24,10 @@ function Navigation({isLoaded}) {
         <ProfileButton user={sessionUser} />
       </div>
     );
+    styleChanges = {
+      backgroundColor: "#212124",
+      height: "20px"
+    }
   } else { //else have these links in the navbar instead
     sessionLinks = (
       <span className='button-container'>
@@ -35,7 +39,7 @@ function Navigation({isLoaded}) {
   }
 
   return (
-    <nav className='navbar-container'>
+    <nav className='navbar-container' style={styleChanges}>
       <div className='logo-container'>
         <NavLink exact to="/"><img src={logo} alt='opparlogo' style={{width:'80px'}}></img></NavLink>
       </div>
