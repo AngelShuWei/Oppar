@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 function UploadButton () {
   return (
     <>
-      <NavLink to='/upload'><button className='nav-button'>Upload</button></NavLink>
+      <NavLink to='/upload'><button className='nav-button'><i className="fa-lg fa-solid fa-upload"></i></button></NavLink>
     </>
   )
 }
