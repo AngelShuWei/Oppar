@@ -10,18 +10,16 @@
 
 .user-album-page-container {
   background-color: rgb(243, 245, 246);
-  /* background-color: black; */
   height: 100vh;
 }
 
 .user-albums-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: left;
-  align-items: center;
+  justify-content: start;
   padding-top: 50px;
-  margin-left: 190px;
-  margin-right: 190px;
+  margin-left: 160px;
+  margin-right: 160px;
 }
 
 .albums-info {

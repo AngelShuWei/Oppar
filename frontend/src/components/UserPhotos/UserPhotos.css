@@ -8,18 +8,16 @@
 
 .user-photos-page-container {
   background-color: rgb(243, 245, 246);
-  /* background-color: black; */
   height: 100vh;
 }
 
 .user-photos-container {
   display: flex;
-  flex-direction: wrap;
-  justify-content: left;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: start;
   padding-top: 50px;
-  margin-left: 190px;
-  margin-right: 190px;
+  margin-left: 160px;
+  margin-right: 160px;
 }
 
 .photos-info {
@@ -41,4 +39,5 @@
   position: 0;
   bottom: 0;
   border-radius: 10px;
+  margin-bottom: 10px;
 }
