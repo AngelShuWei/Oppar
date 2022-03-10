@@ -18,7 +18,7 @@ function UserAlbums ({albums}) {
   return (
     <div>
       <img className='flower-background' src={flowerBackground} alt='flower'/>
-        <div className='lower-page-container'>
+        <div className='lower-page-container' id='album'>
           {userAlbums.map(album => (
             <div className='user-photos-container' key={album.id}>
               <img className='user-album' src={album.imageUrl || "https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg"} alt={album.title}/>
