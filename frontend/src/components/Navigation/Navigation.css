@@ -57,6 +57,16 @@
   color: rgb(186, 186, 186);
 }
 
-.fa-lg.fas.fa-user-circle {
-  margin-left: 1300px;
+/* .fa-lg.fas.fa-user-circle {
+  margin-left: 100px;
+} */
+
+.profile-dropdown{
+  background-color: white;
+  width: 210px;
+  outline: 1px solid black;
+  border-radius: 3px;
+  /* box-shadow: 5px 5px 50px 1px black; */
+  padding-bottom: 15px;
+  padding-top: 1px;
 }
