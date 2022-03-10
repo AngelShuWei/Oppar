@@ -38,7 +38,7 @@
 }
 
 /* .edit-delete-button {
-  position: 0;
-  bottom: 0;
-  border-radius: 10px;
+  padding: 0;
+  border: none;
+  background: none;
 } */

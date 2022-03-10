@@ -49,6 +49,8 @@
   color: white;
   margin: 5px;
   margin-left: 280px;
+  width: auto;
+  cursor: pointer;
   /* display: flex;
   justify-content: left; */
 }

@@ -10,12 +10,12 @@ function EditDeleteButton( {photo} ) {
   return (
     <div>
       <Link to={`/photos/${photo.id}/edit`}>
-        <button>
-          <i className="fa-solid fa-pen-to-square" />
+        <button className='edit-delete-button'>
+          <i className="fa-lg fa-solid fa-pen-to-square" />
         </button>
       </Link>
-      <button onClick={() => dispatch(deletePhoto(photo.id))}>
-        <i className="fa-solid fa-trash-can"></i>
+      <button className='edit-delete-button' onClick={() => dispatch(deletePhoto(photo.id))}>
+        <i className="fa-lg fa-solid fa-trash-can"></i>
       </button>
     </div>
   )
