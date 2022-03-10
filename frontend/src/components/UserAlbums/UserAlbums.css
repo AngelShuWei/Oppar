@@ -18,7 +18,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
-  padding-top: 50px;
+  /* padding-top: 50px; */
   margin-left: 160px;
   margin-right: 160px;
 }
@@ -38,6 +38,22 @@
   box-shadow: 0px -15px 1px -7px rgb(0 0 0 / 15%);
 }
 
-.fa-regular.fa-rectangle-history-circle-plus {
-  color: black;
+.add-album-button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 16px;
+  color: rgb(78, 78, 78);
+  height: 50px;
+  margin-right: 400px;
 }
+
+/* .fa-regular.fa-square-plus {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 16px;
+  color: rgb(78, 78, 78);
+  height: 50px;
+  margin-right: 400px;
+} */

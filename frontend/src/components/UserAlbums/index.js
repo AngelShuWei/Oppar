@@ -13,13 +13,17 @@ function UserAlbums ({albums}) {
     )
 
   const userAlbums = albums.filter(album => album.userId === sessionUser.id);
-  console.log(userAlbums)
+  // console.log(userAlbums)
 
   return (
     <>
       <img className='flower-background' id='albums' src={flowerBackground} alt='flower'/>
         <div className='user-album-page-container'>
-          {/* <i className="fa-regular fa-rectangle-history-circle-plus"></i> */}
+          <div className='add-album-button'>
+            <button>
+              <i className="fa-regular fa-square-plus">New-album</i>
+            </button>
+            </div>
             <div className='user-albums-container'>
               {userAlbums.map(album => (
                 <div className='albums-info' key={album.id}>
