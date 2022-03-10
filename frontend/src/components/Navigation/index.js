@@ -17,7 +17,7 @@ function Navigation({isLoaded}) {
   let sessionLinks;
   if (sessionUser) { //if there is a sessionUser
     sessionLinks = ( //only render the profile Button when there is a session user
-      <div>
+      <div className='nav-button-container'>
         <PhotostreamButton/>
         <AlbumsButton />
         <UploadButton/>
