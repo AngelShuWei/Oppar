@@ -6,6 +6,7 @@ module.exports = {
       {
         title: "Cha EunWoo",
         userId: 1,
+        albumId: 1,
         imageUrl: "https://wiki.d-addicts.com/images/thumb/9/9b/Cha_Eun_Woo.jpg/291px-Cha_Eun_Woo.jpg",
         content: "Cha Eun-woo, is a South Korean singer, actor, and model under the label of Fantagio. He is a member of the South Korean boy group Astro.",
         createdAt: new Date(),
@@ -14,6 +15,7 @@ module.exports = {
       {
         title: "Gong Yoo",
         userId: 2,
+        albumId: 5,
         imageUrl: "https://pyxis.nymag.com/v1/imgs/a95/a9b/5971469de6a615006b415046b50b575702-gong-yoo-squid-game-slap.2x.rsocial.w600.jpg",
         content: "Gong Ji-cheol, better known by his stage name Gong Yoo, is a South Korean actor. He is best known for his roles in the television dramas Coffee Prince (2007), Guardian: The Lonely and Great God (2016-2017), The Silent Sea (2021), and Squid Game (2021), and the films Silenced (2011), Train to Busan (2016) and The Age of Shadows (2016).",
         createdAt: new Date(),
@@ -22,6 +24,7 @@ module.exports = {
       {
         title: "Lee JongSuk",
         userId: 3,
+        albumId: 2,
         imageUrl: "https://www.90daykorean.com/wp-content/uploads/2019/07/884eff572d154a8c808930bba89cc3be.jpeg",
         content: "Lee Jong-suk is a South Korean actor and model. He debuted in 2005 as a runway model, becoming the youngest male model ever to participate in Seoul Fashion Week.",
         createdAt: new Date(),
@@ -38,6 +41,7 @@ module.exports = {
       {
         title: "Ahn HyoSeop",
         userId: 1,
+        albumId: 8,
         imageUrl: "https://img.wattpad.com/cover/230368163-256-k864948.jpg",
         content: "Ahn Hyo-seop or Paul Ahn, is a Korean-Canadian actor and singer based in South Korea. He gained recognition for his main roles in the Korean dramas Still 17, Abyss, Dr. Romantic 2 and Lovers of the Red Sky.",
         createdAt: new Date(),
@@ -54,6 +58,7 @@ module.exports = {
       {
         title: "Ji ChangWook",
         userId: 3,
+        albumId: 4,
         imageUrl: "https://i.mydramalist.com/ZyyEJ_5c.jpg",
         content: "Ji Chang-wook (born 5 July 1987) is a South Korean actor and singer. He rose to fame for playing the lead role of Dong-hae in daily drama series Smile Again (2010-2011), and had notable lead roles in television series such as Warrior Baek Dong-soo (2011), Empress Ki (2013-2014), Healer (2014-2015), The K2 (2016), Suspicious Partner (2017), Melting Me Softly (2019), Backstreet Rookie (2020), and Lovestruck in the City (2020-2021).",
         createdAt: new Date(),
@@ -62,6 +67,7 @@ module.exports = {
       {
         title: "Song Kang",
         userId: 4,
+        albumId: 10,
         imageUrl: "https://photos.hancinema.net/photos/posterphoto1326051.jpg",
         content: "Song Kang is a South Korean actor. His notable lead roles in television series include Love Alarm, Sweet Home, Nevertheless, and Navillera. He is popularly known as the Son of Netflix because most of his series are aired in the platform.",
         createdAt: new Date(),
@@ -70,6 +76,7 @@ module.exports = {
       {
         title: "Nam JooHyuk",
         userId: 1,
+        albumId: 3,
         imageUrl: "https://6.viki.io/image/1b43227d627047eeb3e4dd22e1946eae.jpeg?s=900x600&e=t",
         content: "Nam Joo-hyuk is a South Korean model and actor. He has starred in Who Are You: School 2015, Weightlifting Fairy Kim Bok-joo, Moon Lovers, The Bride of Habaek, The Light in Your Eyes, The School Nurse Files, and Start Up.",
         createdAt: new Date(),
@@ -78,6 +85,7 @@ module.exports = {
       {
         title: "Song JoongKi",
         userId: 2,
+        albumId: 10,
         imageUrl: "https://datacdn.btimesonline.com/data/thumbs/full/92545/360/0/0/0/song-joong-ki.jpg",
         content: "Song Joong-ki is a South Korean actor. He rose to fame in the historical coming-of-age drama Sungkyunkwan Scandal and the variety show Running Man as one of the original cast members.",
         createdAt: new Date(),
@@ -94,6 +102,7 @@ module.exports = {
       {
         title: "Park BoGum",
         userId: 4,
+        albumId: 10,
         imageUrl: "https://www.hellokpop.com/wp-content/uploads/2019/03/Park-Bo-Gum-in-Manila.jpg",
         content: "Park Bo-gum is a South Korean actor and singer. He gained recognition for his diverse range of roles in film and television, notably, a psychopathic lawyer in Hello Monster and a genius Go player in Reply 1988.",
         createdAt: new Date(),
@@ -102,6 +111,7 @@ module.exports = {
       {
         title: "Lee MinHo",
         userId: 1,
+        albumId: 9,
         imageUrl: "https://cdn.i-scmp.com/sites/default/files/d8/images/methode/2020/04/15/2240ae0e-7eda-11ea-8736-98edddd9b5ca_image_hires_181558.JPG",
         content: "Lee Min-ho is a South Korean actor, singer, model, creative director and businessman. He gained widespread fame worldwide with his role as Gu Jun-pyo in Boys Over Flowers which also earned him the Best New Actor award at the 45th Baeksang Arts Awards.",
         createdAt: new Date(),
@@ -110,6 +120,7 @@ module.exports = {
       {
         title: "Hyun Bin",
         userId: 2,
+        albumId: 6,
         imageUrl: "https://cdn.i-scmp.com/sites/default/files/styles/1920x1080/public/d8/images/methode/2020/09/25/1f318c98-f652-11ea-a41c-8cbd1416100a_image_hires_133347.jpg?itok=qJgi2CBo&v=1601012033",
         content: "Hyun Bin is a South Korean actor. Hyun Bin first gained wide recognition for his role in the 2005 romantic comedy television drama My Name is Kim Sam-soon.",
         createdAt: new Date(),
@@ -118,6 +129,7 @@ module.exports = {
       {
         title: "Lee JoonGi",
         userId: 3,
+        albumId: 7,
         imageUrl: "https://6.vikiplatform.com/image/f39b70cc709449058542b107d493cff7.jpg?x=b&a=0x0&s=460x268&e=t&f=t&cb=1",
         content: "Lee Joon-gi is a South Korean actor, singer, dancer, and model. He rose to fame on his first leading role playing a clown in the critically acclaimed film The King and the Clown and gained further recognition in the romantic comedy My Girl.",
         createdAt: new Date(),
@@ -142,6 +154,7 @@ module.exports = {
       {
         title: "Park JiMin",
         userId: 2,
+        albumId: 10,
         imageUrl: "https://st1.bollywoodlife.com/wp-content/uploads/2021/07/JIMIN.png",
         content: "Park Ji-min, known mononymously as Jimin, is a South Korean singer and dancer. In 2013, he made his debut as a member of the South Korean boy group BTS, under the record label Big Hit Entertainment.",
         createdAt: new Date(),
@@ -158,6 +171,7 @@ module.exports = {
       {
         title: "Yoon ShiYoon",
         userId: 4,
+        albumId: 10,
         imageUrl: "https://www.ivisitkorea.com/wp-content/uploads/2020/07/Yoon-Shi-Yoon.webp",
         content: "Yoon Shi-yoon, also known professionally as Yun Si Yun, is a South Korean actor and television personality.",
         createdAt: new Date(),
