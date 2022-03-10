@@ -1,14 +1,18 @@
 .fa-lg.fa-pen-to-square {
-  color: pink;
+  color: rgb(46, 46, 46);
   margin-right: 10px;
-  /* color: rgb(46, 46, 46); */
+}
+.fa-pen-to-square:hover {
+  color: rgb(238, 180, 189);
 }
 
 .fa-lg.fa-trash-can {
-  color: lightblue;
-  /* color: rgb(46, 46, 46); */
+  color: rgb(46, 46, 46);
 }
 
+.fa-trash-can:hover {
+  color: rgb(154, 194, 207);
+}
 
 .edit-delete-button {
   padding: 0;
