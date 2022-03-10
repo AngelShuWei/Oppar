@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Route, Switch} from 'react-router-dom';
 import * as sessionActions from "./store/session";
 import * as photosActions from "./store/photos";
+import * as albumsActions from "./store/albums";
 import Homepage from './components/HomePage';
 import LoginFormPage from './components/LoginFormPage';
 import Navigation from './components/Navigation';
@@ -12,16 +13,19 @@ import PhotoFormPage from './components/PhotoFormPage';
 import UserPhotos from './components/UserPhotos';
 import OnePhoto from './components/OnePhoto';
 import EditPhotoFormPage from './components/EditPhotoFormPage';
+import UserAlbums from './components/UserAlbums';
 
 function App() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
-  const photos = useSelector(state => Object.values(state.photos));
+  const photos = useSelector(state => Object.values(state.photos)); // {userId: {photos obj...}}
+  const albums = useSelector(state => Object.values(state.albums)); // {userId: {albums obj....}}
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));  //if there is user, then set load to true
-    dispatch(photosActions.getAllPhotos());
+    dispatch(photosActions.getAllPhotos()); //need to do this in case more photos get uploaded by users
+    dispatch(albumsActions.getAllAlbums()); //need to do this in case more albums get uploaded by users
   }, [dispatch]);
 
 
@@ -45,13 +49,16 @@ function App() {
             <PhotoFormPage />
           </Route>
           <Route path="/photos/:photoId/edit">
-            <EditPhotoFormPage photos={photos}/>
+            <EditPhotoFormPage/>
           </Route>
           <Route exact path="/photos">
             <UserPhotos photos={photos}/>
           </Route>
           <Route path="/photos/:photoId">
             <OnePhoto />
+          </Route>
+          <Route exact path="/albums">
+            <UserAlbums albums={albums}/>
           </Route>
         </Switch>
       )}

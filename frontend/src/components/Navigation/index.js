@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import UploadButton from './UploadButton';
 import PhotostreamButton from './PhotostreamButton';
+import AlbumsButton from './AlbumsButton';
 
 function Navigation({isLoaded}) {
   const sessionUser = useSelector(state => state.session.user);
@@ -18,6 +19,7 @@ function Navigation({isLoaded}) {
     sessionLinks = ( //only render the profile Button when there is a session user
       <div>
         <PhotostreamButton/>
+        <AlbumsButton />
         <UploadButton/>
         <ProfileButton user={sessionUser} />
       </div>
