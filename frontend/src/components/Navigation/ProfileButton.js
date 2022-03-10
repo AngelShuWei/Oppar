@@ -1,3 +1,4 @@
+import './Navigation.css'
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
@@ -30,8 +31,8 @@ function ProfileButton({user}) {
 
   return (
     <>
-      <button onClick= {openMenu}>
-        <i className= "fas fa-user-circle" />
+      <button className='nav-button' id='profile' onClick= {openMenu}>
+        <i className= "fa-lg fas fa-user-circle" />
       </button>
       {showMenu && (
         <ul className="profile-dropdown">

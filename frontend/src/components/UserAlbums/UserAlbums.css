@@ -23,6 +23,10 @@
   object-fit: cover;
 }
 
+.user-album-text {
+  margin: 0px 20px;
+}
+
 .user-album:hover {
   box-shadow: 0px -15px 1px -7px rgb(0 0 0 / 15%);
 }
