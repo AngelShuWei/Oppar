@@ -16,18 +16,20 @@ function UserAlbums ({albums}) {
   console.log(userAlbums)
 
   return (
-    <div className='album-page-container' id='album'>
+    <>
       <img className='flower-background' id='albums' src={flowerBackground} alt='flower'/>
-        <i className="fa-regular fa-rectangle-history-circle-plus"></i>
-        <div className='lower-page-container' id='album'>
-          {userAlbums.map(album => (
-            <div className='user-albums-container' key={album.id}>
-              <img className='user-album' src={album.imageUrl || "https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg"} alt={album.title}/>
-              <p className='user-album-text'>{album.title}</p>
-            </div>
-          ))}
-        </div>
-    </div>
+        <div className='user-album-page-container'>
+          {/* <i className="fa-regular fa-rectangle-history-circle-plus"></i> */}
+            <div className='user-albums-container'>
+              {userAlbums.map(album => (
+                <div className='albums-info' key={album.id}>
+                  <img className='user-album' src={album.imageUrl || "https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg"} alt={album.title}/>
+                  <p className='user-album-text'>{album.title}</p>
+                </div>
+              ))}
+          </div>
+       </div>
+    </>
   )
 }
 

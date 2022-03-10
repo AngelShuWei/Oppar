@@ -2,7 +2,6 @@
   background-color: rgb(243, 245, 246);
   /* width: 100vw; */
   height: 100%;
-  /* background-color: black; */
 }
 
 .photos-container {
@@ -15,10 +14,7 @@
 .photo {
   background-color: white;
   padding: 40px 20px 100px 20px;
-  margin-right: 10px;
-  margin-left: 10px;
-  /* margin-bottom: 10px; */
-  margin-top: 70px;
+  margin: 70px 10px 0px 10px;  /* top|right|bottom|left*/
   width:  350px;
   height: 300px;
   object-fit: cover;
