@@ -29,7 +29,7 @@ function EditPhotoFormPage() {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
-    return history.push('/');
+    return history.push('/photos');
   };
 
   return (
