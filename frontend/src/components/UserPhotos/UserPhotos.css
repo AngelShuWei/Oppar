@@ -22,6 +22,7 @@
 
 .photos-info {
   margin-right: 4px;
+  margin-bottom: 10px;
 }
 
 .user-photo {
@@ -35,9 +36,8 @@
   box-shadow: 0px 15px 15px -5px #888888;
 }
 
-.edit-delete-button {
+/* .edit-delete-button {
   position: 0;
   bottom: 0;
   border-radius: 10px;
-  margin-bottom: 10px;
-}
+} */
