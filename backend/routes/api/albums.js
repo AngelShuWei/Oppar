@@ -35,4 +35,18 @@ router.post('/', restoreUser, validateAlbumInfo, asyncHandler(async (req, res) =
   return res.json({album});
 }));
 
+// update album
+router.put('/:albumId', restoreUser, validateAlbumInfo, asyncHandler(async (req, res) => {
+  const { user } = req; 
+  const { albumId } = req.params;
+  const { title, imageUrl, content, id} = req.body;
+  const album = await Album.findByPk(parseInt(albumId, 10));
+  await album.update({
+    title,
+    imageUrl,
+    content
+  })
+  return res.json({album});
+}));
+
 module.exports = router;

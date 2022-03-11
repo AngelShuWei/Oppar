@@ -52,6 +52,18 @@ export const createAlbum = (album) => async(dispatch) => {
   return response;
 }
 
+export const updateAlbum = (album) => async(dispatch) => {
+  const response = await csrfFetch(`/api/albums/${album.id}`, { 
+    method: 'PUT',
+    body: JSON.stringify(album),
+  });
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(addOne(data.album));
+  }
+  return response;
+}
+
 const initialState = {};
 
 const albumsReducer = (state = initialState, action) => {
@@ -65,12 +77,12 @@ const albumsReducer = (state = initialState, action) => {
     case ADD_ONE:
       newState[action.album.id] = action.album;
       return newState;
-    // case UPDATE_ONE:
-    //   newState[action.photo.id] = action.photo;
-    //   return newState;
-    // case DELETE_ONE:
-    //   delete newState[action.photo];
-    //   return newState;
+    case UPDATE_ONE:
+      newState[action.album.id] = action.album;
+      return newState;
+    case DELETE_ONE:
+      delete newState[action.album];
+      return newState;
   default:
     return state;
  }
