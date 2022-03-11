@@ -21,8 +21,8 @@ function OneAlbum({photos}) {
 
   return (
     <div className='view-album-page-container'>
-      {userAlbum[0].imageUrl ? (
-        <img className='album-background' src={userAlbum[0].imageUrl || "https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg"} alt='flower'/>
+      {(userAlbum[userAlbum.length-1]).imageUrl ? (
+        <img className='album-background' src={(userAlbum[userAlbum.length-1]).imageUrl || "https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg"} alt='flower'/>
       ) : (
         <img className='album-background' src={"https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg"} alt='flower'/>
       )}
