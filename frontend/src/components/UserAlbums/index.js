@@ -20,20 +20,21 @@ function UserAlbums ({albums}) {
       <img className='flower-background' id='albums' src={flowerBackground} alt='flower'/>
         <div className='user-album-page-container'>
           <div className='add-album-button'>
-            <Link to='/albums/upload'><button>
-              <i className="fa-regular fa-square-plus">New-album</i>
-            </button>
+            <Link to='/albums/upload'>
+              <button>
+                <i className="fa-regular fa-square-plus">New-album</i>
+              </button>
             </Link>
-            </div>
-            <div className='user-albums-container'>
-              {userAlbums.map(album => (
-                <div className='albums-info' key={album.id}>
-                  <Link to={`/albums/${album.id}`}>
-                  <img className='user-album' src={album.imageUrl || "https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg"} alt={album.title}/>
-                  </Link>
-                  <p className='user-album-text'>{album.title}</p>
-                </div>
-              ))}
+          </div>
+          <div className='user-albums-container'>
+            {userAlbums.map(album => (
+              <div className='albums-info' key={album.id}>
+                <Link to={`/albums/${album.id}`}>
+                <img className='user-album' src={album.imageUrl || "https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg"} alt={album.title}/>
+                </Link>
+                <p className='user-album-text'>{album.title}</p>
+              </div>
+            ))}
           </div>
        </div>
     </>
