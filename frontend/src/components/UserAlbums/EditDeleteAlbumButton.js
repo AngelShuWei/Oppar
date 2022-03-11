@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteAlbum } from '../../store/photos';
+import { deleteAlbum } from '../../store/albums';
 import { Link } from 'react-router-dom';
 
 function EditDeleteAlbumButton( {album} ) {
@@ -12,9 +12,9 @@ function EditDeleteAlbumButton( {album} ) {
           <i className="fa-lg fa-solid fa-pen-to-square" />
         </button>
       </Link>
-      {/* <button className='edit-delete-button' onClick={() => dispatch(deleteAlbum(album.id))}>
+      <button className='edit-delete-button' onClick={() => dispatch(deleteAlbum(album.id))}>
         <i className="fa-lg fa-solid fa-trash-can"></i>
-      </button> */}
+      </button>
     </div>
   )
 }

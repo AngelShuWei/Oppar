@@ -53,7 +53,7 @@ export const createAlbum = (album) => async(dispatch) => {
 }
 
 export const updateAlbum = (album) => async(dispatch) => {
-  const response = await csrfFetch(`/api/albums/${album.id}`, { 
+  const response = await csrfFetch(`/api/albums/${album.id}`, {
     method: 'PUT',
     body: JSON.stringify(album),
   });
@@ -62,6 +62,16 @@ export const updateAlbum = (album) => async(dispatch) => {
     dispatch(addOne(data.album));
   }
   return response;
+}
+
+export const deleteAlbum = (albumId) => async(dispatch) => {
+  const response = await csrfFetch(`/api/albums/${albumId}`, {
+    method: 'DELETE',
+  })
+  if (response.ok) {
+    const id = await response.json();
+    dispatch(deleteOne(id));
+  }
 }
 
 const initialState = {};

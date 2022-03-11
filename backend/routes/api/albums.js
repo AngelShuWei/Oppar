@@ -37,7 +37,7 @@ router.post('/', restoreUser, validateAlbumInfo, asyncHandler(async (req, res) =
 
 // update album
 router.put('/:albumId', restoreUser, validateAlbumInfo, asyncHandler(async (req, res) => {
-  const { user } = req; 
+  const { user } = req;
   const { albumId } = req.params;
   const { title, imageUrl, content, id} = req.body;
   const album = await Album.findByPk(parseInt(albumId, 10));
@@ -48,5 +48,14 @@ router.put('/:albumId', restoreUser, validateAlbumInfo, asyncHandler(async (req,
   })
   return res.json({album});
 }));
+
+//delete an album
+router.delete('/:albumId', asyncHandler(async function (req, res) {
+  const album = await Album.findByPk(req.params.albumId);
+  if (!album) throw new Error('Cannot find album');
+
+  await album.destroy();
+  return res.json(album.id);
+}))
 
 module.exports = router;
