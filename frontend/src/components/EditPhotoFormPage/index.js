@@ -26,7 +26,7 @@ function EditPhotoFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
-    dispatch(photosActions.updatePhoto({ id:photo.id, title, imageUrl, content }))
+    dispatch(photosActions.updatePhoto({ id:photo.id, title, imageUrl, album, content }))
       .then(JD => history.push('/photos'))
       .catch(async (res) => {
         const data = await res.json();
@@ -58,7 +58,7 @@ function EditPhotoFormPage() {
               {albums.map(album => (
               <option
                 key={album.id}
-                value={album.title}
+                value={album.id}
               >
                 {album.title}
               </option>

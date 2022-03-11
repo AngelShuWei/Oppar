@@ -37,12 +37,13 @@ export const getAllPhotos = () => async(dispatch) => {
 }
 
 export const createPhoto = (photo) => async(dispatch) => {
-  const { title, imageUrl, content } = photo;
+  const { title, imageUrl, album, content } = photo;
   const response = await csrfFetch(`/api/photos`, {
     method: 'POST',
     body: JSON.stringify({
       title,
       imageUrl,
+      album,
       content
     }),
   });

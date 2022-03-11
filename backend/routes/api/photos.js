@@ -29,11 +29,12 @@ router.get('/', asyncHandler(async (req, res) => {
 //upload photo
 router.post('/', restoreUser, validatePhotoInfo, asyncHandler(async (req, res) => {
   const { user } = req;
-  const { title, imageUrl, content } = req.body;
+  const { title, imageUrl, album, content } = req.body;
   const photo = await Photo.create({
     userId: user.id, //trying to figure out who owned it so need to set value
     title,
     imageUrl,
+    albumId: album, //KEY needs to match database
     content
   });
 
@@ -44,11 +45,12 @@ router.post('/', restoreUser, validatePhotoInfo, asyncHandler(async (req, res) =
 router.put('/:photoId', restoreUser, validatePhotoInfo, asyncHandler(async (req, res) => {
   const { user } = req; //dont need user because alrdy know which user submitted the intial form
   const { photoId } = req.params; // const photoId = req.params.photoId alternative way without destruturing
-  const { title, imageUrl, content, id} = req.body; //can pull photoId from params if want to
+  const { title, imageUrl, album, content, id} = req.body; //can pull photoId from params if want to
   const photo = await Photo.findByPk(parseInt(photoId, 10));
   await photo.update({  //keying into the photo
     title, // don't need userId: user.id because owner has already been eastablished during create feature
     imageUrl,
+    albumId: album,
     content
   })
   return res.json({photo});

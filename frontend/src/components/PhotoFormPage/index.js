@@ -11,7 +11,7 @@ function PhotoFormPage() {
   const albums = useSelector((state) => Object.values(state.albums));
   const [title, setTitle] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [album, setAlbum] = useState();
+  const [album, setAlbum] = useState(albums[0]);
   const [content, setContent] = useState("");
   const [errors, setErrors] = useState([]);
 
@@ -22,7 +22,7 @@ function PhotoFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
-    await dispatch(photosActions.createPhoto({ title, imageUrl, content }))
+    await dispatch(photosActions.createPhoto({ title, imageUrl, album, content }))
       .then(JD => history.push('/photos')) //.then means have to wait for the dispatch to complete before moving on
       .catch(async (res) => {
         const data = await res.json();
@@ -54,10 +54,10 @@ function PhotoFormPage() {
               {albums.map(album => (
               <option
                 key={album.id}
-                value={album.title}
+                value={album.id} //sending an id to the database
               >
                 {album.title}
-              </option>
+              </option> //^ what is rendering on the drop down
               ))}
           </select>
         </label>
