@@ -1,16 +1,18 @@
-import './PhotoFormPage.css';
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, NavLink, Link, useHistory} from "react-router-dom";
-import * as photosActions from '../../store/photos';
+import { Redirect, NavLink, Link, useHistory, useParams} from "react-router-dom";
+import * as albumsActions from '../../store/albums';
 
-function PhotoFormPage() {
+function EditAlbumFormPage() {
   const dispatch = useDispatch();
   const history = useHistory();
+  const { albumId } = useParams();
+
   const sessionUser = useSelector((state) => state.session.user);
-  const [title, setTitle] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const [content, setContent] = useState("");
+  const album = useSelector((state) => state.albums[parseInt(albumId, 10)]);
+  const [title, setTitle] = useState(album.title); //prefill with the proper info
+  const [imageUrl, setImageUrl] = useState(album.imageUrl);
+  const [content, setContent] = useState(album.content);
   const [errors, setErrors] = useState([]);
 
   if (!sessionUser) return (
@@ -20,18 +22,18 @@ function PhotoFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
-    dispatch(photosActions.createPhoto({ title, imageUrl, content }))
+    dispatch(albumsActions.updateAlbum({ id:album.id, title, imageUrl, content }))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
-    return history.push('/photos');
+    return history.push('/albums');
   };
 
   return (
     <div className="page-container">
       <form className='form-container' onSubmit={handleSubmit}>
-        <h3>Upload a photo🖼️</h3>
+        <h3>Edit an album</h3>
         <label className='label-field'>Title</label>
         <input className='input-field'
           type="text"
@@ -44,7 +46,6 @@ function PhotoFormPage() {
           type="text"
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
-          // required
         />
         <label className='label-field'>Description</label>
         <input className='input-field'
@@ -61,4 +62,4 @@ function PhotoFormPage() {
   );
 }
 
-export default PhotoFormPage;
+export default EditAlbumFormPage;

@@ -24,7 +24,7 @@ function UserPhotos({photos}) {
                 <Link className='user-photo-link' to={`/photos/${photo.id}`}>
                   <img className='user-photo' src={photo.imageUrl} alt={photo.title}/>
                 </Link>
-                  <EditDeleteButton className='edit-delete-button' photo={photo}/>
+                  <EditDeleteButton photo={photo}/>
               </div>
             ))}
           </div>

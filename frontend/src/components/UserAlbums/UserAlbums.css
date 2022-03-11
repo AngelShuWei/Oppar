@@ -14,10 +14,19 @@
   height: 100vh;
 }
 
+.new-album-button {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font: initial;
+  color: rgb(78, 78, 78);
+}
+
 .user-albums-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: flex-start;
   /* padding-top: 50px; */
   margin-left: 160px;
   margin-right: 160px;
@@ -43,7 +52,6 @@
   justify-content: flex-end;
   align-items: center;
   font-size: 16px;
-  color: rgb(78, 78, 78);
   height: 50px;
   margin-right: 400px;
 }

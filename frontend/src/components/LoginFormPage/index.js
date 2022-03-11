@@ -55,14 +55,14 @@ function LoginFormPage() {
         type="text"
         value={credential}
         onChange={e => setCredential(e.target.value)}
-        required
+        // required
         />
         <label className='label-field'>Password</label>
         <input className='input-field'
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          required
+          // required
           />
         <ul>
           {errors.map((error, idx) => <p key={idx}>{error}</p>)}

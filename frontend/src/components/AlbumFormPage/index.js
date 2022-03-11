@@ -1,10 +1,9 @@
-import './PhotoFormPage.css';
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, NavLink, Link, useHistory} from "react-router-dom";
-import * as photosActions from '../../store/photos';
+import * as albumActions from '../../store/albums';
 
-function PhotoFormPage() {
+function AlbumFormPage() {
   const dispatch = useDispatch();
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
@@ -20,18 +19,18 @@ function PhotoFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
-    dispatch(photosActions.createPhoto({ title, imageUrl, content }))
+    dispatch(albumActions.createAlbum({ title, imageUrl, content }))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
-    return history.push('/photos');
+    return history.push('/albums');
   };
 
   return (
     <div className="page-container">
       <form className='form-container' onSubmit={handleSubmit}>
-        <h3>Upload a photo🖼️</h3>
+        <h3>Create a new Album</h3>
         <label className='label-field'>Title</label>
         <input className='input-field'
           type="text"
@@ -44,7 +43,6 @@ function PhotoFormPage() {
           type="text"
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
-          // required
         />
         <label className='label-field'>Description</label>
         <input className='input-field'
@@ -61,4 +59,4 @@ function PhotoFormPage() {
   );
 }
 
-export default PhotoFormPage;
+export default AlbumFormPage;
