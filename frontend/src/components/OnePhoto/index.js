@@ -10,14 +10,13 @@ function OnePhoto() {
 
   return (
     <>
-    <div className='one-photo-page-container'>
-        <img className='one-photo-container' src={photoDetails.imageUrl} alt={photoDetails.title}/>
-      <div className='content-container'>
+      <div className='one-photo-page-container'>
+          <img className='one-photo-container' src={photoDetails.imageUrl} alt={photoDetails.title}/>
+        <div className='content-container'></div>
       </div>
-    </div>
-      <div className='content-container'>
-        <div>{photoDetails.title}</div>
-        <div>{photoDetails.content}</div>
+        <div className='content-container'>
+          <div>{photoDetails.title}</div>
+          <div>{photoDetails.content}</div>
       </div>
     </>
   )
