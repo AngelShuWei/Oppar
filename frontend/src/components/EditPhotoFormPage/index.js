@@ -11,7 +11,7 @@ function EditPhotoFormPage() {
 
   const sessionUser = useSelector((state) => state.session.user);
   const photo = useSelector((state) => state.photos[parseInt(photoId, 10)]); //need to key into state.photo object to get param
-  console.log(photo)
+  // console.log(photo)
   const [title, setTitle] = useState(photo.title); //prefill with the proper info
   const [imageUrl, setImageUrl] = useState(photo.imageUrl);
   const [content, setContent] = useState(photo.content);
@@ -29,7 +29,7 @@ function EditPhotoFormPage() {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
-    return history.push('/');
+    return history.push('/photos');
   };
 
   return (

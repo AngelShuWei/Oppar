@@ -15,6 +15,7 @@ import OnePhoto from './components/OnePhoto';
 import EditPhotoFormPage from './components/EditPhotoFormPage';
 import UserAlbums from './components/UserAlbums';
 import AlbumFormPage from './components/AlbumFormPage';
+import OneAlbum from './components/OneAlbum';
 
 function App() {
   const dispatch = useDispatch();
@@ -63,6 +64,9 @@ function App() {
           </Route>
           <Route path="/albums/upload">
             <AlbumFormPage />
+          </Route>
+          <Route path="/albums/:albumId">
+            <OneAlbum photos={photos}/>
           </Route>
         </Switch>
       )}
