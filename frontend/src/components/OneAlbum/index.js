@@ -3,20 +3,27 @@ import flowerBackground from '../../assets/flower.png'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, NavLink, Link} from "react-router-dom";
+import { useEffect } from 'react';
+import { getAllPhotos } from '../../store/photos';
 
-function OneAlbum({photos}) {
+function OneAlbum() {
+  const dispatch = useDispatch();
   const { albumId } = useParams();
   const sessionUser = useSelector((state) => state.session.user);
-  console.log(sessionUser);
+  // console.log(sessionUser);
+  const photos = useSelector(state => Object.values(state.photos));
   const albums = useSelector((state) => state.albums[albumId]) //state.albums is an object w/ all albums, key into the specific album object (singular object) {id, userId, title..}
-  // console.log(albums)
+
+  useEffect(() => {
+    dispatch(getAllPhotos());
+  }, [dispatch])
 
   if (!sessionUser) return (
     <Redirect to='/'/>
   )
 
-  const userAlbum = photos.filter(photo => photo.albumId === albums.id) //returns an ARRAY of photo objects. album.id gives the integer id for the specific album obj
-  if (!userAlbum.length) return null;
+  const userAlbum = photos.filter(photo => photo.albumId === albums?.id) //returns an ARRAY of photo objects. album.id gives the integer id for the specific album obj
+  // if (!userAlbum.length) return null;
 
   return (
     <div className='view-album-page-container'>

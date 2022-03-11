@@ -70,7 +70,7 @@ function App() {
             <AlbumFormPage />
           </Route>
           <Route path="/albums/:albumId">
-            <OneAlbum photos={photos}/>
+            <OneAlbum />
           </Route>
         </Switch>
       )}
