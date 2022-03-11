@@ -15,7 +15,7 @@ const validatePhotoInfo = [
   check('imageUrl')
     .exists({ checkFalsy: true })
     .withMessage('Please input an image url link.')
-    .isURL({ require_protocol: false, require_host: false })
+    .isURL()
     .withMessage('Needs to be a valid imageUrl'),
   handleValidationErrors //runs through validation in utils then sends to 3rd err handler
 ];
