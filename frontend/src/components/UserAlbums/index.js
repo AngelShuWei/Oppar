@@ -20,9 +20,10 @@ function UserAlbums ({albums}) {
       <img className='flower-background' id='albums' src={flowerBackground} alt='flower'/>
         <div className='user-album-page-container'>
           <div className='add-album-button'>
-            <button>
+            <Link to='/albums/upload'><button>
               <i className="fa-regular fa-square-plus">New-album</i>
             </button>
+            </Link>
             </div>
             <div className='user-albums-container'>
               {userAlbums.map(album => (

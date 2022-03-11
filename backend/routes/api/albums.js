@@ -12,11 +12,6 @@ const validateAlbumInfo = [
     .withMessage('Please input a title.') // need this line because .length({max:}) and not .length({min:})
     .isLength({ max: 50 })
     .withMessage('Album title can be max 50 characters.'),
-  check('imageUrl')
-    .exists({ checkFalsy: false }) //making it optional to input imageURL
-    .withMessage('Please input an image url link.')
-    .isURL({ require_protocol: false, require_host: false })
-    .withMessage('Needs to be a valid imageUrl'),
   handleValidationErrors //runs through validation in utils then sends to 3rd err handler
 ];
 
@@ -24,6 +19,20 @@ const validateAlbumInfo = [
 router.get('/', asyncHandler(async (req, res) => {
   const allAlbums = await Album.findAll();
   return res.json({allAlbums});
+}));
+
+//upload album
+router.post('/', restoreUser, validateAlbumInfo, asyncHandler(async (req, res) => {
+  const { user } = req;
+  const { title, imageUrl, content } = req.body;
+  const album = await Album.create({
+    userId: user.id,
+    title,
+    imageUrl,
+    content
+  });
+
+  return res.json({album});
 }));
 
 module.exports = router;

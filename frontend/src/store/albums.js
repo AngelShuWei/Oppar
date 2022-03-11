@@ -35,6 +35,23 @@ export const getAllAlbums = () => async(dispatch) => {
   return response;
 }
 
+export const createAlbum = (album) => async(dispatch) => {
+  const { title, imageUrl, content } = album;
+  const response = await csrfFetch(`/api/albums`, {
+    method: 'POST',
+    body: JSON.stringify({
+      title,
+      imageUrl,
+      content
+    }),
+  });
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(addOne(data.album));
+  }
+  return response;
+}
+
 const initialState = {};
 
 const albumsReducer = (state = initialState, action) => {
@@ -45,9 +62,9 @@ const albumsReducer = (state = initialState, action) => {
       return newState[album.id] = album;
       });
       return newState; //need to return again because two functions
-    // case ADD_ONE:
-    //   newState[action.photo.id] = action.photo;
-    //   return newState;
+    case ADD_ONE:
+      newState[action.album.id] = action.album;
+      return newState;
     // case UPDATE_ONE:
     //   newState[action.photo.id] = action.photo;
     //   return newState;
