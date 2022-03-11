@@ -7,6 +7,7 @@ import { Redirect, NavLink, Link} from "react-router-dom";
 function OneAlbum({photos}) {
   const { albumId } = useParams();
   const sessionUser = useSelector((state) => state.session.user);
+  console.log(sessionUser);
   const albums = useSelector((state) => state.albums[albumId]) //state.albums is an object w/ all albums, key into the specific album object (singular object) {id, userId, title..}
   // console.log(albums)
 
@@ -15,7 +16,6 @@ function OneAlbum({photos}) {
   )
 
   const userAlbum = photos.filter(photo => photo.albumId === albums.id) //returns an ARRAY of photo objects. album.id gives the integer id for the specific album obj
-  console.log(userAlbum);
 
   if (!userAlbum) return null;
 
@@ -29,6 +29,7 @@ function OneAlbum({photos}) {
         <div className='view-album-text'>
           <h1 className='view-album-title-text'>{albums.title}</h1>
           <h3 className='view-album-desc-text'>{albums.content}</h3>
+          <h4 className='view-album-desc-user'>By: {sessionUser.username}</h4>
         </div>
           <div className='view-album-container'>
             {userAlbum.map(photos => (
