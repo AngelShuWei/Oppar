@@ -23,11 +23,11 @@ function PhotoFormPage() {
     e.preventDefault();
     setErrors([]);
     await dispatch(photosActions.createPhoto({ title, imageUrl, content }))
+      .then(JD => history.push('/photos')) //.then means have to wait for the dispatch to complete before moving on
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
-    if (!errors) history.push('/photos');
   };
 
   return (

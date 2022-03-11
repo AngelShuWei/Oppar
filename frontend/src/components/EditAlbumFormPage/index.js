@@ -23,11 +23,11 @@ function EditAlbumFormPage() {
     e.preventDefault();
     setErrors([]);
     dispatch(albumsActions.updateAlbum({ id:album.id, title, imageUrl, content }))
+      .then(JD => history.push('/albums'))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
-     if (!errors) return history.push('/albums');
   };
 
   return (
@@ -41,13 +41,13 @@ function EditAlbumFormPage() {
           onChange={(e) => setTitle(e.target.value)}
           // required
           />
-        <label className='label-field'>ImageUrl</label>
+        <label className='label-field'>ImageUrl (optional)</label>
         <input className='input-field'
           type="text"
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
         />
-        <label className='label-field'>Description</label>
+        <label className='label-field'>Description (optional)</label>
         <input className='input-field'
           type="text"
           value={content}

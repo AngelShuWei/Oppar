@@ -27,11 +27,11 @@ function EditPhotoFormPage() {
     e.preventDefault();
     setErrors([]);
     dispatch(photosActions.updatePhoto({ id:photo.id, title, imageUrl, content }))
+      .then(JD => history.push('/photos'))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
-      if (!errors) return history.push('/photos');
   };
 
   return (

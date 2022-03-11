@@ -20,11 +20,11 @@ function AlbumFormPage() {
     e.preventDefault();
     setErrors([]);
     dispatch(albumActions.createAlbum({ title, imageUrl, content }))
+      .then(JD => history.push('/albums'))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
-      if (!errors) return <Redirect to='/albums'/>;
   };
 
   return (
@@ -44,7 +44,7 @@ function AlbumFormPage() {
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
         />
-        <label className='label-field'>Description</label>
+        <label className='label-field'>Description (optional)</label>
         <input className='input-field'
           type="text"
           value={content}
