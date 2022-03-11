@@ -11,9 +11,10 @@ function PhotoFormPage() {
   const albums = useSelector((state) => Object.values(state.albums));
   const [title, setTitle] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [album, setAlbum] = useState(albums[0]);
   const [content, setContent] = useState("");
   const [errors, setErrors] = useState([]);
+  const userAlbums = albums.filter(album => album.userId === sessionUser.id);
+  const [album, setAlbum] = useState(userAlbums[0]);
 
   if (!sessionUser) return (
     <Redirect to='/'/>
@@ -51,7 +52,7 @@ function PhotoFormPage() {
         <label className='label-field'>
           Select an Album (optional)
           <select value={album} onChange={e => setAlbum(e.target.value)}>
-              {albums.map(album => (
+              {userAlbums.map(album => (
               <option
                 key={album.id}
                 value={album.id} //sending an id to the database
