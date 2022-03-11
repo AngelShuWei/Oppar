@@ -24,7 +24,7 @@ function AlbumFormPage() {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
-      if (!errors) return history.push('/albums');
+      if (!errors) return <Redirect to='/albums'/>;
   };
 
   return (

@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler');
 const { setTokenCookie, requireAuth, restoreUser } = require('../../utils/auth');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
-const { Album } = require('../../db/models'); //if destructure here, don't need to type db.create later
+const { Album, Photo} = require('../../db/models'); //if destructure here, don't need to type db.create later
 
 const validateAlbumInfo = [
   check('title')
@@ -52,6 +52,19 @@ router.put('/:albumId', restoreUser, validateAlbumInfo, asyncHandler(async (req,
 //delete an album
 router.delete('/:albumId', asyncHandler(async function (req, res) {
   const album = await Album.findByPk(req.params.albumId);
+  console.log(album);
+  const photos = await Photo.findAll({
+    where: {
+      albumId: album.id   //getting all photos associated with that album
+    }
+  });
+
+  for await (const photo of photos ) {
+    const updatedPhoto = await Photo.findByPk(photo.id) //grabbing individual one from database
+    updatedPhoto.albumId = null;
+    await updatedPhoto.save();
+  }
+
   if (!album) throw new Error('Cannot find album');
 
   await album.destroy();
