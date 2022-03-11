@@ -17,10 +17,10 @@ function OneAlbum({photos}) {
 
   return (
     <>
-      <div className='flower-background' src={flowerBackground} alt='flower'>
+      <img className='flower-background' src={flowerBackground} alt='flower'/>
+        <h1>{albums.title}</h1>
+        <h3>{albums.content}</h3>
         <div className='user-album-page-container'>
-          <h1>{albums.title}</h1>
-          <h3>{albums.content}</h3>
           <div className='user-albums-container'>
             {userAlbum.map(photos => (
               <div key={photos.id}>
@@ -29,7 +29,6 @@ function OneAlbum({photos}) {
             ))}
           </div>
         </div>
-      </div>
     </>
   )
 }
