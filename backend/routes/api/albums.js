@@ -51,18 +51,16 @@ router.put('/:albumId', restoreUser, validateAlbumInfo, asyncHandler(async (req,
 
 //delete an album
 router.delete('/:albumId', asyncHandler(async function (req, res) {
-  const album = await Album.findByPk(req.params.albumId);
-  console.log(album);
-  const photos = await Photo.findAll({
-    where: {
-      albumId: album.id   //getting all photos associated with that album
+  const album = await Album.findByPk(req.params.albumId); //getting current album obj
+  const photos = await Photo.findAll({ //get all photos associated with album
+    where: {  //where is a matching...
+      albumId: album.id //saying if albumId === album.id
     }
   });
 
-  for await (const photo of photos ) {
-    const updatedPhoto = await Photo.findByPk(photo.id) //grabbing individual one from database
-    updatedPhoto.albumId = null;
-    await updatedPhoto.save();
+  for await (const photo of photos ) { //for await is saying await for this entire loop. can only apply this on FOR OF
+    photo.albumId = null; //have photo inside of photos and now we're keying into albumId of that photo and we're setting it to null to dissociate it
+    await photo.save(); //after whole proces above happens, then save the database
   }
 
   if (!album) throw new Error('Cannot find album');

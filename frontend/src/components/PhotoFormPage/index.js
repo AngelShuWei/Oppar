@@ -8,8 +8,10 @@ function PhotoFormPage() {
   const dispatch = useDispatch();
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
+  const albums = useSelector((state) => Object.values(state.albums));
   const [title, setTitle] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [album, setAlbum] = useState();
   const [content, setContent] = useState("");
   const [errors, setErrors] = useState([]);
 
@@ -20,12 +22,12 @@ function PhotoFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
-    dispatch(photosActions.createPhoto({ title, imageUrl, content }))
+    await dispatch(photosActions.createPhoto({ title, imageUrl, content }))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
-    if (!errors) return history.push('/photos');
+    if (!errors) history.push('/photos');
   };
 
   return (
@@ -46,7 +48,20 @@ function PhotoFormPage() {
           onChange={(e) => setImageUrl(e.target.value)}
           // required
         />
-        <label className='label-field'>Description</label>
+        <label className='label-field'>
+          Select an Album (optional)
+          <select value={album} onChange={e => setAlbum(e.target.value)}>
+              {albums.map(album => (
+              <option
+                key={album.id}
+                value={album.title}
+              >
+                {album.title}
+              </option>
+              ))}
+          </select>
+        </label>
+        <label className='label-field'>Description (optional) </label>
         <input className='input-field'
           type="text"
           value={content}

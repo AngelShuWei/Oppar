@@ -11,9 +11,11 @@ function EditPhotoFormPage() {
 
   const sessionUser = useSelector((state) => state.session.user);
   const photo = useSelector((state) => state.photos[parseInt(photoId, 10)]); //need to key into state.photo object to get param
+  const albums = useSelector((state) => Object.values(state.albums));
   // console.log(photo)
   const [title, setTitle] = useState(photo.title); //prefill with the proper info
   const [imageUrl, setImageUrl] = useState(photo.imageUrl);
+  const [album, setAlbum] = useState();
   const [content, setContent] = useState(photo.content);
   const [errors, setErrors] = useState([]);
 
@@ -50,7 +52,20 @@ function EditPhotoFormPage() {
           onChange={(e) => setImageUrl(e.target.value)}
           // required
         />
-        <label className='label-field'>Description</label>
+        <label className='label-field'>
+          Select an Album (optional)
+          <select value={album} onChange={e => setAlbum(e.target.value)}>
+              {albums.map(album => (
+              <option
+                key={album.id}
+                value={album.title}
+              >
+                {album.title}
+              </option>
+              ))}
+          </select>
+        </label>
+        <label className='label-field'>Description (optional)</label>
         <input className='input-field'
           type="text"
           value={content}
