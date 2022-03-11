@@ -27,7 +27,7 @@ function EditAlbumFormPage() {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
-    return history.push('/albums');
+     if (!errors) return history.push('/albums');
   };
 
   return (
@@ -53,9 +53,7 @@ function EditAlbumFormPage() {
           value={content}
           onChange={(e) => setContent(e.target.value)}
           />
-        <ul>
-          {errors.map((error, idx) => <p key={idx}>{error}</p>)}
-        </ul>
+        {errors.map((error, idx) => <p key={idx}>{error}</p>)}
         <button className='sign-button' type="submit">Submit</button>
       </form>
     </div>

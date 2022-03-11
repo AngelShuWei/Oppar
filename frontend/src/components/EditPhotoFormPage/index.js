@@ -29,7 +29,7 @@ function EditPhotoFormPage() {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
-    return history.push('/photos');
+      if (!errors) return history.push('/photos');
   };
 
   return (
@@ -56,9 +56,7 @@ function EditPhotoFormPage() {
           value={content}
           onChange={(e) => setContent(e.target.value)}
           />
-        <ul>
-          {errors.map((error, idx) => <p key={idx}>{error}</p>)}
-        </ul>
+        {errors.map((error, idx) => <p key={idx}>{error}</p>)}
         <button className='sign-button' type="submit">Submit</button>
       </form>
     </div>
