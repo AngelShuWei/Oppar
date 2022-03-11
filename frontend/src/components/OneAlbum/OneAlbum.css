@@ -16,8 +16,9 @@
 
 .view-album-text {
   position: absolute;
-  top: 15%;
+  top: 18%;
   right: 45%;
+  color: white;
 }
 
 .view-album-container {
@@ -25,10 +26,12 @@
   flex-wrap: wrap;
   justify-content: start;
   margin-left: 191px;
+  margin-right: 191px;
 }
 
 .view-album {
   width: 185px;
   height: 185px;
   object-fit: cover;
+  margin-right: 3px;
 }

@@ -21,8 +21,8 @@ function UserAlbums ({albums}) {
         <div className='user-album-page-container'>
           <div className='add-album-button'>
             <Link to='/albums/upload'>
-              <button>
-                <i className="fa-regular fa-square-plus">New-album</i>
+              <button className='new-album-button'>
+                <i className="fa-regular fa-square-plus"> New album</i>
               </button>
             </Link>
           </div>

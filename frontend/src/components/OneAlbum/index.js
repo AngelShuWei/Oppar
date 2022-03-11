@@ -17,14 +17,19 @@ function OneAlbum({photos}) {
   const userAlbum = photos.filter(photo => photo.albumId === albums.id) //returns an ARRAY of photo objects. album.id gives the integer id for the specific album obj
   console.log(userAlbum);
 
+  if (!userAlbum) return null;
+
   return (
     <div className='view-album-page-container'>
-      <img className='album-background' src={userAlbum[0].imageUrl} alt='flower'/>
+      {userAlbum[0].imageUrl ? (
+        <img className='album-background' src={userAlbum[0].imageUrl || "https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg"} alt='flower'/>
+      ) : (
+        <img className='album-background' src={"https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg"} alt='flower'/>
+      )}
         <div className='view-album-text'>
           <h1 className='view-album-title-text'>{albums.title}</h1>
           <h3 className='view-album-desc-text'>{albums.content}</h3>
         </div>
-        {/* <div className='user-album-page-container'> */}
           <div className='view-album-container'>
             {userAlbum.map(photos => (
               <div key={photos.id}>
@@ -32,7 +37,6 @@ function OneAlbum({photos}) {
               </div>
             ))}
           </div>
-        {/* </div> */}
     </div>
   )
 }
