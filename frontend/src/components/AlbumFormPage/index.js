@@ -36,7 +36,7 @@ function AlbumFormPage() {
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          required
+          // required
           />
         <label className='label-field'>ImageUrl</label>
         <input className='input-field'

@@ -37,14 +37,14 @@ function PhotoFormPage() {
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          required
+          // required
           />
         <label className='label-field'>ImageUrl</label>
         <input className='input-field'
           type="text"
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
-          required
+          // required
         />
         <label className='label-field'>Description</label>
         <input className='input-field'

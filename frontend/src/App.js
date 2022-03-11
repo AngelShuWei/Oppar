@@ -60,11 +60,11 @@ function App() {
           <Route path="/photos/:photoId">
             <OnePhoto />
           </Route>
-          <Route path="albums/:albumId/edit">
-            <EditAlbumFormPage />
-          </Route>
           <Route exact path="/albums">
             <UserAlbums albums={albums}/>
+          </Route>
+          <Route path="/albums/:albumId/edit">
+            <EditAlbumFormPage />
           </Route>
           <Route path="/albums/upload">
             <AlbumFormPage />

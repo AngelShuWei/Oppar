@@ -50,28 +50,28 @@ function SignupFormPage() {
         type="text"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        required
+        // required
         />
       <label className='label-field'>Username</label>
       <input className='input-field'
         type="text"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        required
+        // required
       />
       <label className='label-field'>Password</label>
       <input className='input-field'
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        required
+        // required
         />
       <label className='label-field'>Confirm Password</label>
       <input className='input-field'
         type="password"
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
-        required
+        // required
         />
         <ul>
           {errors.map((error, idx) => <p key={idx}>{error}</p>)}
