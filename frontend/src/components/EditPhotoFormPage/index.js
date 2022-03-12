@@ -11,11 +11,13 @@ function EditPhotoFormPage() {
 
   const sessionUser = useSelector((state) => state.session.user);
   const photo = useSelector((state) => state.photos[parseInt(photoId, 10)]); //need to key into state.photo object to get param
-  const albums = useSelector((state) => Object.values(state.albums));
-  // console.log(photo)
+  const albums = useSelector((state) => Object.values(state.albums).filter(album => {
+    return album.userId === sessionUser.id;
+  }));
+  // console.log (album.id === photo.albumId)
   const [title, setTitle] = useState(photo.title); //prefill with the proper info
   const [imageUrl, setImageUrl] = useState(photo.imageUrl);
-  const [album, setAlbum] = useState();
+  const [album, setAlbum] = useState(albums.find( (album) => album.id === photo.albumId)); //
   const [content, setContent] = useState(photo.content);
   const [errors, setErrors] = useState([]);
 
@@ -55,6 +57,9 @@ function EditPhotoFormPage() {
         <label className='label-field'>
           Select an Album (optional)
           <select value={album} onChange={e => setAlbum(e.target.value)}>
+              <option value={null}>
+                Select One
+              </option>
               {albums.map(album => (
               <option
                 key={album.id}

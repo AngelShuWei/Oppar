@@ -37,7 +37,6 @@ router.post('/', restoreUser, validatePhotoInfo, asyncHandler(async (req, res) =
     albumId: album, //KEY needs to match database
     content
   });
-
   return res.json({photo});
 }));
 

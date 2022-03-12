@@ -8,7 +8,10 @@ function PhotoFormPage() {
   const dispatch = useDispatch();
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
-  const albums = useSelector((state) => Object.values(state.albums));
+  const albums = useSelector((state) => Object.values(state.albums).filter(album => {
+    return album.userId === sessionUser.id;
+  }));
+
   const [title, setTitle] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [album, setAlbum] = useState(albums[0]);
@@ -51,6 +54,9 @@ function PhotoFormPage() {
         <label className='label-field'>
           Select an Album (optional)
           <select value={album} onChange={e => setAlbum(e.target.value)}>
+              <option value={null}>
+              Select One
+              </option>
               {albums.map(album => (
               <option
                 key={album.id}
