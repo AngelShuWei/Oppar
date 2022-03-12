@@ -36,6 +36,16 @@ export const getAllPhotos = () => async(dispatch) => {
   return response;
 }
 
+export const getOnePhoto = () => async(dispatch) => {
+  const response = await csrfFetch(`/api/photos`);
+  if (response.ok) {
+    const data = await response.json();
+    // console.log(data);
+    dispatch(load(data.allPhotos));
+  }
+  return response;
+}
+
 export const createPhoto = (photo) => async(dispatch) => {
   const { title, imageUrl, album, content } = photo;
   const response = await csrfFetch(`/api/photos`, {

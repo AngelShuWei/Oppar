@@ -26,6 +26,18 @@ router.get('/', asyncHandler(async (req, res) => {
   return res.json({allPhotos});
 }));
 
+//get one photo
+router.get('/', restoreUser, asyncHandler(async (req, res) => {
+  const { user } = req;
+  const allPhotos = await Photo.findAll({
+    where: {
+      userId: user.id
+    }
+  });
+  return res.json({allPhotos});
+}));
+
+
 //upload photo
 router.post('/', restoreUser, validatePhotoInfo, asyncHandler(async (req, res) => {
   const { user } = req;
