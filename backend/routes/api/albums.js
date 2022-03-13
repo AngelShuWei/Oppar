@@ -12,10 +12,10 @@ const validateAlbumInfo = [
     .withMessage('Please input a title.') // need this line because .length({max:}) and not .length({min:})
     .isLength({ max: 50 })
     .withMessage('Album title can be max 50 characters.'),
-    check('imageUrl')
-    .isURL()
-    .optional({nullable: true }) //checking if nullable
-    .withMessage('Needs to be a valid imageUrl'),
+    // check('imageUrl')
+    // .isURL()
+    // .optional({nullable: true }) //checking if nullable
+    // .withMessage('Needs to be a valid imageUrl'),
   handleValidationErrors //runs through validation in utils then sends to 3rd err handler
 ];
 
