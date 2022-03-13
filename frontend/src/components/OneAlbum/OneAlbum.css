@@ -21,12 +21,13 @@
   align-items: center; */
   position: absolute;
   top: 15%;
-  right: 45%;
+  right: 46%;
   color: white;
+  text-shadow: 0 1px 1px #000;
 }
 
 .view-album-desc-user {
-  margin-top: 70px;
+  margin-top: 160px;
 }
 
 .view-album-container {
@@ -42,4 +43,8 @@
   height: 185px;
   object-fit: cover;
   margin-right: 3px;
+}
+
+.view-album:hover {
+  box-shadow: 0px 15px 15px -5px #888888;
 }

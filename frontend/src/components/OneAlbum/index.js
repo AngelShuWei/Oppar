@@ -22,12 +22,11 @@ function OneAlbum() {
     <Redirect to='/'/>
   )
 
-  const userPhotos = photos.filter(photo => photo.userId === sessionUser.id);
   const userAlbum = photos.filter(photo => photo.albumId === albums?.id) //returns an ARRAY of photo objects. album.id gives the integer id for the specific album obj
 
   return (
     <div className='view-album-page-container'>
-        <img className='album-background' src={(userAlbum[userAlbum.length-1])?.imageUrl || "https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg"} alt='flower'/>
+        <img className='album-background' src={(userAlbum[userAlbum.length-1])?.imageUrl || "https://m.media-amazon.com/images/I/81VLzTqpyyL._AC_SX679_.jpg"} alt='flower'/>
         <div className='view-album-text'>
           <h1 className='view-album-title-text'>{albums?.title}</h1>
           <h3 className='view-album-desc-text'>{albums?.content}</h3>

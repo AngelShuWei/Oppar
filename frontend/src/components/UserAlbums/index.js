@@ -32,7 +32,7 @@ function UserAlbums () {
             {userAlbums.map(album => (
               <div className='albums-info' key={album.id}>
                 <Link to={`/albums/${album.id}`}>
-                <img className='user-album' src={album.imageUrl || "https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg"} alt={album.title}/>
+                <img className='user-album' src={album.imageUrl || "https://m.media-amazon.com/images/I/81VLzTqpyyL._AC_SX679_.jpg"} alt={album.title}/>
                 </Link>
                 <EditDeleteAlbumButton album={album}/>
                 <p className='user-album-text'>{album.title}</p>
