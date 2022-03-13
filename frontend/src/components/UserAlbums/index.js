@@ -6,8 +6,9 @@ import { Redirect, NavLink, Link, useHistory, useParams} from "react-router-dom"
 import * as photosActions from '../../store/photos';
 import EditDeleteAlbumButton from './EditDeleteAlbumButton';
 
-function UserAlbums ({albums}) {
+function UserAlbums () {
   const sessionUser = useSelector((state) => state.session.user); //uncomment if prop doesn't work
+  const albums = useSelector(state => Object.values(state.albums));
 
   if (!sessionUser) return (
     <Redirect to='/'/>

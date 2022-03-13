@@ -21,8 +21,8 @@ import EditAlbumFormPage from './components/EditAlbumFormPage';
 function App() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
-  const photos = useSelector(state => Object.values(state.photos)); // {userId: {photos obj...}}
-  const albums = useSelector(state => Object.values(state.albums)); // {userId: {albums obj....}}
+  // const photos = useSelector(state => Object.values(state.photos)); // {userId: {photos obj...}}
+  // const albums = useSelector(state => Object.values(state.albums)); // {userId: {albums obj....}}
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -55,13 +55,13 @@ function App() {
             <EditPhotoFormPage/>
           </Route>
           <Route exact path="/photos">
-            <UserPhotos photos={photos}/>
+            <UserPhotos/>
           </Route>
           <Route path="/photos/:photoId">
             <OnePhoto />
           </Route>
           <Route exact path="/albums">
-            <UserAlbums albums={albums}/>
+            <UserAlbums/>
           </Route>
           <Route path="/albums/:albumId/edit">
             <EditAlbumFormPage />

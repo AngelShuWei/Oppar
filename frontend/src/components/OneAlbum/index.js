@@ -24,7 +24,6 @@ function OneAlbum() {
 
   const userPhotos = photos.filter(photo => photo.userId === sessionUser.id);
   const userAlbum = photos.filter(photo => photo.albumId === albums?.id) //returns an ARRAY of photo objects. album.id gives the integer id for the specific album obj
-  // if (!userAlbum.length) return null;
 
   return (
     <div className='view-album-page-container'>

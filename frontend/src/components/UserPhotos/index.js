@@ -5,8 +5,9 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import EditDeleteButton from './EditDeleteButton';
 
-function UserPhotos({photos}) {
+function UserPhotos() {
   const sessionUser = useSelector((state) => state.session.user);
+  const photos = useSelector(state => Object.values(state.photos));
 
   if (!sessionUser) return (
     <Redirect to='/'/>
