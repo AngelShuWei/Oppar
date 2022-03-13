@@ -20,7 +20,7 @@ function EditPhotoFormPage() {
 
   const [title, setTitle] = useState(photo.title); //prefill with the proper info
   const [imageUrl, setImageUrl] = useState(photo.imageUrl);
-  const [album, setAlbum] = useState(foundAlbum ? foundAlbum.id : null);
+  const [album, setAlbum] = useState(foundAlbum ? foundAlbum.id : -1);
   const [content, setContent] = useState(photo.content);
   const [errors, setErrors] = useState([]);
 
@@ -60,7 +60,7 @@ function EditPhotoFormPage() {
         <label className='label-field'>
           Add to an album (optional)
           <select value={album} onChange={e => setAlbum(e.target.value)}>
-              <option value={null}>
+              <option value={-1}>
               None
               </option>
               {albums.map(album => (

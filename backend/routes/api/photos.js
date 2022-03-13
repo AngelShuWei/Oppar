@@ -43,9 +43,13 @@ router.post('/', restoreUser, validatePhotoInfo, asyncHandler(async (req, res) =
 // update photo
 router.put('/:photoId', restoreUser, validatePhotoInfo, asyncHandler(async (req, res) => {
   const { user } = req; //dont need user because alrdy know which user submitted the intial form
-  const { photoId } = req.params; // const photoId = req.params.photoId alternative way without destruturing
-  const { title, imageUrl, album, content, id} = req.body; //can pull photoId from params if want to
+  const { photoId } = req.params; // const photoId = req.params.photoId alternative way without destructuring
+  let { title, imageUrl, album, content, id} = req.body; //can pull photoId from params if want to
+
+  if (parseInt(album, 10) === -1 ) album = null;
+
   const photo = await Photo.findByPk(parseInt(photoId, 10));
+  console.log(photo);
   await photo.update({  //keying into the photo
     title, // don't need userId: user.id because owner has already been eastablished during create feature
     imageUrl,
