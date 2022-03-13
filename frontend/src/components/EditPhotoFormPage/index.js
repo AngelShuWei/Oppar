@@ -41,24 +41,24 @@ function EditPhotoFormPage() {
       <form className='form-container' onSubmit={handleSubmit}>
         <h3>Edit photo🖼️</h3>
         <label className='label-field'>Title</label>
-        <input className='input-field'
+        <input className='input-field' placeholder="Photo title"
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           // required
           />
         <label className='label-field'>ImageUrl</label>
-        <input className='input-field'
+        <input className='input-field' placeholder="ImageUrl"
           type="text"
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
           // required
         />
         <label className='label-field'>
-          Select an Album (optional)
+          Add to an album (optional)
           <select value={album} onChange={e => setAlbum(e.target.value)}>
               <option value={null}>
-                Select One
+                Select
               </option>
               {albums.map(album => (
               <option
@@ -71,7 +71,7 @@ function EditPhotoFormPage() {
           </select>
         </label>
         <label className='label-field'>Description (optional)</label>
-        <input className='input-field'
+        <textarea className='input-field' placeholder="Enter a description"
           type="text"
           value={content}
           onChange={(e) => setContent(e.target.value)}

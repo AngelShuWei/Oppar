@@ -32,20 +32,20 @@ function AlbumFormPage() {
       <form className='form-container' onSubmit={handleSubmit}>
         <h3>Create a new Album</h3>
         <label className='label-field'>Title</label>
-        <input className='input-field'
+        <input className='input-field' placeholder="Album title"
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           // required
           />
         <label className='label-field'>ImageUrl</label>
-        <input className='input-field'
+        <input className='input-field' placeholder="ImageUrl"
           type="text"
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
         />
         <label className='label-field'>Description (optional)</label>
-        <input className='input-field'
+        <textarea className='input-field' placeholder="Enter a description"
           type="text"
           value={content}
           onChange={(e) => setContent(e.target.value)}
