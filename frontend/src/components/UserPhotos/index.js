@@ -12,7 +12,7 @@ function UserPhotos({photos}) {
     <Redirect to='/'/>
   )
 
-  const userPhotos = photos.filter(photo => photo.userId === sessionUser.id) //renders all the photos specific to that user
+  const userPhotos = photos.filter(photo => photo.userId === sessionUser.id); //renders all the photos specific to that user
 
   return (
     <>
