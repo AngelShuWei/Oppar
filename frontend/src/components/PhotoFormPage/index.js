@@ -55,7 +55,7 @@ function PhotoFormPage() {
           Add to an album (optional)
           <select value={album} onChange={e => setAlbum(e.target.value)}>
               <option value={null}>
-              Select
+              None
               </option>
               {albums.map(album => (
               <option
