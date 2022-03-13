@@ -25,10 +25,11 @@ function App() {
   // const albums = useSelector(state => Object.values(state.albums)); // {userId: {albums obj....}}
   const [isLoaded, setIsLoaded] = useState(false);
 
+  //any sort of data that you need to persist, then needs it in app.js
   useEffect(() => {
-    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));  //if there is user, then set load to true
     dispatch(photosActions.getAllPhotos()); //need to do this in case more photos get uploaded by users
     dispatch(albumsActions.getAllAlbums()); //need to do this in case more albums get uploaded by users
+    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));  //if there is user, then set load to true
   }, [dispatch]);
 
 

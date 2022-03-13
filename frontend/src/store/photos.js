@@ -31,7 +31,7 @@ export const getAllPhotos = () => async(dispatch) => {
   if (response.ok) {
     const data = await response.json();
     // console.log(data);
-    dispatch(load(data.allPhotos));
+    await dispatch(load(data.allPhotos));
   }
   return response;
 }

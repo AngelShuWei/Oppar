@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, NavLink, Link, useHistory, useParams} from "react-router-dom";
 import * as photosActions from '../../store/photos';
+import { getAllAlbums } from '../../store/albums';
 
 function EditPhotoFormPage() {
   const dispatch = useDispatch();
@@ -14,10 +15,12 @@ function EditPhotoFormPage() {
   const albums = useSelector((state) => Object.values(state.albums).filter(album => {
     return album.userId === sessionUser.id;
   }));
-  // console.log (album.id === photo.albumId)
+
+  const foundAlbum = albums.find( (album) => album.id === photo.albumId);
+
   const [title, setTitle] = useState(photo.title); //prefill with the proper info
   const [imageUrl, setImageUrl] = useState(photo.imageUrl);
-  const [album, setAlbum] = useState(albums.find( (album) => album.id === photo.albumId)); //
+  const [album, setAlbum] = useState(foundAlbum ? foundAlbum.id : null);
   const [content, setContent] = useState(photo.content);
   const [errors, setErrors] = useState([]);
 

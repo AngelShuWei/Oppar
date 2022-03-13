@@ -30,7 +30,7 @@ export const getAllAlbums = () => async(dispatch) => {
   const response = await csrfFetch(`/api/albums`);
   if (response.ok) {
     const data = await response.json();
-    dispatch(load(data.allAlbums));
+    await dispatch(load(data.allAlbums));
   }
   return response;
 }
