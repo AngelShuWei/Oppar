@@ -31,6 +31,7 @@ function EditPhotoFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
+    
     dispatch(photosActions.updatePhoto({ id:photo.id, title, imageUrl, album, content }))
       .then(JD => history.push('/photos'))
       .catch(async (res) => {

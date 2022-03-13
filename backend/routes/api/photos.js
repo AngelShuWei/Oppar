@@ -29,7 +29,10 @@ router.get('/', asyncHandler(async (req, res) => {
 //upload photo
 router.post('/', restoreUser, validatePhotoInfo, asyncHandler(async (req, res) => {
   const { user } = req;
-  const { title, imageUrl, album, content } = req.body;
+  let { title, imageUrl, album, content } = req.body;
+  
+  if (parseInt(album, 10) === -1 ) album = null;
+
   const photo = await Photo.create({
     userId: user.id, //trying to figure out who owned it so need to set value
     title,
@@ -49,7 +52,7 @@ router.put('/:photoId', restoreUser, validatePhotoInfo, asyncHandler(async (req,
   if (parseInt(album, 10) === -1 ) album = null;
 
   const photo = await Photo.findByPk(parseInt(photoId, 10));
-  console.log(photo);
+
   await photo.update({  //keying into the photo
     title, // don't need userId: user.id because owner has already been eastablished during create feature
     imageUrl,

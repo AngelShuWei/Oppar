@@ -14,7 +14,7 @@ function PhotoFormPage() {
 
   const [title, setTitle] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [album, setAlbum] = useState(albums[0]);
+  const [album, setAlbum] = useState(-1);
   const [content, setContent] = useState("");
   const [errors, setErrors] = useState([]);
 
@@ -25,6 +25,7 @@ function PhotoFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
+    console.log(title, content)
     await dispatch(photosActions.createPhoto({ title, imageUrl, album, content }))
       .then(JD => history.push('/photos')) //.then means have to wait for the dispatch to complete before moving on
       .catch(async (res) => {
@@ -54,7 +55,7 @@ function PhotoFormPage() {
         <label className='label-field'>
           Add to an album (optional)
           <select value={album} onChange={e => setAlbum(e.target.value)}>
-              <option value={null}>
+              <option value={-1}>
               None
               </option>
               {albums.map(album => (
