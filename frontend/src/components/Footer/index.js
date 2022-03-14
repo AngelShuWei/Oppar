@@ -1,18 +1,6 @@
 import './Footer.css'
 import { UilGithub, UilLinkedin } from '@iconscout/react-unicons';
 import { SiHeroku, SiPostgresql, SiExpress, SiSequelize, SiNodedotjs, SiReact, SiRedux, SiHtml5, SiCss3 } from 'react-icons/si';
-import css from '../../assets/icons/css3.png'
-import expressjs from '../../assets/icons/expressjs.png'
-import github from '../../assets/icons/github.png'
-import heroku from '../../assets/icons/heroku.png'
-import html from '../../assets/icons/html5.png'
-import linkedin from '../../assets/icons/linkedin.png'
-import nodejs from '../../assets/icons/nodejs.png'
-import postgresql from '../../assets/icons/postgresql.png'
-import react from '../../assets/icons/react.png'
-import redux from '../../assets/icons/redux.png'
-import sequelize from '../../assets/icons/sequelize.png'
-import vscode from '../../assets/icons/vscode.png'
 
 function Footer () {
   return (
@@ -36,22 +24,6 @@ function Footer () {
           </a>
         </div>
       </div>
-      {/* <div className='social-links'>
-        <UilGithub size={30}/>
-        <UilLinkedin size={30}/>
-      </div> */}
-        {/* <img className='tech-icon' src={expressjs} alt='expressjs-icon' style={{width:"2%"}}/>
-        <img className='tech-icon' src={css} alt='sequelize-icon' style={{width:"2%"}}/>
-        <img className='tech-icon' src={html} alt='expressjs-icon' style={{width:"2%"}}/>
-        <img className='tech-icon' src={SiHeroku} alt='expressjs-icon' style={{width:"2%"}}/>
-        <img className='tech-icon' src={nodejs} alt='expressjs-icon' style={{width:"2%"}}/>
-        <img className='tech-icon' src={postgresql} alt='expressjs-icon' style={{width:"2%"}}/>
-        <img className='tech-icon' src={react} alt='expressjs-icon' style={{width:"2%"}}/>
-        <img className='tech-icon' src={redux} alt='expressjs-icon' style={{width:"2%"}}/>
-        <img className='tech-icon' src={sequelize} alt='expressjs-icon' style={{width:"2%"}}/>
-        <img className='tech-icon' src={vscode} alt='expressjs-icon' style={{width:"2%"}}/>
-        <a href='https://github.com/AngelShuWei' className='tech-icon' id='github'><img src={github} alt='expressjs-icon' style={{width:"12%"}}/></a>
-        <a href='https://www.linkedin.com/in/angel-wei-21952b16a/' className='tech-icon'><img src={linkedin} alt='expressjs-icon' style={{width:"12%"}}/></a> */}
     </div>
   )
 }
