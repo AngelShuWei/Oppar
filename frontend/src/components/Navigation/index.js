@@ -4,8 +4,6 @@ import logo from '../../assets/opparlogo3.png'
 import { NavLink, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import UploadButton from './UploadButton';
-import AlbumsButton from './AlbumsButton';
 
 function Navigation({isLoaded}) {
   const sessionUser = useSelector(state => state.session.user);

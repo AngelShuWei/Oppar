@@ -36,3 +36,14 @@
 .content-container:hover {
   background-color: rgb(243, 245, 246);
 }
+
+/* .photo-details-username {
+  font-weight: bold;
+  font-size: 18px;
+} */
+
+.photo-details-title {
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

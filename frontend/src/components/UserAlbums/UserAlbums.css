@@ -15,19 +15,31 @@
 }
 
 .new-album-button {
+  display: flex;
+  align-items: center;
   padding: 0;
   border: none;
   background: none;
   cursor: pointer;
   font: initial;
   color: rgb(78, 78, 78);
+  /* background-color: white;
+  border-radius: 3px; */
+}
+
+.new-album-button.link {
+  text-decoration: none;
+}
+
+.new-album-button:hover {
+  /* font-weight: bold; */
+  color: rgb(224, 176, 184);
 }
 
 .user-albums-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  /* padding-top: 50px; */
   margin-left: 150px;
   margin-right: 123px;
 }
@@ -55,6 +67,12 @@
   height: 50px;
   margin-right: 400px;
 }
+
+.fa-square-plus {
+  margin-right: 4px;
+  text-decoration: none;
+}
+
 
 /* .fa-regular.fa-square-plus {
   display: flex;

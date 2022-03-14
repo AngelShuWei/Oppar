@@ -15,7 +15,8 @@ function OnePhoto() {
         <div className='content-container'></div>
       </div>
         <div className='content-container'>
-          <div>{photoDetails.title}</div>
+          {/* <div className='photo-details-username'>By: {sessionUser.username}</div> */}
+          <div className='photo-details-title'>{photoDetails.title}</div>
           <div>{photoDetails.content}</div>
       </div>
     </>

@@ -22,9 +22,10 @@ function UserAlbums () {
       <img className='flower-background' id='albums' src={flowerBackground} alt='flower'/>
         <div className='user-album-page-container'>
           <div className='add-album-button'>
-            <Link to='/albums/upload'>
+            <Link className='new-album-button link' to='/albums/upload'>
               <button className='new-album-button'>
-                <i className="fa-regular fa-square-plus"> New album</i>
+                <i className="fa-regular fa-square-plus"></i>
+                <p> New album</p>
               </button>
             </Link>
           </div>

@@ -70,11 +70,27 @@
 }
 
 .profile-dropdown{
+  position: fixed;
   background-color: white;
-  width: 210px;
+  width: 200px;
+  height: auto;
   outline: 1px solid black;
+  margin-top: 50px;
   border-radius: 3px;
-  /* box-shadow: 5px 5px 50px 1px black; */
   padding-bottom: 15px;
   padding-top: 1px;
+  /* box-shadow: 5px 5px 50px 1px black; */
+}
+
+.logout-button {
+  margin-left: 40px;
+  cursor: pointer;
+  /* background: none;
+	border: none;
+	padding: 0; */
+  /* border-top: 1px solid gray; */
+}
+
+.logout-button:hover {
+  color: gray;
 }
