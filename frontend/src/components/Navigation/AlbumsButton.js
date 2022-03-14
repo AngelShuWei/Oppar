@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 function AlbumsButton() {
   return (
     <>
-      <NavLink to='/albums'><button className='nav-button'>Albums</button></NavLink>
+      <NavLink to='/albums'><button className='nav-button feature'>Albums</button></NavLink>
     </>
   )
 };

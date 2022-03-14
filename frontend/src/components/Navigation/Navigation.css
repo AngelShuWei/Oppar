@@ -38,9 +38,10 @@
 
 .nav-button-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
-  margin-left: 10px;
+  margin-left: 100px;
+  margin-right: 200px;
 }
 
 .nav-button {
@@ -56,9 +57,17 @@
   color: rgb(186, 186, 186);
 }
 
-/* .fa-lg.fas.fa-user-circle {
-  margin-left: 100px;
-} */
+.nav-left-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+}
+
+.nav-right-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+}
 
 .profile-dropdown{
   background-color: white;

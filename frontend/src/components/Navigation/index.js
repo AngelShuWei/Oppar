@@ -5,7 +5,6 @@ import { NavLink, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import UploadButton from './UploadButton';
-import PhotostreamButton from './PhotostreamButton';
 import AlbumsButton from './AlbumsButton';
 
 function Navigation({isLoaded}) {
@@ -18,10 +17,22 @@ function Navigation({isLoaded}) {
   if (sessionUser) { //if there is a sessionUser
     sessionLinks = ( //only render the profile Button when there is a session user
       <div className='nav-button-container'>
-        <PhotostreamButton/>
-        <AlbumsButton />
-        <UploadButton/>
+        <div className='nav-left-buttons'>
+        <NavLink to='/photos'>
+          <button className='nav-button'>Photostream</button>
+        </NavLink>
+        <NavLink to='/albums'>
+          <button className='nav-button'>Albums</button>
+        </NavLink>
+        </div>
+        <div className='nav-right-buttons'>
+        <NavLink to='/upload'>
+          <button className='nav-button'>
+            <i className="fa-lg fa-solid fa-upload"></i>
+          </button>
+        </NavLink>
         <ProfileButton user={sessionUser} />
+        </div>
       </div>
     );
     styleChanges = {
