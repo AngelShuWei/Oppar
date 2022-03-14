@@ -23,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/AngelShuWei/Oppar/issues"
   },
-  "homepage": "https://github.com/AngelShuWei/Oppar#readme"
+  "homepage": "https://github.com/AngelShuWei/Oppar#readme",
+  "dependencies": {
+    "@iconscout/react-unicons": "^1.1.6",
+    "react-icons": "^4.3.1"
+  }
 }

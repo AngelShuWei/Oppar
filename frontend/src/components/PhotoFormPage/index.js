@@ -25,7 +25,7 @@ function PhotoFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
-    console.log(title, content)
+    // console.log(title, content)
     await dispatch(photosActions.createPhoto({ title, imageUrl, album, content }))
       .then(JD => history.push('/photos')) //.then means have to wait for the dispatch to complete before moving on
       .catch(async (res) => {

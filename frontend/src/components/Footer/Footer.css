@@ -1,3 +1,22 @@
-/* .footer-container {
+.footer-container {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
   background-color: black;
-} */
+  color: white;
+  padding: 13px;
+}
+
+.tech-icons-container {
+  display: flex;
+  justify-content: center;
+}
+
+.tech-icon {
+  margin-right: 20px;
+}
+
+.icon-container#github {
+  margin-left: 10px;
+  border-left-style: 10px solid white;
+}
