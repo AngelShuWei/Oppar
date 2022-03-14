@@ -5,18 +5,18 @@ Oppar is a clone of [Flickr](https://www.flickr.com/). It is the place to share 
 | [MVP Feature List](https://github.com/AngelShuWei/Oppar/wiki/MVP-Feature-List) | [Database Schema](https://github.com/AngelShuWei/Oppar/wiki/Database-Schema) | [Backend API Routes](https://github.com/AngelShuWei/Oppar/wiki/Backend-API-Routes) | [Frontend Routes](https://github.com/AngelShuWei/Oppar/wiki/Frontend-Routes) | 
 
 ## Technologies Used
-![image](https://user-images.githubusercontent.com/92352042/158100016-56a9c514-29bb-43be-ae20-99cea44f1a4a.png)
-![image](https://user-images.githubusercontent.com/92352042/158100034-225d70d4-de98-4a59-a633-812cf73ff834.png)
-![image](https://user-images.githubusercontent.com/92352042/158100040-8e65d32a-ab1e-4d5d-992b-4e2f8c0f7a99.png)
-![image](https://user-images.githubusercontent.com/92352042/158100048-1f5ad519-63cd-4e4c-9202-2d8e3811ca92.png)
-![image](https://user-images.githubusercontent.com/92352042/158100065-143b933a-fc62-423b-b62c-69030d93ca6d.png)
-![image](https://user-images.githubusercontent.com/92352042/158100071-db5e7721-3587-434c-bdbe-1ee642488e05.png)
-![image](https://user-images.githubusercontent.com/92352042/158100083-d247950e-8513-4912-8220-a08651135289.png)
-![image](https://user-images.githubusercontent.com/92352042/158100100-701b5273-10ab-4989-a665-1840afb7fa00.png)
-![image](https://user-images.githubusercontent.com/92352042/158100106-bb07ee75-95cc-4ce3-995b-3a9c80dc8a92.png)
-![image](https://user-images.githubusercontent.com/92352042/158100111-caf41119-f2a0-47b3-989c-32475bca89c9.png)
-![image](https://user-images.githubusercontent.com/92352042/158100135-cdf27ef5-35db-4083-b26a-d584ac0d9021.png)
-![image](https://user-images.githubusercontent.com/92352042/158100143-e3b21788-a8ab-4c70-9faa-80acee35a2b1.png)
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" style="width:75px;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg" style="width:75px;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" style="width:75px;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" style="width:75px;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg" style="width:75px;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original-wordmark.svg" style="width:75px;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sequelize/sequelize-plain-wordmark.svg" style="width:75px;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg" style="width:75px;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg" style="width:75px;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" style="width:75px;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original-wordmark.svg" style="width:75px;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-plain-wordmark.svg" style="width:75px;" />
 
 ## Getting Started
 1. Clone this repo.
