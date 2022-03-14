@@ -5,6 +5,8 @@ Oppar is a clone of [Flickr](https://www.flickr.com/). It is the place to share 
 | [MVP Feature List](https://github.com/AngelShuWei/Oppar/wiki/MVP-Feature-List) | [Database Schema](https://github.com/AngelShuWei/Oppar/wiki/Database-Schema) | [Backend API Routes](https://github.com/AngelShuWei/Oppar/wiki/Backend-API-Routes) | [Frontend Routes](https://github.com/AngelShuWei/Oppar/wiki/Frontend-Routes) |
 
 ## Technologies Used
+<br>
+<br>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" style="width:75px;" />
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg" style="width:75px;" />
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" style="width:75px;" />
