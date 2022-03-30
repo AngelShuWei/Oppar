@@ -50,6 +50,28 @@ export const createComment = (comment) => async(dispatch) => {
   return response;
 }
 
+export const updateComment = (comment) => async(dispatch) => {
+  const response = await csrfFetch(`/api/comments/${comment.id}`, {
+    method: 'PUT',
+    body: JSON.stringify(comment),
+  });
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(addOne(data.comment));
+  }
+  return response;
+}
+
+export const deleteComment = (commentId) => async(dispatch) => {
+  const response = await csrfFetch(`/api/comments/${commentId}`, {
+    method: 'DELETE',
+  })
+  if (response.ok) {
+    const id = await response.json();
+    dispatch(deleteOne(id));
+  }
+}
+
 const initialState = {};
 
 const commentsReducer = (state = initialState, action) => {

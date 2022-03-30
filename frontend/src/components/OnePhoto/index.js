@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, NavLink, Link} from "react-router-dom";
 import { useEffect } from 'react';
 import * as commentsActions from "../../store/comments";
+import CommentFormPage from '../CommentFormPage';
 
 function OnePhoto() {
   const dispatch = useDispatch();
@@ -15,7 +16,6 @@ function OnePhoto() {
   const allComments = useSelector(state => Object.values(state.comments).filter(comment => {
     return comment.photoId === parseInt(photoId, 10);
   }));
-  console.log(allComments)
 
   return (
     <>
@@ -34,6 +34,9 @@ function OnePhoto() {
             <p>{comment.comment}</p>
           </div>
         )}
+        <textarea/>
+        <CommentFormPage/>
+        <p>Enter a comment</p>
       </div>
     </>
   )

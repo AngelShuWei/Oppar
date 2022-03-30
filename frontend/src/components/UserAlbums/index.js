@@ -40,7 +40,7 @@ function UserAlbums () {
               </div>
             ))}
           </div>
-       </div>
+        </div>
     </>
   )
 }

@@ -73,7 +73,7 @@ function PhotoFormPage() {
           type="text"
           value={content}
           onChange={(e) => setContent(e.target.value)}
-          />
+        />
         {errors.map((error, idx) => <p key={idx}>{error}</p>)}
         <button className='sign-button' type="submit">Submit</button>
       </form>
