@@ -95,7 +95,7 @@ const albumsReducer = (state = initialState, action) => {
       return newState;
   default:
     return state;
- }
+  }
 };
 
 export default albumsReducer;

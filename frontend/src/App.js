@@ -5,6 +5,7 @@ import {Route, Switch} from 'react-router-dom';
 import * as sessionActions from "./store/session";
 import * as photosActions from "./store/photos";
 import * as albumsActions from "./store/albums";
+import * as commentsActions from "./store/comments";
 import Homepage from './components/HomePage';
 import LoginFormPage from './components/LoginFormPage';
 import Navigation from './components/Navigation';
@@ -29,6 +30,7 @@ function App() {
   useEffect(() => {
     dispatch(photosActions.getAllPhotos()); //need to do this in case more photos get uploaded by users
     dispatch(albumsActions.getAllAlbums()); //need to do this in case more albums get uploaded by users
+    dispatch(commentsActions.getAllComments());
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));  //if there is user, then set load to true
   }, [dispatch]);
 

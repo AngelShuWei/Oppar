@@ -16,7 +16,7 @@ function EditPhotoFormPage() {
     return album.userId === sessionUser.id;
   }));
 
-  const foundAlbum = albums.find( (album) => album.id === photo.albumId);
+  const foundAlbum = albums.find(album => album.id === photo.albumId);
 
   const [title, setTitle] = useState(photo.title); //prefill with the proper info
   const [imageUrl, setImageUrl] = useState(photo.imageUrl);
@@ -31,7 +31,7 @@ function EditPhotoFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
-    
+
     dispatch(photosActions.updatePhoto({ id:photo.id, title, imageUrl, album, content }))
       .then(JD => history.push('/photos'))
       .catch(async (res) => {

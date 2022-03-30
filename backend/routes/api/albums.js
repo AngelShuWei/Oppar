@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler');
 const { setTokenCookie, requireAuth, restoreUser } = require('../../utils/auth');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
-const { Album, Photo} = require('../../db/models'); //if destructure here, don't need to type db.create later
+const { Album, Photo } = require('../../db/models'); //if destructure here, don't need to type db.create later
 
 const validateAlbumInfo = [
   check('title')
