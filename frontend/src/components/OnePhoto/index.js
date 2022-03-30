@@ -13,8 +13,6 @@ function OnePhoto() {
   const photoDetails = useSelector(state => state.photos[photoId]); //keying into redux object at the photoId
 
   const allComments = useSelector(state => Object.values(state.comments).filter(comment => {
-    console.log("testing-----------------------------", comment.photoId)
-    console.log("thisis the photo Id ->", photoId)
     return comment.photoId === parseInt(photoId, 10);
   }));
   console.log(allComments)
@@ -35,7 +33,7 @@ function OnePhoto() {
           <div key={comment.id}>
             <p>{comment.comment}</p>
           </div>
-          )}
+        )}
       </div>
     </>
   )

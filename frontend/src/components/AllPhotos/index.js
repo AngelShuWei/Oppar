@@ -24,7 +24,7 @@ function AllPhotos() {
             </Link>
             {/* <p className='photo-text'>{photo.content}</p> */}
           </div>
-          )}
+        )}
       </div>
     </div>
   )

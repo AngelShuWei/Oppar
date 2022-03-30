@@ -35,6 +35,21 @@ export const getAllComments = () => async(dispatch) => {
   return response;
 }
 
+export const createComment = (comment) => async(dispatch) => {
+  const { comment } = comment;
+  const response = await csrfFetch(`/api/commments`, {
+    method: 'POST',
+    body: JSON.stringify({
+      comment,
+    }),
+  });
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(addOne(data.comment));
+  }
+  return response;
+}
+
 const initialState = {};
 
 const commentsReducer = (state = initialState, action) => {

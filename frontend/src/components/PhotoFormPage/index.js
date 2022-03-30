@@ -28,14 +28,14 @@ function PhotoFormPage() {
     // console.log(title, content)
     await dispatch(photosActions.createPhoto({ title, imageUrl, album, content }))
       .then(JD => history.push('/photos')) //.then means have to wait for the dispatch to complete before moving on
-      .catch(async (res) => {
+      .catch(async(res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
   };
 
   return (
-    <div className="page-container">
+    <div className='page-container'>
       <form className='form-container' onSubmit={handleSubmit}>
         <h3>Upload a photo🖼️</h3>
         <label className='label-field'>Title</label>
