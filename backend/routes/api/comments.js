@@ -6,7 +6,6 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { Album, Photo, Comment} = require('../../db/models');
 
-// TODO
 const validateCommentInfo = [
   check('comment')
     .exists({ checkFalsy: true }) //checkFalsy: true means fields wtih falsy values (0, flasy, null) will NOT exist
@@ -40,6 +39,7 @@ router.post('/', restoreUser, validateCommentInfo, asyncHandler(async (req, res)
 //delete comment
 router.delete('/:commentId', asyncHandler(async (req) => {
   const comment = await Comment.findByPk(req.params.commentId);
+  console.log("testttinnggg-------------", comment);
   if (!comment) throw new Error('Cannot find comment');
 
   await comment.destroy();

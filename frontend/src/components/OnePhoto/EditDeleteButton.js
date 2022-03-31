@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 function EditDeleteButton( {comment} ) {
   const dispatch = useDispatch();
+  console.log(comment.id) //return comment.id in integerform
 
   return (
     <div>
