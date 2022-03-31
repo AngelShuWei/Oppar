@@ -9,8 +9,8 @@ function CommentFormPage({photoId}) {
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
 
-  console.log(parseInt(photoId, 10))
-  console.log(Number.isInteger(parseInt(photoId, 10)))
+  // console.log(parseInt(photoId, 10))
+  // console.log(Number.isInteger(parseInt(photoId, 10)))
 
   const [comment, setComment] = useState("");
   const [errors, setErrors] = useState([]);
@@ -18,7 +18,7 @@ function CommentFormPage({photoId}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
-
+    setComment("");
     await dispatch(commentsActions.createComment({ comment, photoId }))
       .then(JD => history.push(`/photos/${photoId}`))
       .catch(async(res) => {
