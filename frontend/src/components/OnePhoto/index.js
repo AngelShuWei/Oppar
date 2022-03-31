@@ -8,7 +8,6 @@ import CommentFormPage from '../CommentFormPage';
 
 function OnePhoto() {
   const dispatch = useDispatch();
-
   const { photoId } = useParams();
   const sessionUser = useSelector(state => state.session.user);
   const photoDetails = useSelector(state => state.photos[photoId]); //keying into redux object at the photoId
@@ -34,7 +33,7 @@ function OnePhoto() {
             <p>{comment.comment}</p>
           </div>
         )}
-        <CommentFormPage/>
+        <CommentFormPage photoId={photoId}/>
       </div>
     </>
   )

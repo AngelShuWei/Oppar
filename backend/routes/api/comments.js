@@ -22,11 +22,12 @@ router.get('/', asyncHandler(async (req, res) => {
 //upload comment
 router.post('/', restoreUser, asyncHandler(async (req, res) => {
   const { user } = req;
-  const { comment } = req.body;
+  const { comment, photoId } = req.body;
 
   const userComment = await Comment.create({
     userId: user.id,
     comment,
+    photoId,
   });
 
   return res.json({userComment});

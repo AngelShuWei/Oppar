@@ -36,11 +36,12 @@ export const getAllComments = () => async(dispatch) => {
 }
 
 export const createComment = (userComment) => async(dispatch) => {
-  const { comment } = userComment; // had to use userComment here becuase we are destructuring comment and can't have two of the same variable
+  const { comment, photoId } = userComment; // had to use userComment here becuase we are destructuring comment and can't have two of the same variable
   const response = await csrfFetch(`/api/comments`, {
     method: 'POST',
     body: JSON.stringify({
       comment,
+      photoId,
     }),
   });
   if (response.ok) {
