@@ -6,8 +6,9 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { Album, Photo, Comment} = require('../../db/models');
 
+// TODO
 const validateCommentInfo = [
-  check('title')
+  check('comment')
     .exists({ checkFalsy: true }) //checkFalsy: true means fields wtih falsy values (0, flasy, null) will NOT exist
     .withMessage('Please input a comment.'), // need this line because .length({max:}) and not .length({min:})
   handleValidationErrors //runs through validation in utils then sends to 3rd err handler
@@ -20,7 +21,7 @@ router.get('/', asyncHandler(async (req, res) => {
 }));
 
 //upload comment
-router.post('/', restoreUser, asyncHandler(async (req, res) => {
+router.post('/', restoreUser, validateCommentInfo, asyncHandler(async (req, res) => {
   const { user } = req;
   const { comment, photoId } = req.body;
 

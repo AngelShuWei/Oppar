@@ -5,6 +5,7 @@ import { Redirect, NavLink, Link} from "react-router-dom";
 import { useEffect } from 'react';
 import * as commentsActions from "../../store/comments";
 import CommentFormPage from '../CommentFormPage';
+import EditDeleteButton from './EditDeleteButton';
 
 function OnePhoto() {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ function OnePhoto() {
         {allComments.map(comment =>
           <div key={comment.id}>
             <p>{comment.comment}</p>
+            <EditDeleteButton comment={comment}/>
           </div>
         )}
         <CommentFormPage photoId={photoId}/>
