@@ -12,7 +12,6 @@ function CommentFormPage() {
   const [comment, setComment] = useState("");
   const [errors, setErrors] = useState([]);
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
@@ -27,18 +26,15 @@ function CommentFormPage() {
 
   return (
     <>
-      <div className='page-container'>
-        <form className='idk-container' onSubmit={handleSubmit}>
-          <label className='label-field'>Description (optional) </label>
-          <textarea className='input-field' placeholder='Enter a description'
-            type='text'
-            value={comment}
-            onChange={(e) => setComment(e.target.value)}
-          />
-          {errors.map((error, idx) => <p key={idx}>{error}</p>)}
-          <button className='sign-button'>Submit</button>
-        </form>
-      </div>
+      <form className='comments-container' onSubmit={handleSubmit}>
+        <textarea className='input-field' placeholder='Add a comment'
+          type='text'
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
+        />
+        {errors.map((error, idx) => <p key={idx}>{error}</p>)}
+        <button className='submit-button'>Submit</button>
+      </form>
     </>
   )
 }

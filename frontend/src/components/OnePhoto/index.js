@@ -34,7 +34,6 @@ function OnePhoto() {
             <p>{comment.comment}</p>
           </div>
         )}
-        <textarea/>
         <CommentFormPage/>
         <p>Enter a comment</p>
       </div>
