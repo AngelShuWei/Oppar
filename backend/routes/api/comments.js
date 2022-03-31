@@ -20,14 +20,15 @@ router.get('/', asyncHandler(async (req, res) => {
 }));
 
 //upload comment
-router.post('/', restoreUser, validateCommentInfo, asyncHandler(async (req, res) => {
+router.post('/', restoreUser, asyncHandler(async (req, res) => {
   const { user } = req;
-  let { comment } = req.body;
+  const { comment } = req.body;
 
   const userComment = await Comment.create({
     userId: user.id,
     comment,
   });
+
   return res.json({userComment});
 }));
 

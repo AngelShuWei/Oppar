@@ -16,7 +16,7 @@ function CommentFormPage() {
     e.preventDefault();
     setErrors([]);
 
-    await dispatchEvent(commentsActions.createComment({ comment }))
+    await dispatch(commentsActions.createComment({ comment }))
       .then(JD => history.push(`/photos`))
       .catch(async(res) => {
         const data = await res.json();

@@ -29,6 +29,7 @@ router.get('/', asyncHandler(async (req, res) => {
 router.post('/', restoreUser, validateAlbumInfo, asyncHandler(async (req, res) => {
   const { user } = req;
   const { title, imageUrl, content } = req.body;
+  
   const album = await Album.create({
     userId: user.id,
     title,
