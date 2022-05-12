@@ -37,13 +37,12 @@ router.post('/', restoreUser, validateCommentInfo, asyncHandler(async (req, res)
 //TODO
 
 //delete comment
-router.delete('/:commentId', asyncHandler(async (req) => {
+router.delete('/:commentId', asyncHandler(async (req, res) => {
   const comment = await Comment.findByPk(req.params.commentId);
-  console.log("testttinnggg-------------", comment);
   if (!comment) throw new Error('Cannot find comment');
 
   await comment.destroy();
   return res.json(comment.id);
-}))
+}));
 
 module.exports = router;
