@@ -66,11 +66,13 @@ export const updateComment = (comment) => async(dispatch) => {
 export const deleteComment = (commentId) => async(dispatch) => {
   const response = await csrfFetch(`/api/comments/${commentId}`, {
     method: 'DELETE',
-  })
+  });
   if (response.ok) {
     const id = await response.json();
+    console.log('heheheh', id);
     dispatch(deleteOne(id));
   }
+  return response;
 }
 
 const initialState = {};
@@ -80,7 +82,7 @@ const commentsReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD:
       action.comments.forEach(comment => {
-        return newState[comment.id] = comment;
+        newState[comment.id] = comment;
       });
       return newState;
     case ADD_ONE:

@@ -6,19 +6,18 @@ import { Link } from 'react-router-dom';
 
 function EditDeleteButton( {comment} ) {
   const dispatch = useDispatch();
-  console.log(comment.id) //return comment.id in integerform
 
   return (
-    <div>
-      {/* <Link to={`/photos/${photo.id}/edit`}>
+    <span>
+      {/* <Link to={`/photos/${photo.id}/edit`}> */}
         <button className='edit-delete-button'>
           <i className="fa-lg fa-solid fa-pen-to-square" />
         </button>
-      </Link> */}
+      {/* </Link> */}
       <button className='edit-delete-button' onClick={() => dispatch(deleteComment(comment.id))}>
         <i className="fa-lg fa-solid fa-trash-can"></i>
       </button>
-    </div>
+    </span>
   )
 }
 

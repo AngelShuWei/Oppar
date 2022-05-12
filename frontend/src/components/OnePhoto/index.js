@@ -31,7 +31,7 @@ function OnePhoto() {
       <div className='comments-container'>
         {allComments.map(comment =>
           <div key={comment.id}>
-            <p>{comment.comment}</p>
+            <span>{comment.comment}</span>
             <EditDeleteButton comment={comment}/>
           </div>
         )}

@@ -33,11 +33,11 @@
 }
 
 .input-field {
- width: 95%;
- font-size: 12px;
- padding: 7px;
- border-radius: 2px;
- border: 1px solid black;
+  width: 95%;
+  font-size: 12px;
+  padding: 7px;
+  border-radius: 2px;
+  border: 1px solid black;
 }
 
 .sign-button {
