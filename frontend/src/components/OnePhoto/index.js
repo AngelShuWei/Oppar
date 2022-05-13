@@ -32,7 +32,7 @@ function OnePhoto() {
         {allComments.map(comment =>
           <div key={comment.id}>
             <span>{comment.comment}</span>
-            <EditDeleteButton comment={comment}/>
+            <EditDeleteButton comment={comment} photoId={photoId}/>
           </div>
         )}
         <CommentFormPage photoId={photoId}/>

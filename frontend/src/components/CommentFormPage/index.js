@@ -9,9 +9,6 @@ function CommentFormPage({photoId}) {
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
 
-  // console.log(parseInt(photoId, 10))
-  // console.log(Number.isInteger(parseInt(photoId, 10)))
-
   const [comment, setComment] = useState("");
   const [errors, setErrors] = useState([]);
 

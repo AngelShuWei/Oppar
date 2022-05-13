@@ -19,6 +19,13 @@ const addOne = (comment) => {
   };
 };
 
+const updateOne = (comment) => {
+  return {
+    type: UPDATE_ONE,
+    comment
+  }
+}
+
 const deleteOne = (comment) => {
   return {
     type: DELETE_ONE,
@@ -51,14 +58,17 @@ export const createComment = (userComment) => async(dispatch) => {
   return response;
 }
 
-export const updateComment = (comment) => async(dispatch) => {
+export const updateComment = (userComment) => async(dispatch) => {
+  const {comment, photoId} = userComment;
+
   const response = await csrfFetch(`/api/comments/${comment.id}`, {
     method: 'PUT',
     body: JSON.stringify(comment),
   });
+  console.log("response is okay");
   if (response.ok) {
     const data = await response.json();
-    dispatch(addOne(data.comment));
+    dispatch(updateOne(data.userComment));
   }
   return response;
 }
@@ -69,7 +79,6 @@ export const deleteComment = (commentId) => async(dispatch) => {
   });
   if (response.ok) {
     const id = await response.json();
-    console.log('heheheh', id);
     dispatch(deleteOne(id));
   }
   return response;
