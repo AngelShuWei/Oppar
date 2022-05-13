@@ -59,16 +59,14 @@ export const createComment = (userComment) => async(dispatch) => {
 }
 
 export const updateComment = (userComment) => async(dispatch) => {
-  const { commentId, content } = userComment;
-  console.log(content, 'current content')
+  const { commentId } = userComment;
   const response = await csrfFetch(`/api/comments/${commentId}`, {
     method: 'PUT',
     body: JSON.stringify(userComment),
   });
-  console.log("response is okay");
+
   if (response.ok) {
     const data = await response.json();
-    console.log(data);
     dispatch(updateOne(data.userComment));
   }
   return response;

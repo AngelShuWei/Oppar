@@ -16,7 +16,7 @@ function EditCommentForm({comment, photoId, setShowEditComment, setShowComment})
     setErrors([]);
     setShowEditComment(false);
     setShowComment(true);
-    await dispatch(commentsActions.updateComment({ content, commentId: comment.id}))
+    await dispatch(commentsActions.updateComment({ comment: content, commentId: comment.id}))
       .then(JD => history.push(`/photos/${photoId}`))
       .catch(async(res) => {
         const data = await res.json();
