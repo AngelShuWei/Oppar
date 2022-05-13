@@ -2,7 +2,7 @@ import './OnePhoto.css'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, NavLink, Link} from "react-router-dom";
-import { useEffect } from 'react';
+import { useEffect, useState} from 'react';
 import * as commentsActions from "../../store/comments";
 import CommentFormPage from '../CommentFormPage';
 import EditDeleteButton from './EditDeleteButton';
@@ -10,6 +10,7 @@ import EditDeleteButton from './EditDeleteButton';
 function OnePhoto() {
   const dispatch = useDispatch();
   const { photoId } = useParams();
+  const [showComment, setShowComment] = useState(true);
   const sessionUser = useSelector(state => state.session.user);
   const photoDetails = useSelector(state => state.photos[photoId]); //keying into redux object at the photoId
 
@@ -31,8 +32,10 @@ function OnePhoto() {
       <div className='comments-container'>
         {allComments.map(comment =>
           <div key={comment.id}>
+            {showComment &&
             <span>{comment.comment}</span>
-            <EditDeleteButton comment={comment} photoId={photoId}/>
+            }
+            <EditDeleteButton comment={comment} photoId={photoId} setShowComment={setShowComment}/>
           </div>
         )}
         <CommentFormPage photoId={photoId}/>

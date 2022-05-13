@@ -34,22 +34,20 @@ router.post('/', restoreUser, validateCommentInfo, asyncHandler(async (req, res)
 }));
 
 //update comment
-router.put('/:commentId', validateCommentInfo, asyncHandler(async(req, res) => {
-  let { commentId } = req.params;
+router.put('/:commentId', asyncHandler(async(req, res) => {
+  const { commentId } = req.params;
+  console.log(commentId, 'this is comment id');
+  let { content } = req.body;
+  console.log(content, 'this is contenttttt');
 
-  let { comment } = req.body;
-  console.log(req.body, 'this is req.body');
-
-  const userComment = await Comment.findByPk(+commentId);
-
+  const userComment = await Comment.findByPk(commentId);
+  console.log(userComment, '=======')
   await userComment.update({
-    comment,
+    content,
   });
 
-  console.log(comment, "hehehehe")
-
   return res.json({userComment});
-}))
+}));
 
 //delete comment
 router.delete('/:commentId', asyncHandler(async (req, res) => {

@@ -4,21 +4,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, NavLink, Link, useHistory} from "react-router-dom";
 import * as commentsActions from '../../store/comments';
 
-function EditCommentForm({comment, photoId, setShowComment}) {
+function EditCommentForm({comment, photoId, setShowEditComment, setShowComment}) {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const [content, setContent] = useState(comment.comment);
   const [errors, setErrors] = useState([]);
 
-  console.log(comment, "this is comment"); //comment object
-  console.log(photoId, "photoid-----")
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
-    // setComment("");
-    await dispatch(commentsActions.updateComment({ comment, photoId }))
+    setShowEditComment(false);
+    setShowComment(true);
+    await dispatch(commentsActions.updateComment({ content, commentId: comment.id}))
       .then(JD => history.push(`/photos/${photoId}`))
       .catch(async(res) => {
         const data = await res.json();
@@ -35,7 +33,7 @@ function EditCommentForm({comment, photoId, setShowComment}) {
           onChange={(e) => setContent(e.target.value)}
         />
         {errors.map((error, idx) => <p key={idx}>{error}</p>)}
-        <button className='submit-button' onClick={() => setShowComment(false)}>Done</button>
+        <button className='submit-button'>Done</button>
       </form>
     </>
   )
