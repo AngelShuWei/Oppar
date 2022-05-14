@@ -9,6 +9,7 @@ import EditCommentForm from '../EditCommentForm/index.js';
 function EditDeleteButton( {comment, photoId, setShowComment} ) {
   const dispatch = useDispatch();
   const [showEditComment, setShowEditComment] = useState(false);
+  console.log(comment.id, 'which omment??')
 
   const EditComment = () => {
     setShowEditComment(true);
@@ -27,8 +28,8 @@ function EditDeleteButton( {comment, photoId, setShowComment} ) {
         </button>
       </span>
       }
-      {showEditComment &&
-      <EditCommentForm comment={comment} photoId={photoId} setShowEditComment={setShowEditComment} setShowComment={setShowComment}/>
+      {showEditComment && 
+        <EditCommentForm comment={comment} photoId={photoId} setShowEditComment={setShowEditComment} setShowComment={setShowComment}/>
       }
     </span>
   )

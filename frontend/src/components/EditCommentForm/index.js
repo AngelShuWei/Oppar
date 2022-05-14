@@ -13,9 +13,9 @@ function EditCommentForm({comment, photoId, setShowEditComment, setShowComment})
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrors([]);
     setShowEditComment(false);
     setShowComment(true);
+    setErrors([]);
     await dispatch(commentsActions.updateComment({ comment: content, commentId: comment.id}))
       .then(JD => history.push(`/photos/${photoId}`))
       .catch(async(res) => {
