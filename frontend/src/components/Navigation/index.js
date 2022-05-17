@@ -34,7 +34,7 @@ function Navigation({isLoaded}) {
       </div>
     );
     styleChanges = {
-      backgroundColor: "#212124",
+      backgroundColor: "black",
       height: "20px"
     }
   } else { //else have these links in the navbar instead

@@ -6,6 +6,7 @@ import { useEffect, useState} from 'react';
 import * as commentsActions from "../../store/comments";
 import CommentFormPage from '../CommentFormPage';
 import EditDeleteButton from './EditDeleteButton';
+import LikeButton from '../PhotoLikes';
 
 function OnePhoto() {
   const dispatch = useDispatch();
@@ -21,8 +22,11 @@ function OnePhoto() {
   return (
     <>
       <div className='one-photo-page-container'>
-          <img className='one-photo-container' src={photoDetails.imageUrl} alt={photoDetails.title}/>
-        <div className='content-container'></div>
+        <img className='one-photo-container' src={photoDetails.imageUrl} alt={photoDetails.title}/>
+        {/* <div className='content-container'></div> */}
+        <div className='one-photo-page-engagement'>
+          <LikeButton/>
+        </div>
       </div>
         <div className='content-container'>
           {/* <div className='photo-details-username'>By: {sessionUser.username}</div> */}

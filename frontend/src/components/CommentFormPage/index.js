@@ -7,7 +7,7 @@ import * as commentsActions from '../../store/comments';
 function CommentFormPage({photoId}) {
   const dispatch = useDispatch();
   const history = useHistory();
-  const sessionUser = useSelector((state) => state.session.user);
+  // const sessionUser = useSelector((state) => state.session.user);
 
   const [comment, setComment] = useState("");
   const [errors, setErrors] = useState([]);

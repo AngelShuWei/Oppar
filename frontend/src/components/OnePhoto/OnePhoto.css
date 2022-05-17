@@ -1,6 +1,7 @@
 .one-photo-page-container {
-  background-color: rgb(33, 33, 36);
+  /* background-color: rgb(33, 33, 36); */
   /* width: 100vw; */
+  background-color: rgba(21,21,23,.95);
   height: 88vh;
   display: flex;
   justify-content: center;
