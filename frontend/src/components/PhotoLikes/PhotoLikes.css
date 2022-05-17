@@ -1,4 +1,7 @@
 .fa-heart {
+  position: absolute;
   color: white;
   cursor: pointer;
+  top: 85%;
+  /* right: 20px; */
 }

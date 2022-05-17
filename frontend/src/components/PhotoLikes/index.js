@@ -7,10 +7,10 @@ import { createLike, deleteLike, getAllLikes } from '../../store/likes';
 function PhotoLikes() {
   const dispatch = useDispatch();
   const history = useHistory();
+  const { photoId } = useParams();
   const sessionUser = useSelector(state => state.session.user);
   const allLikes = useSelector(state => Object.values(state.likes));
-  console.log(allLikes, 'all likes')
-  const { photoId } = useParams();
+  const userPhotoLike = allLikes.filter(like => (sessionUser.id === like.userId && +photoId === like.photoId));
 
   useEffect(() => {
     dispatch(getAllLikes());
@@ -18,9 +18,7 @@ function PhotoLikes() {
 
   const handleClick = async(e, photoId) => {
     e.preventDefault();
-    const userPhotoLike = allLikes.filter(like => (sessionUser.id === like.userId && +photoId === like.photoId));
-    console.log(userPhotoLike, '----');
-
+    
     if (userPhotoLike.length) {
       await dispatch(deleteLike(userPhotoLike[0].id))
     } else {
@@ -29,9 +27,12 @@ function PhotoLikes() {
   };
 
   return (
-    <>
-      <i className="fa-lg fa-regular fa-heart" onClick={e => handleClick(e, photoId)}/>
-    </>
+    <div>
+      {userPhotoLike.length ?
+        <i className="fa-lg fa-solid fa-heart" onClick={e => handleClick(e, photoId)}/> :
+        <i className="fa-lg fa-regular fa-heart" onClick={e => handleClick(e, photoId)}/>
+      }
+    </div>
   )
 }
 

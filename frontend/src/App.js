@@ -18,6 +18,7 @@ import UserAlbums from './components/UserAlbums';
 import AlbumFormPage from './components/AlbumFormPage';
 import OneAlbum from './components/OneAlbum';
 import EditAlbumFormPage from './components/EditAlbumFormPage';
+import AllLikes from './components/AllLikes';
 
 function App() {
   const dispatch = useDispatch();
@@ -74,6 +75,9 @@ function App() {
           </Route>
           <Route path="/albums/:albumId">
             <OneAlbum />
+          </Route>
+          <Route path="/loves">
+            <AllLikes />
           </Route>
         </Switch>
       )}

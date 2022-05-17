@@ -16,20 +16,24 @@ function Navigation({isLoaded}) {
     sessionLinks = ( //only render the profile Button when there is a session user
       <div className='nav-button-container'>
         <div className='nav-left-buttons'>
-        <NavLink to='/photos'>
-          <button className='nav-button'>Photostream</button>
-        </NavLink>
-        <NavLink to='/albums'>
-          <button className='nav-button'>Albums</button>
-        </NavLink>
+          <NavLink to='/photos'>
+            <button className='nav-button'>Photostream</button>
+          </NavLink>
+          <NavLink to='/albums'>
+            <button className='nav-button'>Albums</button>
+          </NavLink>
+          <NavLink to='/loves'>
+            <button className='nav-button'>Loves</button>
+          </NavLink>
         </div>
+
         <div className='nav-right-buttons'>
-        <NavLink to='/upload'>
-          <button className='nav-button'>
-            <i className="fa-lg fa-solid fa-upload"></i>
-          </button>
-        </NavLink>
-        <ProfileButton user={sessionUser} />
+          <NavLink to='/upload'>
+            <button className='nav-button'>
+              <i className="fa-lg fa-solid fa-upload"></i>
+            </button>
+          </NavLink>
+          <ProfileButton user={sessionUser} />
         </div>
       </div>
     );
