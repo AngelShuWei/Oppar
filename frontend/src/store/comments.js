@@ -79,9 +79,9 @@ export const deleteComment = (commentId) => async(dispatch) => {
   if (response.ok) {
     const id = await response.json();
     dispatch(deleteOne(id));
-  }
+  };
   return response;
-}
+};
 
 const initialState = {};
 
@@ -95,15 +95,16 @@ const commentsReducer = (state = initialState, action) => {
       return newState;
     case ADD_ONE:
       newState[action.comment.id] = action.comment;
-      return newState
+      return newState;
     case UPDATE_ONE:
       newState[action.comment.id] = action.comment;
+      return newState;
     case DELETE_ONE:
       delete newState[action.comment];
       return newState;
   default:
     return state;
-  }
+  };
 };
 
 export default commentsReducer;
