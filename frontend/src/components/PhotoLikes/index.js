@@ -9,6 +9,7 @@ function PhotoLikes() {
   const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
   const allLikes = useSelector(state => Object.values(state.likes));
+  console.log(allLikes, 'all likes')
   const { photoId } = useParams();
 
   useEffect(() => {
@@ -17,10 +18,11 @@ function PhotoLikes() {
 
   const handleClick = async(e, photoId) => {
     e.preventDefault();
-    const photoLike = allLikes.filter(like => sessionUser.id === like.userId && photoId === like.photoId);
+    const userPhotoLike = allLikes.filter(like => (sessionUser.id === like.userId && +photoId === like.photoId));
+    console.log(userPhotoLike, '----');
 
-    if (photoLike.length) {
-      await dispatch(deleteLike(photoLike[0].id))
+    if (userPhotoLike.length) {
+      await dispatch(deleteLike(userPhotoLike[0].id))
     } else {
       await dispatch(createLike({ photoId }))
     }
