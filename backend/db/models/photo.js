@@ -8,9 +8,10 @@ module.exports = (sequelize, DataTypes) => {
     content: DataTypes.TEXT
   }, {});
   Photo.associate = function(models) {
-    Photo.belongsTo(models.User, { foreignKey: 'userId'});
-    Photo.belongsTo(models.Album, { foreignKey: 'albumId' })
-    Photo.hasMany(models.Comment, { foreignKey: 'photoId' })
+    Photo.belongsTo(models.User, { foreignKey: 'userId' });
+    Photo.belongsTo(models.Album, { foreignKey: 'albumId' });
+    Photo.hasMany(models.Comment, { foreignKey: 'photoId' });
+    Photo.hasMany(models.Like, { foreignKey: 'photoId' });
   };
   return Photo;
 };
