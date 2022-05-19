@@ -25,9 +25,10 @@ function OnePhoto() {
     return comment.photoId === parseInt(photoId, 10);
   }));
 
-  const EditComment = () => {
+  const editComment = (comment) => {
     setShowCommentButtons(false);
     setShowComment(false);
+    setClickedEditButton(comment);
   }
 
   useEffect(() => {
@@ -51,7 +52,7 @@ function OnePhoto() {
       <div className='comments-container'>
         {allComments.map(comment =>
           <div key={comment.id}>
-            {!showComment && comment.id === 1?
+            {!showComment && comment.id === clickedEditButton?
               <div/>:
               <span>{comment.comment}</span>
             }
@@ -59,7 +60,7 @@ function OnePhoto() {
             <span>
               {showCommentButtons ?
               <span>
-                <button className='edit-delete-button' onClick={() => EditComment}>
+                <button className='edit-delete-button' onClick={() => editComment(comment?.id)}>
                   <i className="fa-lg fa-solid fa-pen-to-square" />
                 </button>
                 <button className='edit-delete-button' onClick={() => dispatch(deleteComment(comment.id))}>
