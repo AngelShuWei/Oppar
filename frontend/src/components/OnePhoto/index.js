@@ -15,7 +15,8 @@ function OnePhoto() {
   const { photoId } = useParams();
   const [showComment, setShowComment] = useState(true);
   const [showCommentButtons, setShowCommentButtons] = useState(true);
-  const [clickedEditButton, setClickedEditButton] = useState(1);
+  const [clickedEditButton, setClickedEditButton] = useState(-1);
+  console.log(showCommentButtons, 'see')
 
   const sessionUser = useSelector(state => state.session.user);
   const photoDetails = useSelector(state => state.photos[photoId]); //keying into redux object at the photoId
@@ -28,11 +29,11 @@ function OnePhoto() {
     console.log(comment.id, 'which')
     setShowCommentButtons(false);
     setShowComment(false);
-    setClickedEditButton(comment.id);
-    console.log(setClickedEditButton, 'what is it??')
-
-    console.log(comment.id === clickedEditButton, 'yay???')
   }
+
+  useEffect(() => {
+
+  })
 
   return (
     <>
