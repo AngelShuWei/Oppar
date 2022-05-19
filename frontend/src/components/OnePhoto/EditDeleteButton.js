@@ -6,20 +6,21 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import EditCommentForm from '../EditCommentForm/index.js';
 
-function EditDeleteButton( {comment, photoId, setShowComment} ) {
+function EditDeleteButton( {comment, photoId, setShowComment, setCommentId} ) {
   const dispatch = useDispatch();
   const [showCommentButtons, setShowCommentButtons] = useState(true);
 
-  const EditComment = () => {
+  const EditComment = (comment) => {
     setShowCommentButtons(false);
     setShowComment(false);
+    setCommentId(comment.id);
   }
 
   return (
     <span>
       {showCommentButtons ?
       <span>
-        <button className='edit-delete-button' onClick={EditComment}>
+        <button className='edit-delete-button' onClick={() => EditComment(comment)}>
           <i className="fa-lg fa-solid fa-pen-to-square" />
         </button>
         <button className='edit-delete-button' onClick={() => dispatch(deleteComment(comment.id))}>

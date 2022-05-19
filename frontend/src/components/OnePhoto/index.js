@@ -12,6 +12,7 @@ function OnePhoto() {
   const dispatch = useDispatch();
   const { photoId } = useParams();
   const [showComment, setShowComment] = useState(true);
+  const [commentId, setCommentId] = useState(-1);
   const sessionUser = useSelector(state => state.session.user);
   const photoDetails = useSelector(state => state.photos[photoId]); //keying into redux object at the photoId
 
@@ -36,11 +37,11 @@ function OnePhoto() {
       <div className='comments-container'>
         {allComments.map(comment =>
           <div key={comment.id}>
-            {!showComment && comment.id === 1 ?
+            {!showComment && comment.id === commentId ?
               <div/>:
               <span>{comment.comment}</span>
             }
-            <EditDeleteButton comment={comment} photoId={photoId} setShowComment={setShowComment}/>
+            <EditDeleteButton comment={comment} photoId={photoId} setShowComment={setShowComment} setCommentId={setCommentId}/>
           </div>
         )}
         <CommentFormPage photoId={photoId}/>
