@@ -36,7 +36,7 @@ function OnePhoto() {
       <div className='comments-container'>
         {allComments.map(comment =>
           <div key={comment.id}>
-            {!showComment && comment.id === 1?
+            {!showComment && comment.id === 1 ?
               <div/>:
               <span>{comment.comment}</span>
             }
