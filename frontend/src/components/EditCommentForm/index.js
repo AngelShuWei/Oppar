@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, NavLink, Link, useHistory} from "react-router-dom";
 import * as commentsActions from '../../store/comments';
 
-function EditCommentForm({comment, photoId, setShowEditComment, setShowComment}) {
+function EditCommentForm({comment, photoId, setShowComment, setShowCommentButtons}) {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -13,8 +13,10 @@ function EditCommentForm({comment, photoId, setShowEditComment, setShowComment})
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setShowEditComment(false);
+
+    setShowCommentButtons(true);
     setShowComment(true);
+
     setErrors([]);
     await dispatch(commentsActions.updateComment({ comment: content, commentId: comment.id}))
       .then(JD => history.push(`/photos/${photoId}`))

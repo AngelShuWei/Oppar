@@ -8,17 +8,16 @@ import EditCommentForm from '../EditCommentForm/index.js';
 
 function EditDeleteButton( {comment, photoId, setShowComment} ) {
   const dispatch = useDispatch();
-  const [showEditComment, setShowEditComment] = useState(false);
-  console.log(comment.id, 'which omment??')
+  const [showCommentButtons, setShowCommentButtons] = useState(true);
 
   const EditComment = () => {
-    setShowEditComment(true);
+    setShowCommentButtons(false);
     setShowComment(false);
   }
 
   return (
     <span>
-      {!showEditComment &&
+      {showCommentButtons ?
       <span>
         <button className='edit-delete-button' onClick={EditComment}>
           <i className="fa-lg fa-solid fa-pen-to-square" />
@@ -26,10 +25,8 @@ function EditDeleteButton( {comment, photoId, setShowComment} ) {
         <button className='edit-delete-button' onClick={() => dispatch(deleteComment(comment.id))}>
           <i className="fa-lg fa-solid fa-trash-can"></i>
         </button>
-      </span>
-      }
-      {showEditComment && 
-        <EditCommentForm comment={comment} photoId={photoId} setShowEditComment={setShowEditComment} setShowComment={setShowComment}/>
+      </span> :
+        <EditCommentForm comment={comment} photoId={photoId} setShowComment={setShowComment} setShowCommentButtons={setShowCommentButtons}/>
       }
     </span>
   )

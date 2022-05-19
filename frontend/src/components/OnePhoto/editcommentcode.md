@@ -7,17 +7,32 @@ import * as commentsActions from "../../store/comments";
 import CommentFormPage from '../CommentFormPage';
 import EditDeleteButton from './EditDeleteButton';
 import LikeButton from '../PhotoLikes';
+import EditCommentForm from '../EditCommentForm';
+import { deleteComment } from '../../store/comments';
 
 function OnePhoto() {
   const dispatch = useDispatch();
   const { photoId } = useParams();
-  const [showComment, setShowComment] = useState(true);
-  const sessionUser = useSelector(state => state.session.user);
-  const photoDetails = useSelector(state => state.photos[photoId]); //keying into redux object at the photoId
 
+  const [showComment, setShowComment] = useState(true);
+  const [commentButtons, setCommentButtons] = useState(true);
+  const [commentId, setCommentId] = useState(-1);
+  console.log(showComment, 'showing comment?');
+  console.log(commentButtons, 'showing button?')
+  const sessionUser = useSelector(state => state.session.user);
+  console.log(sessionUser, 'this is session user');
+  const photoDetails = useSelector(state => state.photos[photoId]); //keying into redux object at the photoId
   const allComments = useSelector(state => Object.values(state.comments).filter(comment => {
     return comment.photoId === parseInt(photoId, 10);
   }));
+
+  const EditComment = (comment) => {
+    setCommentId(comment.id);
+    if (comment.id === commentId) {
+      setCommentButtons(false);
+      setShowComment(false);
+    }
+  }
 
   return (
     <>
@@ -35,12 +50,23 @@ function OnePhoto() {
       </div>
       <div className='comments-container'>
         {allComments.map(comment =>
+
           <div key={comment.id}>
-            {!showComment && comment.id === 1?
-              <div/>:
-              <span>{comment.comment}</span>
+            {showComment ?
+              <span>{comment.comment}</span> :
+              <EditCommentForm comment={comment} photoId={photoId} setShowComment={setShowComment} commentButtons={commentButtons} setCommentButtons={setCommentButtons}/>
             }
-            <EditDeleteButton comment={comment} photoId={photoId} setShowComment={setShowComment}/>
+            {/* <EditDeleteButton comment={comment} photoId={photoId} showComment={showComment} setShowComment={setShowComment}/> */}
+            {commentButtons &&
+              <span>
+                <button className='edit-delete-button' onClick={() => EditComment(comment)}>
+                  <i className="fa-lg fa-solid fa-pen-to-square" />
+                </button>
+                <button className='edit-delete-button' onClick={() => dispatch(deleteComment(comment.id))}>
+                  <i className="fa-lg fa-solid fa-trash-can"></i>
+                </button>
+              </span>
+            }
           </div>
         )}
         <CommentFormPage photoId={photoId}/>
