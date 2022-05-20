@@ -42,8 +42,11 @@ function OnePhoto() {
           {allComments.map(comment =>
             <div className='comment-container' key={comment.id}>
               {!showComment && comment.id === commentId ?
-                <div/>:
-                <span className='user-comment'>{comment.comment}</span>
+                <div/> :
+                <div>
+                  <div className='user-comment-username'>{comment.User.username}</div>
+                  <span className='user-comment'>{comment.comment}</span>
+                </div>
               }
               <EditDeleteButton comment={comment} photoId={photoId} setShowComment={setShowComment} setCommentId={setCommentId}/>
             </div>

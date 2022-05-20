@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler');
 const { setTokenCookie, requireAuth, restoreUser } = require('../../utils/auth');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
-const { Comment} = require('../../db/models');
+const { User, Comment} = require('../../db/models');
 
 const validateCommentInfo = [
   check('comment')
@@ -15,7 +15,9 @@ const validateCommentInfo = [
 
 //get all comments
 router.get('/', asyncHandler(async (req, res) => {
-  const allComments = await Comment.findAll();
+  const allComments = await Comment.findAll({
+    include: User
+  });
   return res.json({allComments});
 }));
 
@@ -38,7 +40,7 @@ router.put('/:commentId', validateCommentInfo, asyncHandler(async(req, res) => {
   const { commentId } = req.params;
   let { comment } = req.body;
 
-  const userComment = await Comment.findByPk(commentId);
+  const userComment = await Comment.findByPk(commentId, { include: User });
 
   await userComment.update({
     comment,

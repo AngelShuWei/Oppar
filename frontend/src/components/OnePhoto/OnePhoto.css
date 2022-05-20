@@ -88,11 +88,17 @@
   text-overflow: ellipsis;
 }
 
-.comment-container:hover {
+/* .comment-container:hover {
   background-color: #fff;
   transition: background-color .15s ease-in-out;
   padding: 5px;
   border-radius: 2px;
+} */
+
+.user-comment-username {
+  font-weight: 600;
+  font-size: 12px;
+  color: rgba(125, 181, 227, 1);
 }
 
 .user-comment {
@@ -100,7 +106,7 @@
   margin-right: 17px;
   font-weight: 400;
   line-height: 18px;
-  font-size: 14px;
+  font-size: 12px;
   margin-top: -5px;
 }
 
