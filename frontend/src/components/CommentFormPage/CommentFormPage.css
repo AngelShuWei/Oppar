@@ -43,6 +43,7 @@
 }
 
 .submit-button#comment {
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,5 +57,6 @@
   cursor: pointer;
   margin-top: 10px;
   border-radius: 2px;
-
+  bottom: -40px;
+  right: 0;
 }

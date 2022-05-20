@@ -1,22 +1,36 @@
-.comment-arrow {
-  position: absolute;
-  width: 10px;
-  height: 21px;
-  overflow: hidden;
-  top: 10px;
-  left: -9px;
+.edit-comments-container {
+  display: flex;
+  flex-direction: column;
 }
 
-.input-field {
+.input-field#edit-comment {
   position: relative;
-  /* top: -1px; */
-  width: 100%;
-  height: 92px;
+  /* width: 100%; */
+  width: 490px;
   box-shadow: none;
   background: white;
   box-sizing: border-box;
+  border: none;
+  outline: none;
 }
 
 textarea {
   resize: none;
+}
+
+.submit-button#edit-comment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(125, 181, 227, 1);
+  width: 100px;
+	border: none;
+	padding: 6px;
+  font-size: 14px;
+	color: white;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 2px;
+  margin-left: 80%;
 }

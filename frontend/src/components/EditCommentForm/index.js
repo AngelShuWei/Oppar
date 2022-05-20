@@ -35,7 +35,7 @@ function EditCommentForm({comment, photoId, setShowComment, setShowCommentButton
           onChange={(e) => setContent(e.target.value)}
         />
         {errors.map((error, idx) => <p key={idx}>{error}</p>)}
-        <button className='submit-button'>Done</button>
+        <button className='submit-button' id='edit-comment' >Done</button>
       </form>
     </>
   )
