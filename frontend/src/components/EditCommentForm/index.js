@@ -1,4 +1,4 @@
-// import './CommentFormPage.css'
+import './EditCommentForm.css';
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, NavLink, Link, useHistory} from "react-router-dom";
@@ -28,8 +28,8 @@ function EditCommentForm({comment, photoId, setShowComment, setShowCommentButton
 
   return (
     <>
-      <form className='comments-container' onSubmit={handleSubmit}>
-        <textarea className='input-field'
+      <form className='edit-comments-container' onSubmit={handleSubmit}>
+        <textarea className='input-field' id='edit-comment'
           type='text'
           value={content}
           onChange={(e) => setContent(e.target.value)}

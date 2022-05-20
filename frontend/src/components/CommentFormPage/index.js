@@ -27,13 +27,14 @@ function CommentFormPage({photoId}) {
   return (
     <>
       <form className='comments-container' onSubmit={handleSubmit}>
-        <textarea className='input-field' placeholder='Add a comment'
+        {/* <div className='comment-arrow'/> */}
+        <textarea className='input-field' id='comment' placeholder='Add a comment'
           type='text'
           value={comment}
           onChange={(e) => setComment(e.target.value)}
         />
         {errors.map((error, idx) => <p key={idx}>{error}</p>)}
-        <button className='submit-button'>Comment</button>
+        <button className='submit-button' id='comment'>Comment</button>
       </form>
     </>
   )

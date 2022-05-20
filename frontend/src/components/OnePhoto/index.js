@@ -19,34 +19,40 @@ function OnePhoto() {
   const allComments = useSelector(state => Object.values(state.comments).filter(comment => {
     return comment.photoId === parseInt(photoId, 10);
   }));
+  console.log(allComments);
 
   return (
-    <>
-      <div className='one-photo-page-container'>
-        <img className='one-photo-container' src={photoDetails.imageUrl} alt={photoDetails.title}/>
+    <div className='one-photo-page-container'>
+      <div className='one-photo-top-container'>
+        <img className='user-photo' src={photoDetails.imageUrl} alt={photoDetails.title}/>
         {/* <div className='content-container'></div> */}
         <div className='one-photo-page-engagement'>
           <LikeButton/>
         </div>
       </div>
-        <div className='content-container'>
-          {/* <div className='photo-details-username'>By: {sessionUser.username}</div> */}
-          <div className='photo-details-title'>{photoDetails.title}</div>
-          <div>{photoDetails.content}</div>
-      </div>
-      <div className='comments-container'>
-        {allComments.map(comment =>
-          <div key={comment.id}>
-            {!showComment && comment.id === commentId ?
-              <div/>:
-              <span>{comment.comment}</span>
-            }
-            <EditDeleteButton comment={comment} photoId={photoId} setShowComment={setShowComment} setCommentId={setCommentId}/>
+      <div className='one-photo-bottom-container'>
+        <div className='bottom-left-container'>
+          <div className='content-container'>
+            <div className='photo-details-username'>{sessionUser.username}</div>
+            <div className='photo-details-title'>{photoDetails.title}</div>
+            <div className='photo-details-description'>{photoDetails.content}</div>
+            <div className='line-div'/>
+        </div>
+        <div className='comments-container'>
+          {allComments.map(comment =>
+            <div className='comment-container' key={comment.id}>
+              {!showComment && comment.id === commentId ?
+                <div/>:
+                <span className='user-comment'>{comment.comment}</span>
+              }
+              <EditDeleteButton comment={comment} photoId={photoId} setShowComment={setShowComment} setCommentId={setCommentId}/>
+            </div>
+          )}
+          <CommentFormPage photoId={photoId}/>
           </div>
-        )}
-        <CommentFormPage photoId={photoId}/>
+        </div>
       </div>
-    </>
+    </div>
   )
 }
 

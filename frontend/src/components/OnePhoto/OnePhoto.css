@@ -1,15 +1,24 @@
 .one-photo-page-container {
-  /* background-color: rgb(33, 33, 36); */
-  /* width: 100vw; */
-  background-color: rgba(21,21,23,.95);
-  height: 88vh;
+  background-color: whitesmoke;
+  min-height: 100vh;
+  overflow-y: scroll;
+  /* height: 88vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+}
+
+.one-photo-top-container {
+  background-color: #212124;
+  height: 890px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.one-photo-container {
+.user-photo {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -28,23 +37,90 @@
   object-fit: cover;
 } */
 
-.content-container {
-  text-align: center;
+.one-photo-bottom-container {
   margin-top: 20px;
-  width: 800px auto;
+  width: 1060px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.content-container:hover {
-  background-color: rgb(243, 245, 246);
+.bottom-left-container {
+  margin-right: 60px;
+  margin-bottom: 120px;
+  width: 500px;
 }
 
-/* .photo-details-username {
-  font-weight: bold;
+.photo-details-username {
+  font-weight: 600;
   font-size: 18px;
-} */
+}
 
 .photo-details-title {
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 16px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.photo-details-description {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.line-div {
+  margin-top: 30px;
+  border-bottom: 1px solid #cfd6d9;
+}
+
+.comments-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-container {
+  /* min-height: 32px; */
+  overflow: hidden;
+  position: relative;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-container:hover {
+  background-color: #fff;
+  transition: background-color .15s ease-in-out;
+  padding: 5px;
+  border-radius: 2px;
+}
+
+.user-comment {
+  word-wrap: break-word;
+  margin-right: 17px;
+  font-weight: 400;
+  line-height: 18px;
+  font-size: 14px;
+  margin-top: -5px;
+}
+
+.one-photo-edit-button, .one-photo-delete-button {
+  display: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+
+}
+
+.one-photo-edit-delete-container:hover, .one-photo-edit-button {
+  display: inline-block;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.one-photo-edit-delete-container:hover, .one-photo-delete-button {
+  display: inline-block;
+  border: none;
+  background: none;
+  cursor: pointer;
 }

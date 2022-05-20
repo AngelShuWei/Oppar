@@ -33,9 +33,6 @@
   object-fit: cover;
 }
 
-.user-photo:hover {
-  box-shadow: 0px 15px 15px -5px #888888;
-}
 
 /* .edit-delete-button {
   padding: 0;
