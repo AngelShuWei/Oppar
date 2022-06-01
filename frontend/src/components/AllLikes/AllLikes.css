@@ -1,0 +1,29 @@
+.all-likes-page-container {
+  min-height: 97vh;
+  overflow-y: scroll;
+  position: relative;
+  top: 30px;
+  background-color: whitesmoke;
+}
+
+.all-img-likes-container {
+  border-radius: 7px;
+  /* -webkit-column-count: 4; */
+  column-count: 4;
+  /* -webkit-column-gap: 10px; */
+  column-gap: 10px;
+  margin: auto;
+  max-width: 75%;
+  min-width: 800px;
+  padding: 5px;
+}
+
+.one-img0like-container {
+  -webkit-column-break-inside: avoid;
+  break-inside: avoid;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  margin: 0 0 10px;
+  page-break-inside: avoid;
+  /* position: relative; */
+}

@@ -66,7 +66,7 @@ router.put('/:photoId', restoreUser, validatePhotoInfo, asyncHandler(async (req,
 router.delete('/:photoId', asyncHandler(async (req, res) => {
   //do i need to parseint the params first? to make into integer
   const photo = await Photo.findByPk(req.params.photoId); //finds what the id of the photo is from the route
-  console.log("testttinnggg-------------", photo);
+
   if (!photo) throw new Error('Cannot find photo');
 
   await photo.destroy();

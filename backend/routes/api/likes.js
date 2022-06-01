@@ -4,10 +4,12 @@ const asyncHandler = require('express-async-handler');
 const { setTokenCookie, requireAuth, restoreUser } = require('../../utils/auth');
 // const { check } = require('express-validator');
 // const { handleValidationErrors } = require('../../utils/validation');
-const { Like } = require('../../db/models');
+const { Like, Photo } = require('../../db/models');
 
 router.get('/', asyncHandler(async(req, res) => {
-  const allLikes = await Like.findAll();
+  const allLikes = await Like.findAll({
+    include: Photo
+  });
   return res.json({allLikes});
 }))
 

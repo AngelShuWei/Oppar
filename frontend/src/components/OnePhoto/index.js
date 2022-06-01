@@ -19,7 +19,6 @@ function OnePhoto() {
   const allComments = useSelector(state => Object.values(state.comments).filter(comment => {
     return comment.photoId === parseInt(photoId, 10);
   }));
-  console.log(allComments);
 
   return (
     <div className='one-photo-page-container'>
