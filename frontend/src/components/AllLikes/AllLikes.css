@@ -2,28 +2,42 @@
   min-height: 97vh;
   overflow-y: scroll;
   position: relative;
-  top: 30px;
+  /* top: 60px; */
   background-color: whitesmoke;
 }
 
 .all-img-likes-container {
-  border-radius: 7px;
   /* -webkit-column-count: 4; */
   column-count: 4;
   /* -webkit-column-gap: 10px; */
-  column-gap: 10px;
+  /* column-gap: 10px; */
   margin: auto;
   max-width: 75%;
   min-width: 800px;
-  padding: 5px;
+  /* padding: 10px; */
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 100px;
 }
 
-.one-img0like-container {
+.one-img-like-container {
   -webkit-column-break-inside: avoid;
   break-inside: avoid;
   display: grid;
   grid-template-rows: 1fr auto;
   margin: 0 0 10px;
   page-break-inside: avoid;
-  /* position: relative; */
+  position: relative;
+}
+
+.like-photo {
+  border-radius: 6px;
+  max-width: 400px;
+  /* max-width: 100%; */
+  min-width: 200px;
+}
+
+.like-photo:hover {
+  transition-duration: .2s;
 }

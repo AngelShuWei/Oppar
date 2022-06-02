@@ -19,7 +19,7 @@ function AllLikes() {
         {allLikes.map(like =>
           <div className='one-img-like-container' key={like.id}>
             <Link to={`/photos/${like.Photo.id}`}>
-              <img src={like.Photo.imageUrl}/>
+              <img className='like-photo' src={like.Photo.imageUrl}/>
             </Link>
           </div>
         )}

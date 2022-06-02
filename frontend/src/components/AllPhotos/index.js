@@ -8,7 +8,7 @@ function AllPhotos() {
   const dispatch = useDispatch();
 
   const allPhotos = useSelector(state => Object.values(state.photos));
-  // console.log(allPhotos);  //[{…}, {…}, {…}] => 0: {id: 1, title: 'Cha Eun Woo', userId: 1, albumId: null, imageUrl: 'https://wiki.d-addicts.com/images/thumb/9/9b/Cha_Eun_Woo.jpg/291px-Cha_Eun_Woo.jpg', …}
+  const allPhotoLikes = useSelector(state => Object.values(state.likes));
 
   useEffect(() => {
     dispatch(photosActions.getAllPhotos());
@@ -22,7 +22,8 @@ function AllPhotos() {
             <Link to={`/photos/${photo.id}`}>
               <img className='photo' src={photo.imageUrl} alt={photo.title}/>
             </Link>
-            {/* <p className='photo-text'>{photo.content}</p> */}
+            <i className='fa-lg fa-solid fa-heart'>{photo.Likes.length}</i>
+            <div className='photo-text'>{photo.content}</div>
           </div>
         )}
       </div>
