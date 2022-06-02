@@ -1,4 +1,4 @@
-.fa-heart {
+.fa-heart#likes{
   position: absolute;
   color: pink;
   cursor: pointer;

@@ -13,13 +13,16 @@
   align-items: center;
   gap: 40px;
   margin-top: 100px;
+}
+
+.photo-container {
   position: relative;
 }
 
 .photo {
   background-color: white;
   padding: 40px 20px 100px 20px;
-  width:  350px;
+  width: 350px;
   height: 300px;
   object-fit: cover;
 }
@@ -28,11 +31,13 @@
   box-shadow: 5px 5px 6px gray;
 }
 
-/* .fa-solid.fa-heart {
+.fa-heart#photo {
   position: absolute;
-  cursor: pointer;
   color: pink;
-} */
+  cursor: pointer;
+  bottom: 85px;
+  right: 30px;
+}
 
 .photo-text {
   position: absolute;
@@ -42,4 +47,8 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  color: black;
+  font-weight: 600;
+  bottom: 40px;
+  left: 15px;
 }

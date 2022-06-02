@@ -18,7 +18,7 @@ function PhotoLikes() {
 
   const handleClick = async(e, photoId) => {
     e.preventDefault();
-    
+
     if (userPhotoLike.length) {
       await dispatch(deleteLike(userPhotoLike[0].id))
     } else {
@@ -29,8 +29,8 @@ function PhotoLikes() {
   return (
     <div>
       {userPhotoLike.length ?
-        <i className="fa-lg fa-solid fa-heart" onClick={e => handleClick(e, photoId)}/> :
-        <i className="fa-lg fa-regular fa-heart" onClick={e => handleClick(e, photoId)}/>
+        <i className="fa-lg fa-solid fa-heart" id='likes' onClick={e => handleClick(e, photoId)}/> :
+        <i className="fa-lg fa-regular fa-heart" id='likes' onClick={e => handleClick(e, photoId)}/>
       }
     </div>
   )

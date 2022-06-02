@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler');
 const { setTokenCookie, requireAuth, restoreUser } = require('../../utils/auth');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
-const { Photo, Like } = require('../../db/models'); //if destructure here, don't need to type db.create later
+const { Photo, Like, User } = require('../../db/models'); //if destructure here, don't need to type db.create later
 
 const validatePhotoInfo = [
   check('title')
@@ -23,7 +23,7 @@ const validatePhotoInfo = [
 //get all photos
 router.get('/', asyncHandler(async (req, res) => {
   const allPhotos = await Photo.findAll({
-    include: Like
+    include: [{ model: Like}, {model: User}]
   });
   return res.json({allPhotos});
 }));

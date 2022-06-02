@@ -18,12 +18,16 @@ function AllPhotos() {
     <div className='all-photos-page-container'>
       <div className='photos-container'>
         {allPhotos.map(photo =>
-          <div key={photo.id}>
+          <div className='photo-container' key={photo.id}>
             <Link to={`/photos/${photo.id}`}>
-              <img className='photo' src={photo.imageUrl} alt={photo.title}/>
+              <div className='photo-card-top'>
+                <img className='photo' src={photo.imageUrl} alt={photo.title}/>
+              </div>
+              <div className='photo-card-bottom'>
+                <i className='fa-lg fa-solid fa-heart' id='photo'>{photo.Likes.length}</i>
+                <div className='photo-text'>{photo.content}</div>
+              </div>
             </Link>
-            <i className='fa-lg fa-solid fa-heart'>{photo.Likes.length}</i>
-            <div className='photo-text'>{photo.content}</div>
           </div>
         )}
       </div>
