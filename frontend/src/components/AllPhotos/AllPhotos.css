@@ -19,6 +19,13 @@
   position: relative;
 }
 
+/* .tack {
+  position: absolute;
+  width: 25px;
+  left: 45%;
+  top: -10px;
+} */
+
 .photo {
   background-color: white;
   padding: 40px 20px 100px 20px;
@@ -31,12 +38,24 @@
   box-shadow: 5px 5px 6px gray;
 }
 
-.fa-heart#photo {
+.photo-card-love {
+  display: flex;
+  align-items: center;
   position: absolute;
+  bottom: 73px;
+  right: 20px;
   color: pink;
+}
+
+.photo-love-count {
   cursor: pointer;
-  bottom: 85px;
-  right: 30px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.fa-heart#photo {
+  cursor: pointer;
 }
 
 .photo-text {
