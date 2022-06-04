@@ -30,6 +30,11 @@
   position: relative;
 }
 
+.one-img-like-container:hover {
+  transform: scale(1.03);
+  transition-duration: .2s;
+}
+
 .like-photo {
   border-radius: 6px;
   max-width: 400px;
@@ -39,4 +44,11 @@
 
 .like-photo:hover {
   transition-duration: .2s;
+}
+
+.fa-heart#love {
+  position: absolute;
+  left: 45%;
+  z-index: 1;
+  /* color: pink; */
 }
