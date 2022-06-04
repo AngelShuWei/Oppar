@@ -33,12 +33,12 @@ function UserAlbums () {
             {userAlbums.map(album => (
               <div className='albums-info' key={album.id}>
                 <img className='user-album' src={album.imageUrl || "https://m.media-amazon.com/images/I/81VLzTqpyyL._AC_SX679_.jpg"} alt={album.title}/>
-                <Link to={`/albums/${album.id}`}>
+                <Link className='user-album-link' to={`/albums/${album.id}`}>
                   <div className='user-album-overlay'>
+                    <div className='user-album-text'>{album.title}</div>
                     <EditDeleteAlbumButton album={album}/>
                   </div>
                 </Link>
-                <div className='user-album-text'>{album.title}</div>
               </div>
             ))}
           </div>

@@ -8,6 +8,7 @@ import EditDeleteButton from './EditDeleteButton';
 function UserPhotos() {
   const sessionUser = useSelector((state) => state.session.user);
   const photos = useSelector(state => Object.values(state.photos));
+  console.log(photos);
 
   if (!sessionUser) return (
     <Redirect to='/'/>
@@ -25,7 +26,13 @@ function UserPhotos() {
                 <img className='user-photo' src={photo.imageUrl} alt={photo.title}/>
                 <Link className='user-photo-link' to={`/photos/${photo.id}`}>
                   <div className='user-photo-overlay'>
-                    <EditDeleteButton photo={photo}/>
+                    <div className='user-photo-tools-bottom'>
+                      <div>
+                        <div className='photo-title'>{photo.title}</div>
+                        <div className='photo-uploaded-user'>by: {photo.User.username}</div>
+                      </div>
+                      <EditDeleteButton photo={photo}/>
+                    </div>
                   </div>
                 </Link>
               </div>

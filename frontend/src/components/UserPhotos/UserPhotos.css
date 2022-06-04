@@ -33,13 +33,16 @@
   object-fit: cover;
 }
 
+.user-photo-link {
+  color: whitesmoke;
+}
+
 .user-photo-overlay {
   width: 312px;
   height: 312px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   position: absolute;
+  /* align-items: center; */
   transition: opacity 0.2s ease-in-out;
   opacity: 0;
   top: 0;
@@ -48,4 +51,21 @@
 .user-photo-overlay:hover {
   background-color: rgba(0,0,0,.342);
   opacity: 100;
+}
+
+.user-photo-tools-bottom {
+  display: flex;
+  align-content: space-between;
+  position: absolute;
+  padding: 10px;
+  bottom: 0;
+}
+
+.photo-title {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.photo-uploaded-user {
+  font-size: 12px;
 }

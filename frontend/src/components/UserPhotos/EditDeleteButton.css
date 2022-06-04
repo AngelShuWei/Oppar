@@ -1,6 +1,7 @@
 .user-engagement-tools {
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 10px;
 }
 
 .fa-xl.fa-pen-to-square {
