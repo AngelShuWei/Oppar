@@ -7,7 +7,7 @@ function EditDeleteAlbumButton( {album} ) {
   const dispatch = useDispatch();
 
   return (
-    <div className='user-engagement-tools'>
+    <div className='album-engagement-tools'>
       <Link to={`/albums/${album.id}/edit`}>
         <button className='edit-delete-button'>
           <i className="fa-lg fa-solid fa-pen-to-square" />

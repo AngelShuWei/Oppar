@@ -50,12 +50,10 @@
 
 .user-photo-overlay:hover {
   background-color: rgba(0,0,0,.342);
-  opacity: 100;
+  opacity: 0.8;
 }
 
 .user-photo-tools-bottom {
-  display: flex;
-  align-content: space-between;
   position: absolute;
   padding: 10px;
   bottom: 0;

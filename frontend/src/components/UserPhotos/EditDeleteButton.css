@@ -1,7 +1,9 @@
-.user-engagement-tools {
+.photo-engagement-tools {
+  position: absolute;
   display: flex;
-  align-items: center;
   gap: 10px;
+  right: -190px;
+  bottom: 15px;
 }
 
 .fa-xl.fa-pen-to-square {
