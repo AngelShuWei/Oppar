@@ -26,8 +26,8 @@ function AllLikes() {
       <div className='all-img-likes-container'>
         {oneLike.map(like =>
           <div className='one-img-like-container' key={like.id}>
-            <Link to={`/photos/${like.Photo.id}`}>
-              <img className='like-photo' src={like.Photo.imageUrl}/>
+            <Link to={`/photos/${like?.Photo?.id}`}>
+              <img className='like-photo' src={like?.Photo?.imageUrl}/>
             </Link>
           </div>
         )}

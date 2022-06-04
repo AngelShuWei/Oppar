@@ -25,18 +25,20 @@ function UserAlbums () {
             <Link className='new-album-button link' to='/albums/upload'>
               <button className='new-album-button'>
                 <i className="fa-regular fa-square-plus"></i>
-                <p> New album</p>
+                <div className='new-album-text'> New album</div>
               </button>
             </Link>
           </div>
           <div className='user-albums-container'>
             {userAlbums.map(album => (
               <div className='albums-info' key={album.id}>
-                <Link to={`/albums/${album.id}`}>
                 <img className='user-album' src={album.imageUrl || "https://m.media-amazon.com/images/I/81VLzTqpyyL._AC_SX679_.jpg"} alt={album.title}/>
+                <Link to={`/albums/${album.id}`}>
+                  <div className='user-album-overlay'>
+                    <EditDeleteAlbumButton album={album}/>
+                  </div>
                 </Link>
-                <EditDeleteAlbumButton album={album}/>
-                <p className='user-album-text'>{album.title}</p>
+                <div className='user-album-text'>{album.title}</div>
               </div>
             ))}
           </div>

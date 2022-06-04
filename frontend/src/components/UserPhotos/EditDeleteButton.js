@@ -8,14 +8,14 @@ function EditDeleteButton( {photo} ) {
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <div className='user-engagement-tools'>
       <Link to={`/photos/${photo.id}/edit`}>
         <button className='edit-delete-button'>
-          <i className="fa-lg fa-solid fa-pen-to-square" />
+          <i className="fa-xl fa-solid fa-pen-to-square" />
         </button>
       </Link>
       <button className='edit-delete-button' onClick={() => dispatch(deletePhoto(photo.id))}>
-        <i className="fa-lg fa-solid fa-trash-can"></i>
+        <i className="fa-xl fa-solid fa-trash-can"></i>
       </button>
     </div>
   )

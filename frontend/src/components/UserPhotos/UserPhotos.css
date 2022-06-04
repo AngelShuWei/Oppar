@@ -15,27 +15,37 @@
 .user-photos-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
   padding-top: 50px;
   margin-left: 160px;
   margin-right: 160px;
 }
 
 .photos-info {
+  position: relative;
   margin-right: 4px;
   margin-bottom: 10px;
 }
 
 .user-photo {
-  /* position: block; */
   width: 312px;
   height: 312px;
   object-fit: cover;
 }
 
+.user-photo-overlay {
+  width: 312px;
+  height: 312px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+  top: 0;
+}
 
-/* .edit-delete-button {
-  padding: 0;
-  border: none;
-  background: none;
-} code is in editdeletebutton.css*/
+.user-photo-overlay:hover {
+  background-color: rgba(0,0,0,.342);
+  opacity: 100;
+}

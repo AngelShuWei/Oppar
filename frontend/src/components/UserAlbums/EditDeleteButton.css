@@ -1,0 +1,24 @@
+.fa-lg.fa-pen-to-square {
+  color: rgb(46, 46, 46);
+  /* color: whitesmoke; */
+}
+
+.fa-pen-to-square:hover {
+  color: rgb(238, 180, 189);
+}
+
+.fa-lg.fa-trash-can {
+  color: rgb(46, 46, 46);
+  /* color: whitesmoke; */
+}
+
+.fa-trash-can:hover {
+  color: rgb(154, 194, 207);
+}
+
+.edit-delete-button {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}

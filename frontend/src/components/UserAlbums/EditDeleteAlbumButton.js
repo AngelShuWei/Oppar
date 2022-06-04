@@ -1,3 +1,4 @@
+import './EditDeleteButton.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteAlbum } from '../../store/albums';
 import { Link } from 'react-router-dom';
@@ -6,7 +7,7 @@ function EditDeleteAlbumButton( {album} ) {
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <div className='user-engagement-tools'>
       <Link to={`/albums/${album.id}/edit`}>
         <button className='edit-delete-button'>
           <i className="fa-lg fa-solid fa-pen-to-square" />

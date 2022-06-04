@@ -1,14 +1,20 @@
-.fa-lg.fa-pen-to-square {
-  color: rgb(46, 46, 46);
-  margin-left: 10px;
-  margin-right: 10px;
+.user-engagement-tools {
+  display: flex;
+  gap: 20px;
 }
+
+.fa-xl.fa-pen-to-square {
+  /* color: rgb(46, 46, 46); */
+  color: whitesmoke;
+}
+
 .fa-pen-to-square:hover {
   color: rgb(238, 180, 189);
 }
 
-.fa-lg.fa-trash-can {
-  color: rgb(46, 46, 46);
+.fa-xl.fa-trash-can {
+  /* color: rgb(46, 46, 46); */
+  color: whitesmoke;
 }
 
 .fa-trash-can:hover {
