@@ -69,6 +69,11 @@
   opacity: 100;
 }
 
+.user-album-text {
+  font-size: 13px;
+  font-weight: 500;
+}
+
 .add-album-button {
   display: flex;
   justify-content: flex-end;

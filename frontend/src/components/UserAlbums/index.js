@@ -15,7 +15,6 @@ function UserAlbums () {
     )
 
   const userAlbums = albums.filter(album => album.userId === sessionUser.id);
-  // console.log(userAlbums)
 
   return (
     <>
