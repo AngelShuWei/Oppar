@@ -7,16 +7,24 @@ import { getAllLikes } from '../../store/likes';
 
 function AllLikes() {
   const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user);
   const allLikes = useSelector(state => Object.values(state.likes));
 
-  useEffect(() => {
-    dispatch(getAllLikes());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getAllLikes());
+  // }, [dispatch]);
+
+  if (!sessionUser) return (
+    <Redirect to='/'/>
+    )
+
+  const oneLike = allLikes.filter(like => like.userId === sessionUser.id);
+
 
   return (
     <div className='all-likes-page-container'>
       <div className='all-img-likes-container'>
-        {allLikes.map(like =>
+        {oneLike.map(like =>
           <div className='one-img-like-container' key={like.id}>
             <Link to={`/photos/${like.Photo.id}`}>
               <img className='like-photo' src={like.Photo.imageUrl}/>
