@@ -49,6 +49,7 @@
 .fa-heart#love {
   position: absolute;
   left: 45%;
+  cursor: pointer;
   z-index: 1;
   /* color: pink; */
 }
