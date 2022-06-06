@@ -15,10 +15,11 @@ function OnePhoto() {
   const [commentId, setCommentId] = useState(-1);
   const sessionUser = useSelector(state => state.session.user);
   const photoDetails = useSelector(state => state.photos[photoId]); //keying into redux object at the photoId
-  console.log(photoDetails)
   const allComments = useSelector(state => Object.values(state.comments).filter(comment => {
     return comment.photoId === parseInt(photoId, 10);
   }));
+
+  console.log(sessionUser.id)
 
   return (
     <div className='one-photo-page-container'>
@@ -47,8 +48,10 @@ function OnePhoto() {
                   <span className='user-comment'>{comment.comment}</span>
                 </div>
               }
-              <EditDeleteButton comment={comment} photoId={photoId} setShowComment={setShowComment} setCommentId={setCommentId}/>
-            </div>
+              {comment.userId === sessionUser.id &&
+                <EditDeleteButton comment={comment} photoId={photoId} setShowComment={setShowComment} setCommentId={setCommentId}/>
+              }
+              </div>
           )}
           <CommentFormPage photoId={photoId}/>
           </div>
