@@ -19,8 +19,6 @@ function OnePhoto() {
     return comment.photoId === parseInt(photoId, 10);
   }));
 
-  console.log(sessionUser.id)
-
   return (
     <div className='one-photo-page-container'>
       <div className='one-photo-top-container'>

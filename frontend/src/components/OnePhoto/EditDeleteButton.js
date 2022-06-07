@@ -1,4 +1,5 @@
 import './EditDeleteButton.js';
+import './EditDeleteButton.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteComment } from '../../store/comments';
 import { useState } from 'react';
@@ -20,10 +21,10 @@ function EditDeleteButton( {comment, photoId, setShowComment, setCommentId} ) {
       {showCommentButtons ?
       <span className='one-photo-edit-delete-container'>
         <button className='one-photo-edit-button' onClick={() => EditComment(comment)}>
-          <i className="fa-lg fa-solid fa-pen-to-square" />
+          <i className="fa-lg fa-solid fa-pen-to-square" id='comment'/>
         </button>
         <button className='one-photo-delete-button' onClick={() => dispatch(deleteComment(comment.id))}>
-          <i className="fa-lg fa-solid fa-trash-can"></i>
+          <i className="fa-lg fa-solid fa-trash-can" id='comment'/>
         </button>
       </span> :
         <EditCommentForm comment={comment} photoId={photoId} setShowComment={setShowComment} setShowCommentButtons={setShowCommentButtons}/>
