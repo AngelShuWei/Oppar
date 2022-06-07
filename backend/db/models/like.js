@@ -7,7 +7,10 @@ module.exports = (sequelize, DataTypes) => {
   Like.associate = function(models) {
     // associations can be defined here
     Like.belongsTo(models.User, { foreignKey: 'userId' });
-    Like.belongsTo(models.Photo, { foreignKey: 'photoId' })
+    Like.belongsTo(models.Photo, {
+      foreignKey: 'photoId',
+      onDelete: 'CASCADE'
+    });
   };
   return Like;
 };

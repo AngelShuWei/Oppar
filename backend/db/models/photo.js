@@ -11,7 +11,10 @@ module.exports = (sequelize, DataTypes) => {
     Photo.belongsTo(models.User, { foreignKey: 'userId' });
     Photo.belongsTo(models.Album, { foreignKey: 'albumId' });
     Photo.hasMany(models.Comment, { foreignKey: 'photoId' });
-    Photo.hasMany(models.Like, { foreignKey: 'photoId' });
+    Photo.hasMany(models.Like, {
+      foreignKey: 'photoId',
+      onDelete: 'CASCADE'
+    });
   };
   return Photo;
 };
