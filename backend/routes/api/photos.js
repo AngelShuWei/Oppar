@@ -79,9 +79,7 @@ router.delete('/:photoId', asyncHandler(async (req, res) => {
         photoId
       }
     });
-  }
 
-  if (photo) {
     await Comment.destroy({
       where: {
         photoId
