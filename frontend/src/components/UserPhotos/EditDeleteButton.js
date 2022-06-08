@@ -14,9 +14,11 @@ function EditDeleteButton( {photo} ) {
           <i className="fa-lg fa-solid fa-pen-to-square" />
         </button>
       </Link>
-      <button className='edit-delete-button' onClick={() => dispatch(deletePhoto(photo.id))}>
-        <i className="fa-lg fa-solid fa-trash-can"></i>
-      </button>
+      <Link to={`/photos`}>
+        <button className='edit-delete-button' onClick={() => dispatch(deletePhoto(photo.id))}>
+          <i className="fa-lg fa-solid fa-trash-can"></i>
+        </button>
+      </Link>
     </div>
   )
 }
