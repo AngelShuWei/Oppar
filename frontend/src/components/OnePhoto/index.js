@@ -22,7 +22,7 @@ function OnePhoto() {
   return (
     <div className='one-photo-page-container'>
       <div className='one-photo-top-container'>
-        <img className='user-photo' src={photoDetails.imageUrl} alt={photoDetails.title}/>
+        <img className='user-photo' src={photoDetails?.imageUrl} alt={photoDetails?.title}/>
         {/* <div className='content-container'></div> */}
         <div className='one-photo-page-engagement'>
           <LikeButton/>
@@ -32,8 +32,8 @@ function OnePhoto() {
         <div className='bottom-left-container'>
           <div className='content-container'>
             <div className='photo-details-username'>{photoDetails?.User?.username}</div>
-            <div className='photo-details-title'>{photoDetails.title}</div>
-            <div className='photo-details-description'>{photoDetails.content}</div>
+            <div className='photo-details-title'>{photoDetails?.title}</div>
+            <div className='photo-details-description'>{photoDetails?.content}</div>
             <div className='line-div'/>
         </div>
         <div className='comments-container'>

@@ -8,7 +8,6 @@ import EditDeleteButton from './EditDeleteButton';
 function UserPhotos() {
   const sessionUser = useSelector((state) => state.session.user);
   const photos = useSelector(state => Object.values(state.photos));
-  console.log(photos);
 
   if (!sessionUser) return (
     <Redirect to='/'/>
