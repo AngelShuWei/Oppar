@@ -9,6 +9,7 @@ function AllLikes() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const allLikes = useSelector(state => Object.values(state.likes));
+  console.log(allLikes)
 
   // useEffect(() => {
   //   dispatch(getAllLikes());
@@ -30,6 +31,7 @@ function AllLikes() {
             <Link to={`/photos/${like?.Photo?.id}`}>
               <img className='like-photo' src={like?.Photo?.imageUrl}/>
             </Link>
+            <div className='like-photo-username'>by: {like.Photo.userId}</div>
           </div>
         )}
       </div>

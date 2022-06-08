@@ -53,3 +53,11 @@
   z-index: 1;
   /* color: pink; */
 }
+
+.like-photo-username {
+  position: absolute;
+  font-weight: 600;
+  font-size: 14px;
+  bottom: 0px;
+  padding: 10px;
+}
