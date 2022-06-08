@@ -29,9 +29,9 @@ function UserPhotos() {
                     <div className='user-photo-tools-bottom'>
                       <div>
                         <div className='photo-title'>{photo.title}</div>
-                        <div className='photo-uploaded-user'>by: {photo.User.username}</div>
+                        {/* <div className='photo-uploaded-user'>by: {photo?.User?.username}</div> */}
                       </div>
-                      <EditDeleteButton photo={photo}/>
+                        <EditDeleteButton photo={photo}/>
                     </div>
                   </div>
                 </Link>

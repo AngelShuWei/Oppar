@@ -60,8 +60,12 @@
 }
 
 .photo-title {
+  max-width: 200px;
   font-size: 13px;
   font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .photo-uploaded-user {

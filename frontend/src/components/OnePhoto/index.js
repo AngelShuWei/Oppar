@@ -31,7 +31,7 @@ function OnePhoto() {
       <div className='one-photo-bottom-container'>
         <div className='bottom-left-container'>
           <div className='content-container'>
-            <div className='photo-details-username'>{photoDetails.User.username}</div>
+            <div className='photo-details-username'>{photoDetails?.User?.username}</div>
             <div className='photo-details-title'>{photoDetails.title}</div>
             <div className='photo-details-description'>{photoDetails.content}</div>
             <div className='line-div'/>
@@ -42,7 +42,7 @@ function OnePhoto() {
               {!showComment && comment.id === commentId ?
                 <div/> :
                 <div>
-                  <div className='user-comment-username'>{comment.User.username}</div>
+                  <div className='user-comment-username'>{comment?.User?.username}</div>
                   <span className='user-comment'>{comment.comment}</span>
                 </div>
               }
